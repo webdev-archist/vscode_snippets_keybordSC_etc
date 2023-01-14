@@ -1,0 +1,619 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	// https://developer.mozilla.org/en-US/docs/Web/API/Window
+	// https://developer.mozilla.org/fr/docs/Web/API/Window
+
+
+					// https://developer.mozilla.org/fr/docs/Web/API/Selection
+					// https://developer.mozilla.org/en-US/docs/Web/API/Range
+
+
+	// LES OBJETS window....
+	//https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables
+
+	/*******************Window Special interactive functionalities*************************/
+	"Window Popups alert/confirm/promt": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_w_popups_al_conf_prompt"],
+		"body": [
+			"const ${7:userInput} = ${1|confirm,prompt|}(\"${2:${TM_SELECTED_TEXT:ENTER YOUR MESSAGE HERE}}\"${3:, ${5:false}${4:\"${6: HERE THE USER DEFAULT RESPONSE(promt)}\"}})",
+			"$0",
+		],
+		"description": "Window Popups alert/confirm/promt"
+		/*
+			{
+				"key": "ctrl+alt+w down",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window Popups alert/confirm/promt" 
+				}
+			},
+		 */
+	},
+	"Window Console All": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_w_console"],
+		"body": [
+			// https://dev.to/stefirosca/7-tips-tricks-to-make-your-console-log-output-stand-out-389g
+			// https://developer.mozilla.org/en-US/docs/Web/API/console
+			"console.${1|table,log,warn,error,assert,count,countReset,timeLog,time,timeEnd,group,groupCollapsed,groupEnd,clear|}(\"${6:${7|$s,%c,%o,%O,%d,%i,%f|}}\", ${2: ${3:\"${5:STRING OR}\", }${4:value}})",
+			"// PENSER À UTILISER CE PLUGIN!! => https://marketplace.visualstudio.com/items?itemName=midnightsyntax.vscode-wrap-console-log",
+			"$0",
+			// USELESS: dir,debug,info,profile,profileEnd,timeStamp,trace,dirxml
+		],
+		"description": "Window console All"
+		/*
+		    {
+				"key": "ctrl+alt+w up",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window Console All" 
+				}
+			},
+		 */
+	},
+	/*******************Window Asynchronic functionalities*************************/
+	"Window fetchGET": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": "_w_fetchGET",
+		"body": [
+			"fetch(\"${1:http://localhost:${2|3000,4000,8000,8080|}}$3\")",
+			"\t.then((resp)=>resp.${4|json,text|}())",
+			"\t.then(data=>{",
+			"\t\t${0:data}// PUT YOUR CODE HERE IN CASE OF !!!SUCCESS!!!}",
+			"\t})",
+			"\t.catch(error=>{console.error(\"/*${5:PUT YOUR CODE HERE IN CASE OF !!!FAILURE!!!}*/\", error)})",
+			"\t.finally(()=>{console.warn(\"${6:FINAL MESSAGE}\")})"
+		],
+		"description": "JS fetch made IZYGO"
+		/*
+			{
+		        "key": "ctrl+alt+w h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window fetchGET" 
+				}
+			},
+		*/
+	},
+	"Window fetchPOST": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": "_w_fetchPOST",
+		"body": [
+			"fetch(\"${1:http://localhost:${2|3000,4000,8000,8080|}}$3\", {",
+			"\tmethod: \"POST\",",
+			"\theaders: {\"Content-type\": \"application/json\"},",
+			"\tbody: JSON.stringify($7)",
+			"\t//...",
+
+			"})",
+			"\t.then((resp)=>resp.${4|json,text|}())",
+			"\t.then(data=>{",
+			"\t\t${0:// PUT YOUR CODE HERE IN CASE OF !!!SUCCESS!!!}",
+			"\t})",
+			"\t.catch(error=>{console.error(\"/*${5:PUT YOUR CODE HERE IN CASE OF !!!FAILURE!!!}*/\", error)})",
+			"\t.finally(()=>{console.warn(\"${6:FINAL MESSAGE}\")})"
+		],
+		"description": "JS fetch made IZYGO IN POST MODE"
+		/*
+		    {
+				"key": "ctrl+alt+w shift+h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window fetchPOST" 
+				}
+			},
+		*/
+	},
+	"Window Promise": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": "_w_promise",
+		"body": [
+			"const myPromise = new Promise((resolve, reject) => {",
+			"\t//_w_setIntTimeout",
+			"\tsetTimeout(() => {",
+			"\t\tresolve(\"foo\");",
+			"\t}, 300);",
+			"})",
+			"\t.catch(error=>{console.error(\"/*${5:PUT YOUR CODE HERE IN CASE OF !!!FAILURE!!!}*/\", error)})",
+			"\t.finally(()=>{console.warn(\"${6:FINAL MESSAGE}\")})"
+		],
+		"description": "JS fetch made IZYGO"
+		/*
+		    {
+				"key": "ctrl+alt+w alt+h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window Promise" 
+				}
+			},
+		*/
+	},
+	"Window setInterval/Timeout/Immediate": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_w_setIntTimeout"],
+		"body": [
+			"let ${1:clr} = set${2|Interval,Timeout,Immidiate|}(() => { ${4:/* PUT YOUR CODE HERE */} }, ${3:1000})",
+			"// clear$2($1)"
+		],
+		"description": "Window setInterval/Timeout"
+		/*
+			{
+				"key": "ctrl+alt+w ctrl+h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window setInterval/Timeout/Immediate" 
+				}
+			},
+		*/
+	},
+	/*******************Window domain functionalities(localStorage,session,cookie)*************************/
+	"Window localStorage get": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_w_ls_get"],
+		"body": [
+			"const ${1:ls} = JSON.parse(localStorage.${TM_SELECTED_TEXT:${2:key}}$0)"
+			, ""
+		],
+		"description": "Window localStorage get"
+		/*
+            {
+                "key": "ctrl+shift+alt+w h",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+                "args": {
+                    "name": "Window localStorage get" 
+                }
+            },
+		}, */
+	},
+	"Window localStorage set": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_w_ls_set"],
+		"body": [
+			"localStorage.${1:${TM_SELECTED_TEXT:key}} = JSON.stringify(${2:${TM_SELECTED_TEXT:object}}$0)"
+			, ""
+		],
+		"description": "Window localStorage set"
+		/*
+			{
+                "key": "ctrl+shift+alt+w shift+h",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+                "args": {
+                    "name": "Window localStorage set" 
+                }
+            },
+		*/
+	},
+	
+	
+	"okok": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			// "${TM_FILENAME/[\\.]/_/}"	// Replace the first . with _
+			// "${TM_FILENAME/[\\.-]/_/g}"	// Replace each . or - with _
+			// "${TM_FILENAME/(.*)/${1:/upcase}/}"	// Change to all uppercase
+			// "${TM_FILENAME/[^0-9^a-z]//gi}"	// Remove non-alphanumeric characters
+
+			// "${1:${TM_SELECTED_TEXT:${TM_CURRENT_WORD:lksjlkj}}}",
+
+			// "${1}",
+			// "${1/^([ok]{2}).*(yes).*$/$2${1:/upcase}/}____"
+			
+		],
+		"description": "okok"
+	},
+	
+	
+
+
+	
+	
+	
+	/*******************Window Object All (Properties,Methods,Events)*************************/
+	
+	"=Window Object Properties": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["=windowP"],
+		"body": [
+			"${1|// \"closed\":\tReturns a boolean true if a window is closed.\",",
+			"// \"console\":\tReturns the Console Object for the window. See also The Console Object.\",",
+			"// \"content\":\t\"Renvoie une référence à l'élément de contenu dans la fenêtre en cours. Depuis Firefox 57 (initialement Nightly uniquement)\\, les deux versions sont uniquement disponibles à partir du code chrome (privilégié) et ne sont plus disponibles sur le Web.\",",
+			"// \"controllers\":\t\"Renvoie les objets du contrôleur XUL pour la fenêtre chrome en cours.\",",
+			"// \"customElements\":\t\"renvoie une référence à l'objet CustomElementRegistry (en-US)\\, qui peut être utilisée pour enregistrer de nouveaux éléments personnalisés et obtenir des informations à propos d'éléments personnalisés précédemment enregistrés.\",",
+			"// \"crypto\":\t\"Retourne l'objet crypto du navigateur.\",",
+			"// \"defaultStatus\":\tDeprecated.\",",
+			"// \"devicePixelRatio\":\t\"Renvoie le rapport entre les pixels physiques et les pixels indépendants du périphérique dans l'affichage en cours.\",",
+			"// \"dialogArguments\":\t\"Récupère les arguments passés à la fenêtre (si c'est une boîte de dialogue) au moment où window.showModalDialog() a été appelé. C'est un nsIArray.\",",
+			"// \"directories\":\t\"Synonyme de window.personalbar (en-US)\",",
+			"// \"document\":\tReturns the Document object for the window.See also The Document Object.\",",
+			"// \"DOMMatrix\":\t\"Renvoie une référence à un objet DOMMatrix représentant des matrices 4x4\\, adapté aux opérations 2D et 3D.\",",
+			"// \"DOMMatrixReadOnly\":\t\"Renvoie une référence à un objet DOMMatrixReadOnly (en-US) représentant des matrices 4x4\\, adapté aux opérations 2D et 3D.\",",
+			"// \"DOMPoint\":\t\"Renvoie une référence à un objet DOMPoint représentant un point 2D ou 3D dans un système de coordonnées.\",",
+			"// \"DOMPointReadOnly\":\t\"Renvoie une référence à un objet DOMPointReadOnly représentant un point 2D ou 3D dans un système de coordonnées.\",",
+			"// \"DOMQuad\":\t\"Renvoie une référence à un objet DOMQuad\\, qui fournit un objet quadrilatère\\, c'est-à-dire\\, ayant quatre coins et quatre côtés.\",",
+			"// \"DOMRect\":\t\"Returns a reference to a DOMRect object\\, which represents a rectangle.\",",
+			"// \"DOMRectReadOnly\":\t\"Renvoie une référence à un objet DOMRectReadOnly représentant un rectangle.\",",
+			"// \"frameElement\":\tReturns the frame in which the window runs.\",",
+			"// \"fullScreen\":\t\"Cette propriété indique si la fenêtre est affichée en plein écran ou non.\",",
+			"// \"frames\":\tReturns all window objects running in the window.\",",
+			"// \"globalStorage\":\t\"Non supporté depuis Gecko 13 (Firefox 13). Utilisez Window.localStorage à la place. Était : divers objets de stockage utilisés pour stocker des données sur plusieurs pages.\",",
+			"// \"history\":\tReturns the History object for the window. Also The History Object.\",",
+			"// \"innerHeight\":\tReturns the height of the window's content area (viewport) including scrollbars\",",
+			"// \"innerWidth\":\tReturns the width of a window's content area (viewport) including scrollbars\",",
+			"// \"isSecureContext\":\t\"Indique si un contexte est capable d'utiliser des fonctionnalités nécessitant des contextes sécurisés.\",",
+			"// \"length\":\tReturns the number of <iframe> elements in the current window\",",
+			"// \"localStorage\":\tAllows to save key/value pairs in a web browser. Stores the data with no expiration date\",",
+			"// \"location\":\tReturns the Location object for the window. Also the The Location Object.\",",
+			"// \"locationbar\":\t\"Renvoie l'objet de la barre d'adresse\\, dont la visibilité peut être inversée dans la fenêtre.\",",
+			"// \"menubar\":\t\"Renvoie l'objet barre de menus\\, dont la visibilité peut être inversée dans la fenêtre.\",",
+			"// \"messageManager\":\t\"Renvoie l'objet gestionnaire de messages pour cette fenêtre.\",",
+			"// \"mozAnimationStartTime\":\t\"Le temps en millisecondes depuis l'instant auquel le cycle d'animation en cours a commencé.\",",
+			"// \"mozInnerScreenX\":\t\"Renvoie la coordonnée horizontale (X) du coin supérieur gauche du point de vue de la fenêtre\\, en coordonnées d'écran. Cette valeur est restituée en pixels CSS. Voir mozScreenPixelsPerCSSPixel dans nsIDOMWindowUtils pour un facteur de conversion pour s'adapter aux pixels de l'écran si nécessaire.\",",
+			"// \"mozInnerScreenY\":\t\"Renvoie la coordonnée verticale (Y) du coin supérieur gauche du point de vue de la fenêtre\\, en coordonnées d'écran. Cette valeur est indiquée en pixels CSS. Voir mozScreenPixelsPerCSSPixel pour un facteur de conversion pour s'adapter aux pixels de l'écran si nécessaire.\",",
+			"// \"mozPaintCount\":\t\"Renvoie le nombre de fois où le document en cours a été réaffiché à l'écran dans cette fenêtre. Cela peut être utilisé pour calculer les performances d'affichage.\",",
+			"// \"name\":\tSets or returns the name of a window\",",
+			"// \"navigator\":\tReturns the Navigator object for the window. Also The Navigator object.\",",
+			"// \"NetworkInformation\":\t\"Renvoie une référence à l'interface NetworkInformation (en-US)\\, qui fournit des informations sur la connexion qu'un périphérique est en train d'utiliser pour communiquer avec le réseau et fournit un moyen pour les scripts d'être notifiés si le type de connexion change.\",",
+			"// \"opener\":\tReturns a reference to the window that created the window\",",
+			"// \"orientation\":\t\"Renvoie l'orientation en degrés (par incréments de 90 degrés) du point de vue par rapport à l'orientation naturelle du périphérique.\",",
+			"// \"outerHeight\":\tReturns the height of the browser window\\, including toolbars/scrollbars\",",
+			"// \"outerWidth\":\tReturns the width of the browser window\\, including toolbars/scrollbars\",",
+			"// \"pageXOffset\":\tReturns the pixels the current document has been scrolled (horizontally) from the upper left corner of the window\",",
+			"// \"pageYOffset\":\tReturns the pixels the current document has been scrolled (vertically) from the upper left corner of the window\",",
+			"// \"parent\":\tReturns the parent window of the current window\",",
+			"// \"performance\":\t\"Renvoie un objet Performance\\, qui inclut les attributs timing et navigation\\, dont chacun est un objet fournissant des données liées aux performances. Voir aussi Utilisation de Chronométrage de Navigation pour plus d'informations et d'exemples.\",",
+			"// \"personalbar\":\t\"Renvoie l'objet barre personnelle\\, dont la visibilité peut être inversée dans la fenêtre.\",",
+			"// \"pkcs\":\t\"Fournissait précédemment un accès pour installer et supprimer des modules PKCS.\",",
+			"// \"returnValue\":\t\"La valeur de retour à renvoyer à la fonction qui a appelé window.showModalDialog() pour afficher la fenêtre comme boîte de dialogue modale.\",",
+			"// \"screen\":\tReturns the Screen object for the window. Also The Screen object\",",
+			"// \"screenLeft\":\tReturns the horizontal coordinate of the window relative to the screen\",",
+			"// \"screenTop\":\tReturns the vertical coordinate of the window relative to the screen\",",
+			"// \"screenX\":\tReturns the horizontal coordinate of the window relative to the screen\",",
+			"// \"screenY\":\tReturns the vertical coordinate of the window relative to the screen\",",
+			"// \"scrollbars\":\t\"Renvoie l'objet barres de défilement\\, dont la visibilité peut être modifiée dans la fenêtre.\",",
+			"// \"scrollMaxX\":\t\"Le décalage maximal dont la fenêtre peut étre décalée horizontalement\\, c'est-à-dire la largeur du document moins la largeur du point de vue.\",",
+			"// \"scrollMaxY\":\t\"Le décalage maximal dont la fenêtre peut étre décalée verticalement (c'est-à-dire\\, la hauteur du document moins la hauteur du point de vue).\",",
+			"// \"scrollX\":\tAn alias of pageXOffset\",",
+			"// \"scrollY\":\tAn alias of pageYOffset\",",
+			"// \"self\":\tReturns the current window\",",
+			"// \"sessionStorage\":\t\"Renvoie une référence à l'objet de stockage de session utilisé pour stocker les données accessibles uniquement par l'origine qui les a créées..\",",
+			"// \"sidebar\":\t\"Renvoie une référence à l'objet fenêtre de la barre latérale.\",",
+			"// \"speechSynthesis\":\t\"Renvoie un objet SpeechSynthesis (en-US)\\, qui est le point d'entrée pour l'utilisation de la fonctionnalité de synthèse vocale de l'API Web Speech.\",",
+			"// \"status\":\tDeprecated. Avoid using it.\",",
+			"// \"statusbar\":\t\"Renvoie l'objet barre d'état\\, dont la visibilité peut être inversée dans la fenêtre.\",",
+			"// \"toolbar\":\t\"Renvoie l'objet barre d'outils\\, dont la visibilité peut être inversée dans la fenêtre.\",",
+			"// \"top\":\tReturns the topmost browser windo\",w",
+			"// \"visualViewport\":\t\"Renvoie un objet VisualViewport (en-US) représentant le point de vue visuel pour une fenêtre donnée.\",",
+			"// \"window\":\t\"Renvoie une référence à la fenêtre en cours.\"|}"
+		],
+		"description": "=Window Object Properties"
+	},
+	"=Window Object Methods": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["=windowM"],
+		"body": [
+			"${1|// \"addEventListener()\":\t\"Register an event handler to a specific event type on the window.\",",
+			"// \"alert()\":\t\"Displays an alert box with a message and an OK button\",",
+			"// \"atob()\":\t\"Decodes a base-64 encoded string\",",
+			"// \"back()\":\t\"Recule d'une page dans l'historique de la fenêtre.\",",
+			"// \"blur()\":\t\"Removes focus from the current window\",",
+			"// \"btoa()\":\t\"Encodes a string in base-64\",",
+			"// \"cancelAnimationFrame()\":\t\"Vous permet d'annuler un rappel précédemment planifié avec Window.requestAnimationFrame.\",",
+			"// \"cancelIdleCallback()\":\t\"Vous permet d'annuler un rappel précédemment planifié avec Window.requestIdleCallback.\",",
+			"// \"captureEvents()\":\t\"Enregistre la fenêtre pour qu'elle capture tous les évènements du type spécifié.\",",
+			"// \"clearImmediate()\":\t\"Annule l'exécution répétée définie en utilisant setImmediate.\",",
+			"// \"clearInterval()\":\t\"Clears a timer set with setInterval()\",",
+			"// \"clearTimeout()\":\t\"Clears a timer set with setTimeout()\",",
+			"// \"close()\":\t\"Closes the current window\",",
+			"// \"confirm()\":\t\"Displays a dialog box with a message and an OK and a Cancel button\",",
+			"// \"createImageBitmap()\":\t\"Accepts a variety of different image sources\\, and returns a Promise which resolves to an ImageBitmap. Optionally the source is cropped to the rectangle of pixels originating at (sx\\, sy) with width sw\\, and height sh.\",",
+			"// \"disableExternalCapture()\":\t\"{{todo(\"NeedsContents\")}}\",",
+			"// \"dispatchEvent()\":\t\"Utilisé pour déclencher un évènement.\",",
+			"// \"dump()\":\t\"Écrit un message à la console.\",",
+			"// \"enableExternalCapture()\":\t\"{{todo(\"NeedsContents\")}}\",",
+			"// \"fetch()\":\t\"Starts the process of fetching a resource from the network.\",",
+			"// \"find()\":\t\"Recherche la chaîne de caractères donnée dans une fenêtre.\",",
+			"// \"focus()\":\t\"Sets focus to the current window\",",
+			"// \"forward()\":\t\"Avance la fenêtre d'un document dans l'historique.\",",
+			"// \"getAttention()\":\t\"Fait flasher l'icône de l'application.\",",
+			"// \"getAttentionWithCycleCount()\":\t\"{{todo(\"NeedsContents\")}}\",",
+			"// \"getDefaultComputedStyle()\":\t\"Récupère le style calculé par défaut pour l'élément indiqué\\, en ignorant les feuilles de style d'auteur.\",",
+			"// \"getComputedStyle()\":\t\"Gets the current computed CSS styles applied to an element\",",
+			"// \"getSelection()\":\t\"Returns a Selection object representing the range of text selected by the user\",",
+			"// \"home()\":\t\"Renvoie le navigateur à la page d'accueil.\",",
+			"// \"matchMedia()\":\t\"Returns a MediaQueryList object representing the specified CSS media query string\",",
+			"// \"maximize()\":\t\"{{todo(\"NeedsContents\")}}\",",
+			"// \"minimize()\":\t\"Minimize la fenêtre.\",",
+			"// \"moveBy()\":\t\"Moves a window relative to its current position\",",
+			"// \"moveTo()\":\t\"Moves a window to the specified position\",",
+			"// \"open()\":\t\"Opens a new browser window\",",
+			"// \"openDialog()\":\t\"Ouvre une nouvelle fenêtre de dialogue.\",",
+			"// \"postMessage()\":\t\"Fournit un moyen sécurisé pour une fenêtre d'envoyer une chaîne de données à une autre fenêtre\\, qui n'a pas besoin d'être dans le même domaine que la première.\",",
+			"// \"print()\":\t\"Prints the content of the current window\",",
+			"// \"prompt()\":\t\"Displays a dialog box that prompts the visitor for input\",",
+			"// \"queryLocalFonts()\":\t\"\",",
+			"// \"requestAnimationFrame()\":\t\"Requests the browser to call a function to update an animation before the next repaint\",",
+			"// \"releaseEvents()\":\t\"Annule la capture des évènements d'un certain type par la fenêtre.\",",
+			"// \"removeEventListener()\":\t\"Removes an event listener from the window.\",",
+			"// \"reportError()\":\t\"Reports an error in a script\\, emulating an unhandled exception.\",",
+			"// \"requestIdleCallback()\":\t\"Active la planification de tâches pendant les périodes d'inactivité du navigateur.\",",
+			"// \"resizeBy()\":\t\"Resizes the window by the specified pixels\",",
+			"// \"resizeTo()\":\t\"Resizes the window to the specified width and height\",",
+			"// \"restore()\":\t\"{{todo(\"NeedsContents\")}}\",",
+			"// \"routeEvent()\":\t\"{{todo(\"NeedsContents\")}}\",",
+			"// \"scroll()\":\t\"Deprecated. This method has been replaced by the scrollTo() method.\",",
+			"// \"scrollBy()\":\t\"Scrolls the document by the specified number of pixels\",",
+			"// \"scrollByLines()\":\t\"Fait défiler le document du nombre de lignes indiqué.\",",
+			"// \"scrollByPages()\":\t\"Fait défiler le document en cours du nombre de pages indiqué.\",",
+			"// \"scrollTo()\":\t\"Scrolls the document to the specified coordinates\",",
+			"// \"setCursor()\":\t\"Change le curseur pour la fenêtre en cours.\",",
+			"// \"setImmediate()\":\t\"Exécute une fonction après que le navigateur a terminé d'autres tâches lourdes\",",
+			"// \"setResizable()\":\t\"Inverse la possibilité pour un utilisateur de redimensionner une fenêtre.\",",
+			"// \"showOpenFilePicker()\":\t\"\",",
+			"// \"showSaveFilePicker()\":\t\"\",",
+			"// \"showDirectoryPicker()\":\t\"\",",
+			"// \"sizeToContent()\":\t\"Dimensionne la fenêtre en fonction de son contenu.\",",
+			"// \"stop()\":\t\"Cette méthode arrête le chargement de la fenêtre.\",",
+			"// \"setInterval()\":\t\"Calls a function or evaluates an expression at specified intervals (in milliseconds)\",",
+			"// \"setTimeout()\":\t\"Calls a function or evaluates an expression after a specified number of milliseconds\",",
+			"// \"stop()\":\t\"Stops the window from loading\",",
+			"// \"updateCommands()\":\t\"Met à jour l'état des commandes de la fenêtre chrome en cours (IU).\"|}"
+		],
+			
+
+
+		"description": "=Window Object Methods"
+	},
+	"=Window Object Specific Events": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["=windowE"],
+		"body": [
+			"${1|/*Basics*/,",
+			"// \"error\":\t\"Fired when a resource failed to load\\, or can't be used. For example\\, if a script has an execution error or an image can't be found or is invalid.\",",
+			"// \"languagechange\":\t\"Fired at the global scope object when the user's preferred language changes.\",",
+			"// \"orientationchange\":\t\"Fired when the orientation of the device has changed.\",",
+			"// \"devicemotion\":\t\"Fired at a regular interval\\, indicating the amount of physical force of acceleration the device is receiving and the rate of rotation\\, if available.\",",
+			"// \"deviceorientation\":\t\"Fired when fresh data is available from the magnetometer orientation sensor about the current orientation of the device as compared to the Earth coordinate frame.\",",
+			"// \"resize\":\t\"Fired when the window has been resized.\",",
+			"// \"storage\":\t\"Fired when a storage area (localStorage or sessionStorage) has been modified in the context of another document.\",",
+			"// \"vrdisplayconnect\":\t\"Fired when a compatible VR device has been connected to the computer.\",",
+			"// \"vrdisplaydisconnect\":\t\"Fired when a compatible VR device has been disconnected from the computer.\",",
+			"// \"vrdisplayactivate\":\t\"Fired when a display is able to be presented to.\",",
+			"// \"vrdisplaydeactivate\":\t\"Fired when a display can no longer be presented to.\",",
+			"// \"vrdisplaypresentchange\":\t\"Fired when the presenting state of a VR device changes — i.e. goes from presenting to not presenting\\, or vice versa.\",",
+			"/*Connections*/",
+			"// \"offline\":\t\"Fired when the browser has lost access to the network and the value of navigator.onLine has switched to false.\",",
+			"// \"online\":\t\"Fired when the browser has gained access to the network and the value of navigator.onLine has switched to true.\",",
+			"/*Gamepad*/",
+			"// \"gamepadconnected\":\t\"Fired when the browser detects that a gamepad has been connected or the first time a button/axis of the gamepad is used.\",",
+			"// \"gamepaddisconnected\":\t\"Fired when the browser detects that a gamepad has been disconnected.\",",
+			"/*History*/",
+			"// \"hashchange\":\t\"Fired when the fragment identifier of the URL has changed (the part of the URL beginning with and following the # symbol).\",",
+			"// \"pagehide\":\t\"Sent when the browser hides the current document while in the process of switching to displaying in its place a different document from the session's history. This happens\\, for example\\, when the user clicks the Back button or when they click the Forward button to move ahead in session history.\",",
+			"// \"pageshow\":\t\"Sent when the browser makes the document visible due to navigation tasks\\, including not only when the page is first loaded\\, but also situations such as the user navigating back to the page after having navigated to another within the same tab.\",",
+			"// \"popstate\":\t\"Fired when the active history entry changes.\",",
+			"/*Load & unload*/",
+			"// \"beforeunload\":\t\"Fired when the window\\, the document and its resources are about to be unloaded.\",",
+			"// \"DOMContentLoaded\":\t\"Fired when the document has been completely loaded and parsed\\, without waiting for stylesheets\\, images\\, and subframes to finish loading.\",",
+			"// \"load\":\t\"Fired when the whole page has loaded\\, including all dependent resources such as stylesheets images.\",",
+			"// \"unload\":\t\"Fired when the document or a child resource is being unloaded.\",",
+			"/*Manifest*/",
+			"// \"appinstalled\":\t\"Fired when the browser has successfully installed a page as an application.\",",
+			"// \"beforeinstallprompt\":\t\"Fired when a user is about to be prompted to install a web application.\",",
+			"/*Messaging*/",
+			"// \"message\":\t\"Fired when the window receives a message\\, for example from a call to Window.postMessage() from another browsing context.\",",
+			"// \"messageerror\":\t\"Fired when a Window object receives a message that can't be deserialized.\",",
+			"/*Print*/",
+			"// \"afterprint\":\t\"Fired after the associated document has started printing or the print preview has been closed.\",",
+			"// \"beforeprint\":\t\"Fired when the associated document is about to be printed or previewed for printing.\",",
+			"/*Promise rejection*/",
+			"// \"rejectionhandled\":\t\"Sent every time a JavaScript Promise is rejected\\, regardless of whether or not there is a handler in place to catch the rejection.\",",
+			"// \"unhandledrejection\":\t\"Sent when a JavaScript Promise is rejected but there is no handler in place to catch the rejection.\",",
+			"/*WebVR*/",
+			"// \"vrdisplayactivate\":\t\"Fired when a VR display becomes available to be presented to\\, for example if an HMD has been moved to bring it out of standby\\, or woken up by being put on. Also available via the onvrdisplayactivate property.\",",
+			"// \"vrdisplayblur\":\t\"Fired when presentation to a VR display has been paused for some reason by the browser\\, OS\\, or VR hardware. Also available via the onvrdisplayblur property.\",",
+			"// \"vrdisplayconnect\":\t\"Fired when a compatible VR display is connected to the computer. Also available via the onvrdisplayconnect property.\",",
+			"// \"vrdisplaydeactivate\":\t\"Fired when a VR display can no longer be presented to\\, for example if an HMD has gone into standby or sleep mode due to a period of inactivity. Also available via the onvrdisplaydeactivate property.\",",
+			"// \"vrdisplaydisconnect\":\t\"Fired when a compatible VR display is disconnected from the computer. Also available via the onvrdisplaydisconnect property.\",",
+			"// \"vrdisplayfocus\":\t\"Fired when presentation to a VR display has resumed after being blurred. Also available via the onvrdisplayfocus property.\",",
+			"// \"vrdisplaypresentchange\":\t\"Fired when the presenting state of a VR display changes — i.e. goes from presenting to not presenting\\, or vice versa. Also available via the onvrdisplaypresentchange property.\"|}"
+
+			],
+		"description": "=Window Object Specific Events"
+		/*{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus",
+			"args": {
+				"name": "=Window Object Specific Events" 
+			}
+		}, */
+	},
+	
+
+	"Window Properties List": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["_w_Plist"],
+		"body": [
+			// clientInformation: An alias for Window.navigator.
+			// credentialless: Returns a boolean that indicates whether the current document was loaded inside a credentialless <iframe>. See IFrame credentialless for more details.
+			// event (Deprecated): Returns the current event, which is the event currently being handled by the JavaScript code's context, or undefined if no event is currently being handled. The Event object passed directly to event handlers should be used instead whenever possible.
+			// external (Deprecated): Returns an object with functions for adding external search providers to the browser.
+			// navigation (Experimental): Returns the current window's associated Navigation object. The entry point for the Navigation API.
+
+			// caches: Renvoie l'objet CacheStorage associé au contexte en cours. Cet objet active des fonctionnalités telles que le stockage des ressources pour une utilisation hors connexion, et la génération de réponses personnalisées aux requêtes.
+			// indexedDB: Fournit un mécanisme permettant aux applications d'accéder de manière asynchrone à des bases de données indexées ; renvoie un objet IDBFactory.
+			// isSecureContext: Renvoie un booléen indiquant si le contexte actuel est sécurisé (true) ou non (false).
+			// origin: Renvoie l'origine de l'objet global, sérialisé comme une chaîne. (Cela ne semble pas encore être implémenté dans aucun navigateur.)
+			"${1|closed,console,content,controllers,customElements,crypto,defaultStatus,devicePixelRatio,dialogArguments,directories,document,DOMMatrix,DOMMatrixReadOnly,DOMPoint,DOMPointReadOnly,DOMQuad,DOMRect,DOMRectReadOnly,frameElement,fullScreen,frames,globalStorage,history,innerHeight,innerWidth,isSecureContext,length,localStorage,location,locationbar,menubar,messageManager,mozAnimationStartTime,mozInnerScreenX,mozInnerScreenY,mozPaintCount,name,navigator,NetworkInformation,opener,orientation,outerHeight,outerWidth,pageXOffset,pageYOffset,parent,performance,personalbar,pkcs,returnValue,screen,screenLeft,screenTop,screenX,screenY,scrollbars,scrollMaxX,scrollMaxY,scrollX,scrollY,self,sessionStorage,sidebar,speechSynthesis,status,statusbar,toolbar,top,visualViewport,window|}"
+			// ,,,,,,,
+			// ,,,,,
+			// ,,,,,,
+			// ,,,,,,,
+			// ,,,,,,,
+			// ,,,,,
+			// ,,,,,,
+			// ,,,,,,,,
+			// ,,,,,,,,
+			// ,,,,,,,,,
+			// ,
+			/*
+				recoit:	
+				1) text/number				mozInnerScreenX,mozInnerScreenY,mozPaintCount,scrollMaxX,scrollMaxY,
+					devicePixelRatio,innerHeight,innerWidth,length,name,outerHeight,outerWidth,
+					pageXOffset,pageYOffset,screenLeft,screenTop,screenX,screenY,scrollX,scrollY,
+					status,
+				2) text(contenu d'élement)
+				3) boolean (is/has)
+					closed,locationbar,menubar,personalbar,scrollbars,statusbar,toolbar,
+				4) specific functionalities
+					fullScreen,
+				5) object node/list node
+					customElements,document,frameElement,opener,parent,self,top,window
+				6) autre object				sidebar
+					console,crypto,history,localStorage,location,navigator,performance,screen,sessionStorage,speechSynthesis,visualViewport,
+				7) ????
+					frames
+				8) obsolete/deprecated
+					content,defaultStatus,globalStorage,mozAnimationStartTime,orientation,
+				9) doc not yet written
+					controllers,dialogArguments,directories,
+					DOMMatrix,DOMMatrixReadOnly,DOMPoint,DOMPointReadOnly,DOMQuad,DOMRect,DOMRectReadOnly,
+					isSecureContext,messageManager,NetworkInformation,pkcs,returnValue,
+			*/
+		],
+		"description": "Window Properties List"
+		/*
+		    {
+				"key": "ctrl+alt+w l",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window Properties List" 
+				}
+			},
+		*/
+	}, 
+	"Window Methods List": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["_w_Mlist"],
+		"body": [
+			"${1|addEventListener,alert,atob,back,blur,btoa,cancelAnimationFrame,cancelIdleCallback,captureEvents,clearImmediate,clearInterval,clearTimeout,close,confirm,createImageBitmap,disableExternalCapture,dispatchEvent,dump,enableExternalCapture,fetch,find,focus,forward,getAttention,getAttentionWithCycleCount,getDefaultComputedStyle,getComputedStyle,getSelection,home,matchMedia,maximize,minimize,moveBy,moveTo,open,openDialog,postMessage,print,prompt,queryLocalFonts,requestAnimationFrame,releaseEvents,removeEventListener,reportError,requestIdleCallback,resizeBy,resizeTo,restore,routeEvent,scroll,scrollBy,scrollByLines,scrollByPages,scrollTo,setCursor,setImmediate,setResizable,showOpenFilePicker,showSaveFilePicker,showDirectoryPicker,sizeToContent,stop,setInterval,setTimeout,stop,updateCommands|}"
+			// ,,,,,,,
+			// ,,,,,
+			// ,,,,,,
+			// ,,,,,,
+			// ,,,
+			// ,,,,,,,,,
+			// ,,,queryLocalFonts,,,
+			// ,,,,,,
+			// ,,,,,,,
+			// ,,,,
+			// ,,,,,,
+			/*
+				recoit:	
+				1) text/number
+					atob,btoa,
+				2) text(contenu d'élement)
+				3) boolean (is/has)
+					find,
+				4) specific functionalities
+					addEventListener,removeEventListener,alert,blur,close,confirm,createImageBitmap,fetch,focus,
+					getSelection,matchMedia,moveBy,moveTo,open,postMessage,print,prompt,resizeBy,resizeTo,reportError,
+					scroll,scrollBy,scrollByLines,scrollByPages,scrollTo,sizeToContent,stop,updateCommands,
+					requestAnimationFrame,cancelAnimationFrame,requestIdleCallback,cancelIdleCallback,setImmediate,clearImmediate,setInterval,clearInterval,setTimeout,clearTimeout,
+				5) object node/list node
+					getComputedStyle,getDefaultComputedStyle,
+				6) autre object
+				7) ????
+					showOpenFilePicker,showSaveFilePicker,showDirectoryPicker,
+				8) obsolete/deprecated
+					back,captureEvents,disableExternalCapture,dump,enableExternalCapture,forward,home,getAttention,
+					openDialog,releaseEvents,restore,routeEvent,
+					dispatchEvent(délocalisé sur EventTarget Object),
+				9) doc not yet written
+					getAttentionWithCycleCount,maximize,setResizable,
+					minimize,setCursor: "ne fonctionne que sur windows"
+			*/
+		],
+		"description": "Window Methods List"
+		/*
+		    {
+				"key": "ctrl+alt+w shift+l",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window Methods List" 
+				}
+			},
+		*/
+	}, 
+	"Window Events List": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["_w_Elist"],
+		"body": [
+			"${1|error,languagechange,orientationchange,devicemotion,deviceorientation,resize,storage,vrdisplayconnect,vrdisplaydisconnect,vrdisplayactivate,vrdisplaydeactivate,vrdisplaypresentchange,__________,offline,online,__________,gamepadconnected,gamepaddisconnected,__________,hashchange,pagehide,pageshow,popstate,__________,beforeunload,__________,DOMContentLoaded,load,unload,appinstalled,beforeinstallprompt,__________,message,messageerror,__________,afterprint,beforeprint,__________,rejectionhandled,unhandledrejection,__________,vrdisplayactivate,vrdisplayblur,vrdisplayconnect,vrdisplaydeactivate,vrdisplaydisconnect,vrdisplayfocus,vrdisplaypresentchange|}"
+			// error,languagechange,,devicemotion,deviceorientation,resize,storage,,,,,,__________,
+			// offline,online,__________,
+			// gamepadconnected,
+			// gamepaddisconnected,__________,
+			// hashchange,pagehide,pageshow,popstate,__________,
+			// beforeunload,__________,
+			// DOMContentLoaded,load,unload,appinstalled,beforeinstallprompt,__________,
+			// message,messageerror,__________,
+			// afterprint,beforeprint,__________,
+			// rejectionhandled,unhandledrejection,__________,
+			// vrdisplayactivate,,vrdisplayconnect,vrdisplaydeactivate,vrdisplaydisconnect,,vrdisplaypresentchange
+			/*
+				recoit:	1) text/number
+				2) text(contenu d'élement)
+				3) boolean (is/has)
+				4) specific functionalities
+				5) object node/list node
+				6) autre object
+				7) ????
+				8) obsolete/deprecated
+					orientationchange,
+					vrdisplayconnect,vrdisplaydisconnect,vrdisplayactivate,vrdisplaydeactivate,vrdisplaypresentchange,
+					vrdisplayblur,vrdisplayfocus,
+				9) doc not yet written
+			*/
+		],
+		"description": "Window Events List"
+		/*
+		    {
+				"key": "ctrl+alt+w alt+l",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "Window Events List" 
+				}
+			},
+		*/
+	}, 
+}

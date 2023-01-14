@@ -1,0 +1,874 @@
+{
+	// Place your snippets for css here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+
+	// https://wikimass.com/css/
+	// http://stylescss.free.fr/v2-selectors/is-where.php
+	
+
+	"CSS Init Sheet": {
+		"scope": ["css,scss,sass"],
+		"prefix": ["_CSSinsheet"],
+		"body": [
+			":root{",
+			"\t@extend %font__content;",
+			"}",
+			"",
+			"h1,h2,h3,h4,h5,h6{margin:0;}",
+			"ul,ol,menu{list-style-type: none;padding:0;}",
+			"figure{margin:0;}",
+			"img{width:100%;object-fit: cover;display: block;}",
+			"a{text-decoration:none;color:inherit;}",
+			""
+		],
+		"description": "CSS Init Shhet"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Init Shhet" 
+			}
+		},
+		*/
+	},
+	
+	
+	
+	
+	
+	
+	// scroll-behavior: ${1|auto,smooth|};
+	// tab-size: ${1|number,length with css units|}
+	"CSS New Rule Complete": {
+		// http://stylescss.free.fr/v2-selectors/pseudo-class.php#pseudo-link
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSnrulecomplete$"],
+		"body": [
+			"${1:body}${2:${3:.${4:className}}${5:#${6:id}}${7:[${8:attr}${9|~,*,^,$|}=\"${10:value}\"]}}${11|::after,::before,::first-letter,::first-line,::grammar-error,::inactive-selection,::marker,::placeholder,__________relatives_aux_liens,:link,:visited,:any-link,:local-link,__________de_réactivité,:active,:hover,__________relatives_à_l_arbre_des_éléments,:root,_,:first-child,:last-child,:first-child,:last-child,_,:first-of-type,:last-of-type,:nth-of-type(n),:nth-last-of-type,_,:only-child,:only-of-type,_,:empty,__________pour_la_mise_en_page_à_l_impression,@page:left,@page:right,@page:first,@page:blank,__________relatives_aux_zones_de_saisie,:focus,:focus-visible,:focus-within,:default,:checked,:enabled,:disabled,:required,:optional,:read-only,:read-write,:valid,:invalid,:in-range,:out-of-range,:indeterminate,:blank,:placeholder-shown,__________pour_la_restitution_sonore_du_contenu,:current,:future,:past,__________relatives_au_multi-média_(vidéo_ou_son),:buffering,:muted,:playing,:paused,:seeking,:stalled ,:volume-locked,__________pour_la_mise_en_page_à_l_impression,@page:left,@page:right,@page:first,@page:blank,__________relatives_à_l_état_d_affichage,:fullscreen,:modal,:picture-in-picture,__________syntaxiques,:any(),:is(s1,s2,s3):-moz-any(s1,s2,s3):-webkit-any(s1,s2,s3),:matches(),:not,:where(),__________diverses.:lang(it),:dir(ltr),:target:target-within,:defined|}$12{",
+			// "${1:body}${2:${3:[${4:attr:\"value\"}]}${5:.${6:className}}${7:#${8:id}}}${9:${10|:active,:any(),:any-link,:autofill,:blank,:buffering,:checked,:current,:default,:defined,:dir(),:disabled,:empty,:enabled,:first,:first-child,:first-of-type,:focus,:focus-visible,:focus-within,:fullscreen,:future,:hover,:in-range,:indeterminate,:invalid,:is(),:lang(),:last-child,:last-of-type,:left,:link,:local-link,:matches(),:modal,:muted,:not(),:nth-child(),:nth-col(),:nth-of-type(),:nth-last-col(),:nth-last-child(),:nth-last-of-type(),:only-child,:only-of-type,:optional,:out-of-range,:past,:paused,:picture-in-picture,:placeholder-shown,:playing,:read-only,:read-write,:required,:right,:root,:scope,:seeking,:stalled,:target,:target-within,:user-invalid,:user-valid,:valid,:visited,:volume-locked,:where()|}}{",
+			"\t$0",
+			"}"
+		],
+		"description": "CSS New Rule"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS New Rule" 
+			}
+		},
+		*/
+	},
+	"CSS New Rule ID": {
+		// http://stylescss.free.fr/v2-selectors/pseudo-class.php#pseudo-link
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSnruleid$"],
+		"body": [
+			"#${1:id}${2:${5:.${6:class}}${7:[${8:attr}${9|~,*,^,$|}=\"${10:value}\"]}}${11|::after,::before,::first-letter,::first-line,::grammar-error,::inactive-selection,::marker,::placeholder,__________relatives_aux_liens,:link,:visited,:any-link,:local-link,__________de_réactivité,:active,:hover,__________relatives_à_l_arbre_des_éléments,:root,_,:first-child,:last-child,:first-child,:last-child,_,:first-of-type,:last-of-type,:nth-of-type(n),:nth-last-of-type,_,:only-child,:only-of-type,_,:empty,__________pour_la_mise_en_page_à_l_impression,@page:left,@page:right,@page:first,@page:blank,__________relatives_aux_zones_de_saisie,:focus,:focus-visible,:focus-within,:default,:checked,:enabled,:disabled,:required,:optional,:read-only,:read-write,:valid,:invalid,:in-range,:out-of-range,:indeterminate,:blank,:placeholder-shown,__________pour_la_restitution_sonore_du_contenu,:current,:future,:past,__________relatives_au_multi-média_(vidéo_ou_son),:buffering,:muted,:playing,:paused,:seeking,:stalled ,:volume-locked,__________pour_la_mise_en_page_à_l_impression,@page:left,@page:right,@page:first,@page:blank,__________relatives_à_l_état_d_affichage,:fullscreen,:modal,:picture-in-picture,__________syntaxiques,:any(),:is(s1,s2,s3):-moz-any(s1,s2,s3):-webkit-any(s1,s2,s3),:matches(),:not,:where(),__________diverses.:lang(it),:dir(ltr),:target:target-within,:defined|}$12{",
+			// "${1:body}${2:${3:[${4:attr:\"value\"}]}${5:.${6:className}}${7:#${8:id}}}${9:${10|:active,:any(),:any-link,:autofill,:blank,:buffering,:checked,:current,:default,:defined,:dir(),:disabled,:empty,:enabled,:first,:first-child,:first-of-type,:focus,:focus-visible,:focus-within,:fullscreen,:future,:hover,:in-range,:indeterminate,:invalid,:is(),:lang(),:last-child,:last-of-type,:left,:link,:local-link,:matches(),:modal,:muted,:not(),:nth-child(),:nth-col(),:nth-of-type(),:nth-last-col(),:nth-last-child(),:nth-last-of-type(),:only-child,:only-of-type,:optional,:out-of-range,:past,:paused,:picture-in-picture,:placeholder-shown,:playing,:read-only,:read-write,:required,:right,:root,:scope,:seeking,:stalled,:target,:target-within,:user-invalid,:user-valid,:valid,:visited,:volume-locked,:where()|}}{",
+			"\t$0",
+			"}"
+
+		],
+		"description": "CSS New Rule"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS New Rule" 
+			}
+		},
+		*/
+	},
+	"CSS New Rule Class": {
+		// http://stylescss.free.fr/v2-selectors/pseudo-class.php#pseudo-link
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSnruleclass$"],
+		"body": [
+			".${1:className}${7:[${8:attr}${9|~,*,^,$|}=\"${10:value}\"]}}${11|::after,::before,::first-letter,::first-line,::grammar-error,::inactive-selection,::marker,::placeholder,__________relatives_aux_liens,:link,:visited,:any-link,:local-link,__________de_réactivité,:active,:hover,__________relatives_à_l_arbre_des_éléments,:root,_,:first-child,:last-child,:first-child,:last-child,_,:first-of-type,:last-of-type,:nth-of-type(n),:nth-last-of-type,_,:only-child,:only-of-type,_,:empty,__________pour_la_mise_en_page_à_l_impression,@page:left,@page:right,@page:first,@page:blank,__________relatives_aux_zones_de_saisie,:focus,:focus-visible,:focus-within,:default,:checked,:enabled,:disabled,:required,:optional,:read-only,:read-write,:valid,:invalid,:in-range,:out-of-range,:indeterminate,:blank,:placeholder-shown,__________pour_la_restitution_sonore_du_contenu,:current,:future,:past,__________relatives_au_multi-média_(vidéo_ou_son),:buffering,:muted,:playing,:paused,:seeking,:stalled ,:volume-locked,__________pour_la_mise_en_page_à_l_impression,@page:left,@page:right,@page:first,@page:blank,__________relatives_à_l_état_d_affichage,:fullscreen,:modal,:picture-in-picture,__________syntaxiques,:any(),:is(s1,s2,s3):-moz-any(s1,s2,s3):-webkit-any(s1,s2,s3),:matches(),:not,:where(),__________diverses.:lang(it),:dir(ltr),:target:target-within,:defined|}$12{",
+			// "${1:body}${2:${3:[${4:attr:\"value\"}]}${5:.${6:className}}${7:#${8:id}}}${9:${10|:active,:any(),:any-link,:autofill,:blank,:buffering,:checked,:current,:default,:defined,:dir(),:disabled,:empty,:enabled,:first,:first-child,:first-of-type,:focus,:focus-visible,:focus-within,:fullscreen,:future,:hover,:in-range,:indeterminate,:invalid,:is(),:lang(),:last-child,:last-of-type,:left,:link,:local-link,:matches(),:modal,:muted,:not(),:nth-child(),:nth-col(),:nth-of-type(),:nth-last-col(),:nth-last-child(),:nth-last-of-type(),:only-child,:only-of-type,:optional,:out-of-range,:past,:paused,:picture-in-picture,:placeholder-shown,:playing,:read-only,:read-write,:required,:right,:root,:scope,:seeking,:stalled,:target,:target-within,:user-invalid,:user-valid,:valid,:visited,:volume-locked,:where()|}}{",
+			"\t$0",
+			"}"
+		],
+		"description": "CSS New Rule"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS New Rule" 
+			}
+		},
+		*/
+	},
+	"CSS Import Font-Face": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSimpfface$"],
+		"body": [
+			"@font-face {",
+			"\tfont-family: '${1:Ma Police}';",
+			"\tsrc: url('${2:chemin/police.ttf}') format('${3:truetype}');",
+			"\tfont-stretch: normal;",
+			"\tfont-style: normal;",
+			"\tfont-variant: normal;",
+			"\tfont-weight: normal;",
+			"\tfont-feature-settings: normal;",
+			"\tfont-variation-settings: normal;",
+			"\tfont-display: swap;",
+			"\tunicode-range: U+00-FF;",
+			"}",
+		],
+		"description": "CSS Import Font-Face"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Import Font-Face" 
+			}
+		},
+		*/
+	},
+	"CSS Import Google Fonts": {
+		"scope": ["css,scss,sass"],
+		"prefix": ["_CSSimpgfonts"],
+		"body": [
+			"@import url('https://fonts.googleapis.com/css2?family=${1|Roboto,Shrikhand|}${2::wght@100;300,900}${3:&family=}$1&display=swap');"
+			, ""
+		],
+		"description": "CSS Import Google Fonts"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Import Google Fonts" 
+			}
+		},
+		*/
+	},
+	
+	"CSS Fonts": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_CSSfonts$"],
+		"body": [
+			"font-style:${6|normal,italic,oblique,oblique 45deg|};",
+			"/* D'AUTRES PROPRIÉTÉS FONT-STYLE(4): font-synthesis,font-synthesis-small-caps,font-synthesis-style,font-synthesis-weight */",
+			"font-variant:${7|normal,small-caps|};",
+			"/* D'AUTRES PROPRIÉTÉS FONT-VARIANT(7): font-variant-alternates,font-variant-caps,font-variant-east-asian,font-variant-emoji,font-variant-ligatures,font-variant-numeric,font-variant-position,font-variation-settings */",
+			"font-weight:${5|normal,lighter,bold,bolder,100,200,300,400,500,600,700,800,900|};",
+			"font-stretch:${8|normal,ultra-condensed,extra-condensed,condensed,semi-condensed,semi-expanded,expanded,extra-expanded,ultra-expande|};",
+			"font-size:${3:16}${2|px,em,%,larger,smaller,xx-small,x-small,small,medium,large,x-large,xx-large|}/${4|1|}$2;",
+			"font-family:${1|serif,sans-serif,monospace,cursive,fantasy,system-ui,emoji,math,fangsong,Times,\"Times New Roman\",Georgia,Verdana,Arial,Helvetica,\"Lucida Console\",Courier|};",
+			"/* D'AUTRES PROPRIÉTÉS FONT-FAMILY(6): font-feature-settings,font-kerning,font-language-override,font-optical-sizing,font-palette,font-size-adjust */",
+			"/* font: $6 $7 $5 $8 $3$2/$4$2 $1; */"
+			, "$0"
+		],
+		"description": "CSS Fonts"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Fonts" 
+			}
+		},
+		*/
+	},
+	"CSS Text Properties": {
+		"scope": ["css,scss,sass"],
+		"prefix": ["_CSStextproperties"],
+		"body": [
+			"/* _CSSfonts */",
+			"/* _gCSSspacing */",
+			"text-shadow: ${1:0 0 10px 1px black inset};",
+			"/* text-align */",
+			"/* text-align-last */",
+			"/* text-transform */",
+			"/* text-indent */",
+			"/* text-overflow */",
+			"/* text-decoration:${1|none,underline,overline,line-through|} ${2|solid,double,dotted,dashed,wavy|} ${3:red};",
+			"/* text-decoration-line:$1;text-decoration-style:$2;text-decoration-color:$3; */",
+			"/* vertical-align */",
+			"/* direction */",
+			"/* writing-mode */",
+			"/* unicode-bidi */",
+		],
+		"description": "CSS Text Properties"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Text Properties" 
+			}
+		},
+		*/
+	},
+	"CSS Box Properties": {
+		"scope": ["css,scss,sass"],
+		"prefix": ["_CSSboxproperties$"],
+		"body": [
+			"width: ${2:auto}${1|px,%,auto,pt,pc,in,cm,mm,Q,vw,vh,vi,vb,vmin,vmax,fr,em,rem,ex,rex,cap,rcap,ch,rch,lh,rlh,ic,ric,http://stylescss.free.fr/v2-references/units.php|};",
+			"height: ${3:auto}$1;",
+			"background-color: ${4:white none 0% 0% auto repeat padding-box border-box scroll};",
+			"/* _CSSbooutline */",
+			"/* _CSS4cvalues */",
+			"/* box-sizing */",
+			"box-decoration-break: ${5|slice,clone|};/* specifies how an element's fragments should be rendered when broken across multiple lines, columns, or pages */",
+			"/* https://wikimass.com/css/box-decoration-break */",
+			"hyphens: ${6|manual,none,auto|};/* specifies how words should be hyphenated when text wraps across multiple lines */",
+			"/* https://wikimass.com/css/hyphens */",
+			"resize: ${7|none,both,horizontal,vertical|};/* specifies whether an element is resizable, and if so, in which directions */",
+			"/* https://wikimass.com/css/resize */"
+		],
+		"description": "CSS Box Properties"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Box Properties" 
+			}
+		},
+		*/
+	},
+	"CSS Images Properties": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_CSSimproperties$"],
+		"body": [
+			"/* https://wikimass.com/css/filter */",
+			"/* _CSSboproperties */",
+			"object-fit: ${1|none,fill,contain,cover,none,scale-down|};",
+			"clip-path: ${2|none,__________clip-source(\tA url referencing an SVG clipPath element),url(),__________basic-shape,inset(),circle(),ellipse(),polygon(),path(),__________geometry-box,margin-box,border-box,padding-box,content-box,fill-box,stroke-box,view-box|};/* https://wikimass.com/css/clip-path */",
+			"object-position: ${3:left bottom}/* From one to four values that define the 2D position of the element. Relative or absolute offsets can be used(px,%,up-right-bottom-left,Negative values are allowed) */;",
+			"filter: ${4|none,blur,brightness(),contrast(),drop()-shadow,grayscale(),hue()-rotate,invert(),opacity(),saturate(),sepia()|};",
+			"/* -webkit-filter: ${4|none,blur,brightness(),contrast(),drop()-shadow,grayscale(),hue()-rotate,invert(),opacity(),saturate(),sepia()|} */",
+			"mix-blend-mode: ${5|normal,multiply,screen,overlay,darken,lighten,color-dodge,color-burn,difference,exclusion,hue,saturation,color,luminosity|};",
+			""
+		],
+		"description": "CSS Images Properties"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Images Properties" 
+			}
+		},
+		*/
+	},
+	"CSS Images Property Shorten": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_CSSimprshorten$"],
+		"body": [
+			"url() top left no-repeat ....????...."
+		],
+		"description": "CSS Images Property Shorten"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Images Property Shorten" 
+			}
+		},
+		*/
+	},
+	
+	"CSS flex Properties": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_CSSflproperties$"],
+		"body": [
+			"display:flex;",
+			"justify-content: ${1|display,justify-content,flex-direction,flex-wrap,flex-flow,align-items,align-conten|};",
+			"flex: ${1:0/* A number specifying how much the item will grow relative to the rest of the flexible items. Negative values are invalid */} ${1|1 /* A number specifying how much the item will shrink relative to the rest of the flexible items. Negative values are invalid */|} ${3|auto /* Allows you to define the size of the font in any CSS length unit */|};",
+			"/* flex-grow:$1;flex-shrink:$1;flex-basis:$3; */",
+			"flex-flow: ${4|row,row-reverse,column,column-reverse|} ${5|no-wrap,wrap,wrap-reverse|};",
+			"/* flex-direction:$4;flex-wrap:$5; */",
+			"/* align-item */",
+			"/* align-content */",
+			"/* align-self */",
+			"/* order */"
+		],
+		"description": "CSS flex Properties"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS flex Properties" 
+			}
+		},
+		*/
+	},
+	"CSS Grid Properties": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_CSSgrproperties$"],
+		"body": [
+			""
+		],
+		"description": "CSS Grid Properties"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Grid Properties" 
+			}
+		},
+		*/
+	},
+	"CSS List Menus": {
+		"scope": ["css,scss,sass"],
+		"prefix": ["CSSlmenus"],
+		"body": [
+			""
+		],
+		"description": "CSS List Menus"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS List Menus" 
+			}
+		},
+		*/
+	},
+	
+	
+	
+	
+	
+	
+	
+	"CSS counter-style": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSScstyle$"],
+		"body": [
+			"@counter-style ${1:ma-numerotation} {",
+			"\tsystem: numeric;",
+			"\tprefix: '- ';",
+			"\tsuffix: ' -';",
+			"\trange:1 infinite;",
+			"\tpad:3 '0';",
+			"\tnegative:'-';",
+			"\tsymbols: 'a' 'b' 'c' 'd' 'e';",
+			"\tfallback:lower-roman;",
+			"}",
+			"${2:body}{",
+			"\tcounter-reset: $1;",
+			"}",
+			"${3:li}::${4|after,before|}{",
+			"\tcounter-increment: $1;",
+			"\tcontent: counter($1);",
+			"}",
+			"$0"
+		],
+		"description": "CSS counter-style"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS counter-style" 
+			}
+		},
+		*/
+	},
+	"CSS quotes": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSquotes$"],
+		"body": [
+			"${1:q}{",
+			"\tquotes: \"${2:<}\" \"${3:>}\";",
+			"\t// quotes: \"${2:<}\" \"${3:>}\" \"'''\" \"```\" \"😛\" \"🐔\";/*IL EST POSSIBLE D'ENCHAINER PLUSIEURS PAIRS DE GUILLEMETS*/",
+			"}",
+			// SI LA BALISE "$1" N'EST PAS <q/> LES 2 LIGNE CI-DESSOUS SERONT NÉCESSAIRES
+			"$1::before{content:open-quote;}",
+			"$1::after{content:close-quote;}",
+			"$0"
+		],
+		"description": "CSS quotes"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS quotes" 
+			}
+		},
+		*/
+	},
+	"CSS border/outline": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSbooutline$"],
+		"body": [
+			"${1|border,outline|}: ${2:3px }${3|solid,dotted,dashed,double,groove,ridge,inset,outset,none,hidden|} ${4|red,#F00,#FF0000|}$0;"
+			, ""
+		],
+		"description": "CSS border/outline"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS border/outline" 
+			}
+		},
+		*/
+	},
+	"CSS 4-Corner Values": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSS4cvalues$"],
+		"body": [
+			"${1|padding,margin,border-radius,border-style,border-color,border-width|}-${2|top,right,bottom,left|}: ${3:10}${4|px,%,auto,pt,pc,in,cm,mm,Q,vw,vh,vi,vb,vmin,vmax,fr,em,rem,ex,rex,cap,rcap,ch,rch,lh,rlh,ic,ric|};"
+			, "/* $1-$2: ${3:10}$4 ${3:10}$4 ${3:10}$4 ${3:10}$4; */"
+		],
+		"description": "CSS 4-Corner Values"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS 4-Corner Values" 
+			}
+		},
+		*/
+	},
+	"CSS List-Style-Type": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSlstype$"],
+		"body": [
+			"list-style: ${1|none,disc,circle,square,decimal,decimal-leading-zero,lower-roman,upper-roman,lower-greek,lower-alpha,lower-latin,upper-alpha,upper-latin,arabic-indic,armenian,bengali,cjk-earthly-branch,cjk-heavenly-stem,devanagari,georgian,gujarati,gurmukhi,kannada,khmer,lao,malayalam,myanmar,oriya,telugu,thai|} ${2|outside,inside|} url(\"$3\")"
+			
+		],
+		"description": "CSS List-Style-Type"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS List-Style-Type" 
+			}
+		},
+		*/
+	},
+	"CSS Position Absolute/Fixed Modal": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSpafmodal$"],
+		"body": [
+			"position: ${1|absolute,fixed|};",
+			"top: ${2:0px};right: ${3:0px};bottom: ${4:0px};left: ${5:0px};",
+			"$0"
+
+		],
+		"description": "CSS Position Absolute/Fixed Modal"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Position Absolute/Fixed Modal" 
+			}
+		},
+		*/
+	},
+	"CSS Postion Relative for Abslute Child": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSprfachild$"],
+		"body": [
+			"position:relative;/*",
+			"${1:parentTagName>}${2:childTagName}{position:absolute;top:0px;left:0px;}",
+			"*/"
+		],
+		"description": "CSS Postion Relative for Abslute Child"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Postion Relative for Abslute Child" 
+			}
+		},
+		*/
+	},
+	"CSS Overflow Troncated": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_CSSotroncated"],
+		"body": [
+			"text-overflow: ellipsis;",
+			"\toverflow: hidden;",
+			"\twhite-space: nowrap;",
+			"\twidth:${1:100%};"
+		],
+		"description": "CSS Overflow Troncated"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Overflow Troncated" 
+			}
+		},
+		*/
+	},
+
+	"CSS Transitions": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["_CSStransitions"],
+		"body": [
+			"transition: ${1|all,backdrop-filter,background,background-color,background-position,background-size,block-size,border,border-block-end,border-block-end-color,border-block-end-width,border-block-start,border-block-start-color,border-block-start-width,border-bottom,border-bottom-color,border-bottom-left-radius,border-bottom-right-radius,border-bottom-width,border-color,border-end-end-radius,border-end-start-radius,border-image-outset,border-image-slice,border-image-width,border-inline-end,border-inline-end-color,border-inline-end-width,border-inline-start,border-inline-start-color,border-inline-start-width,border-left,border-left-color,border-left-width,border-radius,border-right,border-right-color,border-right-width,border-start-end-radius,border-start-start-radius,border-top,border-top-color,border-top-left-radius,border-top-right-radius,border-top-width,border-width,bottom,box-shadow,caret,caret-color,caret-shape,clip,clip-path,color,column-count,column-gap,column-rule,column-rule-color,column-rule-width,column-width,columns,contain-intrinsic-block-size,contain-intrinsic-height,contain-intrinsic-inline-size,contain-intrinsic-size,contain-intrinsic-width,filter,flex,flex-basis,flex-grow,flex-shrink,font,font-size,font-size-adjust,font-stretch,font-variation-settings,font-weight,gap,grid-column-gap,grid-gap,grid-row-gap,grid-template-columns,grid-template-rows,height,inline-size,input-security,inset,inset-block,inset-block-end,inset-block-start,inset-inline,inset-inline-end,inset-inline-start,left,letter-spacing,line-clamp,line-height,margin,margin-block,margin-block-end,margin-block-start,margin-bottom,margin-inline,margin-inline-end,margin-inline-start,margin-left,margin-right,margin-top,mask,mask-border,mask-position,mask-size,max-block-size,max-height,max-inline-size,max-lines,max-width,min-block-size,min-height,min-inline-size,min-width,object-position,offset,offset-anchor,offset-distance,offset-path,offset-position,offset-rotate,opacity,order,outline,outline-color,outline-offset,outline-width,padding,padding-block,padding-block-end,padding-block-start,padding-bottom,padding-inline,padding-inline-end,padding-inline-start,padding-left,padding-right,padding-top,perspective,perspective-origin,right,rotate,row-gap,scale,scroll-margin,scroll-margin-block,scroll-margin-block-end,scroll-margin-block-start,scroll-margin-bottom,scroll-margin-inline,scroll-margin-inline-end,scroll-margin-inline-start,scroll-margin-left,scroll-margin-right,scroll-margin-top,scroll-padding,scroll-padding-block,scroll-padding-block-end,scroll-padding-block-start,scroll-padding-bottom,scroll-padding-inline,scroll-padding-inline-end,scroll-padding-inline-start,scroll-padding-left,scroll-padding-right,scroll-padding-top,scroll-snap-coordinate,scroll-snap-destination,scroll-timeline,scrollbar-color,shape-image-threshold,shape-margin,shape-outside,tab-size,text-decoration,text-decoration-color,text-decoration-thickness,text-emphasis,text-emphasis-color,text-indent,text-shadow,text-underline-offset,top,transform,transform-origin,translate,vertical-align,visibility,width,word-spacing,z-index,zoom,-moz-outline-radius,-moz-outline-radius-bottomleft,-moz-outline-radius-bottomright,-moz-outline-radius-topleft,-moz-outline-radius-topright,-ms-grid-columns,-ms-grid-rows,-webkit-line-clamp,-webkit-text-fill-color,-webkit-text-stroke,-webkit-text-stroke-color,accent-color|} ${2:0}${3|s,ms|} ${4|linear,ease,ease-in,ease-out,ease-in-out,cubic-bezier(x\\,x\\,y\\,y),step(n\\, {start\\,jump-start\\,end\\,jump-end\\,jump-none\\,jump-both})|} ${5:0}$3;"
+			// $transition-property:$1;transition-duration:$2;transition-timing-function:$3;transition-delay:$4;"
+		],
+		
+		"description": "CSS Transitions"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus",
+			"args": {
+				"name": "CSS Transitions" 
+			}
+		},
+		*/
+	},
+	"CSS Animations": {
+		"scope": ["scss,sass"],
+		"prefix": ["_CSSanimations"],
+		"body": [
+			"animation: ${1:animationName} ${2:0}${3|s,ms|} ${4|linear,ease,ease-in,ease-out,ease-in-out,cubic-bezier(x\\,x\\,y\\,y),step(n\\, {start\\,jump-start\\,end\\,jump-end\\,jump-none\\,jump-both})|} ${5:0}${3|s,ms|} ${6:1} ${7|normal,reverse,alternate,alternate-reverse|} ${8|none,forwards,backwards,both|} ${9|running,paused|};",
+			"/* animation-name:$1;animation-duration:$2$3;animation-timing-function:$4;animation-delay:$5$3;animation-iteration-count:$6;animation-direction:$7;animation-fill-mode:$8;animation-play-state:9; */"
+		],
+		"description": "CSS Animations"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Animations" 
+			}
+		},
+		*/
+	},
+	
+	
+	// ${1|all,backdrop-filter,background,background-color,background-position,background-size,block-size,border,border-block-end,border-block-end-color,border-block-end-width,border-block-start,border-block-start-color,border-block-start-width,border-bottom,border-bottom-color,border-bottom-left-radius,border-bottom-right-radius,border-bottom-width,border-color,border-end-end-radius,border-end-start-radius,border-image-outset,border-image-slice,border-image-width,border-inline-end,border-inline-end-color,border-inline-end-width,border-inline-start,border-inline-start-color,border-inline-start-width,border-left,border-left-color,border-left-width,border-radius,border-right,border-right-color,border-right-width,border-start-end-radius,border-start-start-radius,border-top,border-top-color,border-top-left-radius,border-top-right-radius,border-top-width,border-width,bottom,box-shadow,caret,caret-color,caret-shape,clip,clip-path,color,column-count,column-gap,column-rule,column-rule-color,column-rule-width,column-width,columns,contain-intrinsic-block-size,contain-intrinsic-height,contain-intrinsic-inline-size,contain-intrinsic-size,contain-intrinsic-width,filter,flex,flex-basis,flex-grow,flex-shrink,font,font-size,font-size-adjust,font-stretch,font-variation-settings,font-weight,gap,grid-column-gap,grid-gap,grid-row-gap,grid-template-columns,grid-template-rows,height,inline-size,input-security,inset,inset-block,inset-block-end,inset-block-start,inset-inline,inset-inline-end,inset-inline-start,left,letter-spacing,line-clamp,line-height,margin,margin-block,margin-block-end,margin-block-start,margin-bottom,margin-inline,margin-inline-end,margin-inline-start,margin-left,margin-right,margin-top,mask,mask-border,mask-position,mask-size,max-block-size,max-height,max-inline-size,max-lines,max-width,min-block-size,min-height,min-inline-size,min-width,object-position,offset,offset-anchor,offset-distance,offset-path,offset-position,offset-rotate,opacity,order,outline,outline-color,outline-offset,outline-width,padding,padding-block,padding-block-end,padding-block-start,padding-bottom,padding-inline,padding-inline-end,padding-inline-start,padding-left,padding-right,padding-top,perspective,perspective-origin,right,rotate,row-gap,scale,scroll-margin,scroll-margin-block,scroll-margin-block-end,scroll-margin-block-start,scroll-margin-bottom,scroll-margin-inline,scroll-margin-inline-end,scroll-margin-inline-start,scroll-margin-left,scroll-margin-right,scroll-margin-top,scroll-padding,scroll-padding-block,scroll-padding-block-end,scroll-padding-block-start,scroll-padding-bottom,scroll-padding-inline,scroll-padding-inline-end,scroll-padding-inline-start,scroll-padding-left,scroll-padding-right,scroll-padding-top,scroll-snap-coordinate,scroll-snap-destination,scroll-timeline,scrollbar-color,shape-image-threshold,shape-margin,shape-outside,tab-size,text-decoration,text-decoration-color,text-decoration-thickness,text-emphasis,text-emphasis-color,text-indent,text-shadow,text-underline-offset,top,transform,transform-origin,translate,vertical-align,visibility,width,word-spacing,z-index,zoom,-moz-outline-radius,-moz-outline-radius-bottomleft,-moz-outline-radius-bottomright,-moz-outline-radius-topleft,-moz-outline-radius-topright,-ms-grid-columns,-ms-grid-rows,-webkit-line-clamp,-webkit-text-fill-color,-webkit-text-stroke,-webkit-text-stroke-color,accent-color|}
+	
+	
+	
+	
+	
+	"CSS Functions List": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSSflist$"],
+		"body": [
+			"${1|__________Couleurs,color(),hsl(),hsla(),hwb(),lab(),lch(),oklab(),oklch(),rgb(),rgba(),__________Dimensionnement_des_blocs,fit-content(),__________Fonctions_d_accélération,cubic-bezier(),steps(),__________Formes_de_base,circle(),ellipse(),inset(),polygon(),__________Génération_de_contenu,leader(),target-counter(),target-counters(),target-text(),__________Images,conic-gradient(),cross-fade(),element(),image(),linear-gradient(),radial-gradient(),repeating-conic-gradient(),repeating-linear-gradient(),repeating-radial-gradient(),__________Listes_et_compteurs,counter(),counters(),__________Mise_en_page_par_grille,minmax(),repeat(),__________Propriétés_personnalisées_(variables)_-_Niveau_1,var(),__________Styles_de_compteurs,symbols(),__________Transformations,matrix(),matrix3d(),perspective(),rotate(),rotate3d(),rotateX(),rotateY(),rotateZ(),scale(),scale3d(),scaleX(),scaleY(),scaleZ(),skew(),skewX(),skewY(),translate(),translate3d(),translateX(),translateY(),translateZ(),__________Valeurs_et_unités,abs(),acos(),asin(),atan(),atan2(),attr(),calc(),clamp(),cos(),exp(),hypot(),log(),max(),min(),mod(),pow(),rem(),round(),sign(),sin(),sqrt(),tan(),url(),__________Module_filtres_et_effets,blur(),brightness(),contrast(),drop-shadow(),grayscale(),hue-rotate(),invert(),opacity(),saturate(),sepia(),__________Spécification_concernant_les_feuilles_de_styles_en_cascade_-_Version_2,rect(),http://stylescss.free.fr/v2-functions/index.php|}"
+		],
+		"description": "CSS Functions List"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Functions List" 
+			}
+		},
+		*/
+	},
+	"CSS Unites Mesure": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"${1|px,%,auto,pt,pc,in,cm,mm,Q,vw,vh,vi,vb,vmin,vmax,fr,em,rem,ex,rex,cap,rcap,ch,rch,lh,rlh,ic,ric,http://stylescss.free.fr/v2-references/units.php|}"
+		],
+		"description": "CSS Unites Mesure"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Unites Mesure" 
+			}
+		},
+		*/
+	},
+	"CSS Super Background": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"background-color: ${1:white} ${1|text,hex,rgb,rgba,hsl,hsl|}",
+			"background-image: ${2:none} ${2|url('URL'),none,linear-gradient(),radial-gradient(),repeating-linear-gradient(),repeating-radial-gradient()|}",
+			"background-position: ${3:0% 0%} ${3|left top,left center,left bottom,center top,center center,center bottom,right top,right center,right bottom,x% y%,xpos ypos|}",
+			"background-size: ${4:auto} ${4|auto,length,percentage,cover,contain|}",
+			"background-repeat: ${5:repeat} ${5|repeat,repeat-x,repeat-y,no-repeat,space,round|}",
+			"background-origin: ${6:padding-box} ${6|border-box,padding-box,content-box|}",
+			"background-clip: ${7:border-box} ${7|scroll,fixed,local|}",
+			"background-attachment: ${8:scroll} ${8|normal,multiply,screen,overlay,darken,lighten,color-dodge,color-burn,hard-light,soft-light,difference,exclusion,hue,saturation,color,luminosity|}"
+			, "/* background: $1 $2 $3 $4 $5 $6 $7 $8; */"
+		],
+		"description": "CSS Super Background"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == css",
+			"args": {
+				"name": "CSS Super Background" 
+			}
+		},
+		*/
+	},
+	"CSS Tables": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_CSStables"],
+		"body": [
+			"table{",
+			"\tborder-spacing: ${1:10}px ${1:10}px;",
+			"\tborder-collapse: ${1|separate,collapse|};",
+			"\tcaption-side: ${1|top,bottom|};",
+			"\tempty-cells: ${1|show,hide|};",
+			"\ttable-layout: ${1|auto,fixed|}",
+			"}"
+		],
+		"description": "CSS Tables"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Tables" 
+			}
+		},
+		*/
+	},
+	"CSS Image Sprites": {
+		"scope": ["css,scss,sass"],
+		"prefix": ["_CSSisprites"],
+		"body": [
+			"${3:#sprite_1}{",
+			"\tbackground: url(\"${1:image_uri.png}\") ${2:0}px 0px;",
+			"}",
+			"${5:#maleSurprise}{",
+			"\tbackground: url(\"${1:image_uri.png}\") ${4:416}px 0px;",
+			"}",
+			"${7:#maleSad}{",
+			"\tbackground: url(\"${1:image_uri.png}\") ${6:181}px 0px;",
+			"}"
+		],
+		"description": "CSS Image Sprites"
+		/*
+		{
+			"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId == extfile",
+			"args": {
+				"name": "CSS Image Sprites" 
+			}
+		},
+		*/
+	},
+	
+	
+	
+	
+
+
+	"INITIATE A STYLE FILE WITH BLOCKS & COMMENTS": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_commentsINIT"],
+		"body": [
+			"/*-------------- IMPORTS -------------*/",
+			"",
+			"",
+			"",
+			"/*-------------- INTEGRETED GRAPHIC-CHART  -------------*/",
+			"",
+			"",
+			"",
+			"/*-------------- RESET TAG'S STYLE  -------------*/",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"/*-------------- STARTING STYLE (CSS) CODES  -------------*/",
+			"",
+			"",
+			"/*-----------------------------------------------------------*\\",
+			"   ----------------------- #HEADER BLOCK-----------------------",
+			"\\*------------------------------------------------------------*/",
+			"",
+			"/*-----------------------------------------------------------*\\",
+			"   ----------------------- #NAV BLOCK-----------------------",
+			"\\*------------------------------------------------------------*/",
+			"",
+			"/*-----------------------------------------------------------*\\",
+			"   ----------------------- #MAIN BLOCK-----------------------",
+			"\\*------------------------------------------------------------*/",
+			"",
+			"/*-----------------------------------------------------------*\\",
+			"   ----------------------- #ASIDE BLOCK-----------------------",
+			"\\*------------------------------------------------------------*/",
+			"",
+			"/*-----------------------------------------------------------*\\",
+			"   ----------------------- #FOOTER BLOCK-----------------------",
+			"\\*------------------------------------------------------------*/"
+		],
+		"description": "INITIATE A STYLE FILE WITH BLOCKS & COMMENTS"
+	},
+	"CRÉER UN BLOCK DE COMMENTAIRE (block)": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_comments"],
+		"body": [
+			"/*-----------------------------------------------------------*\\",
+			"   ------------- #${1:SECTION-TITLE} ${2:BLOCK} $0-------------",
+			"\\*------------------------------------------------------------*/"
+		],
+		"description": "CRÉE UN BLOCK DE COMMENTIRE BLOCK"
+	},
+	"CRÉER UN BLOCK DE COMMENTAIRE (ligne)": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_comments"],
+		"body": [
+			"/*-------------- #${1:SECTION-TITLE} ${2:BLOCK} $0-------------*/"
+		],
+		"description": "CRÉE UN BLOCK DE COMMENTIRE LINE"
+	}
+	, "CRÉER UN petit COMMENTAIREd de block": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["LANG"],
+		"body": [
+			"/**",
+			"    * Comment",
+			"    */"
+		],
+		"description": "CRÉE UN petit COMMENTAIREd de block"
+	}
+	, "HIGHT LEVEL COMMENTS": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_commentsHIGHLEVEL"],
+		"body": [
+			"/**",
+			"    * The site’s main page-head can have two different states:",
+			"    *",
+			"    * 1) Regular page-head with no backgrounds or extra treatments; it just",
+			"    *    contains the logo and nav.",
+			"    * 2) A masthead that has a fluid-height (becoming fixed after a certain point)",
+			"    *    which has a large background image, and some supporting text.",
+			"    *",
+			"    * The regular page-head is incredibly simple, but the masthead version has some",
+			"    * slightly intermingled dependency with the wrapper that lives inside it.",
+			"    */"
+		],
+		"description": "HIGHT LEVEL COMMENTS"
+	}
+	, "LOW LEVEL COMMENTS example": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_commentsLOWLEVEL"],
+		"body": [
+			"    /**",
+			"    * Large site headers act more like mastheads. They have a faux-fluid-height",
+			"    * which is controlled by the wrapping element inside it.",
+			"    *",
+			"    * 1. Mastheads will typically have dark backgrounds, so we need to make sure",
+			"    *    the contrast is okay. This value is subject to change as the background",
+			"    *    image changes.",
+			"    * 2. We need to delegate a lot of the masthead’s layout to its wrapper element",
+			"    *    rather than the masthead itself: it is to this wrapper that most things",
+			"    *    are positioned.",
+			"    * 3. The wrapper needs positioning context for us to lay our nav and masthead",
+			"    *    text in.",
+			"    * 4. Faux-fluid-height technique: simply create the illusion of fluid height by",
+			"    *    creating space via a percentage padding, and then position everything over",
+			"    *    the top of that. This percentage gives us a 16:9 ratio.",
+			"    * 5. When the viewport is at 758px wide, our 16:9 ratio means that the masthead",
+			"    *    is currently rendered at 480px high. Let’s…",
+			"    * 6. …seamlessly snip off the fluid feature at this height, and…",
+			"    * 7. …fix the height at 480px. This means that we should see no jumps in height",
+			"    *    as the masthead moves from fluid to fixed. This actual value takes into",
+			"    *    account the padding and the top border on the header itself.",
+			"    */",
+			"",
+			"    /*",
+			"    .page-head--masthead {",
+			"        margin-bottom: 0;",
+			"        background: url(/img/css/masthead.jpg) center center #2e2620;",
+			"        @include vendor(background-size, cover);",
+			"        color: $color-masthead; /* [1] */",
+			"        border-top-color: $color-masthead;",
+			"        border-bottom-width: 0;",
+			"        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) inset;",
+			"",
+			"        @include media-query(lap-and-up) {",
+			"            background-image: url(/img/css/masthead-medium.jpg);",
+			"        }",
+			"",
+			"        @include media-query(desk) {",
+			"            background-image: url(/img/css/masthead-large.jpg);",
+			"        }",
+			"",
+			"        > .wrapper { /* [2] */",
+			"            position: relative; /* [3] */",
+			"            padding-top: 56.25%; /* [4] */",
+			"",
+			"            @media screen and (min-width: 758px) { /* [5] */",
+			"            padding-top: 0; /* [6] */",
+			"            height: $header-max-height - double($spacing-unit) - $header-border-width; /* [7] */",
+			"            }",
+			"        }",
+			"",
+			"    }",
+			"    */"
+		],
+		"description": "LOW LEVEL COMMENTS example"
+	}
+	, 
+}

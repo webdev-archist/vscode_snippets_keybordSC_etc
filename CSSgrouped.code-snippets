@@ -1,0 +1,150 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+
+	// https://wikimass.com/css/
+
+
+	
+	"CSS Grouped Basic Properties": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSbp$"],
+		"body":["${1|color,background,border,border-style,border-color,border-width,border-radius,border-image,outline,margin,padding,list-style,Position,font,float,clear,overflow,scroll-behavior,transition,animation|}"],
+		"description": ""
+	},
+	"CSS Grouped Width": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSw$"],
+		"body":["${1|width,max-width,min-width|}"],
+		"description": ""
+	},
+	"CSS Grouped Height": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSh$"],
+		"body":["${1|height,max-height,min-height|}"],
+		"description": ""
+	},
+	"CSS Grouped Spacing": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSspacing$"],
+		"body":["${1|letter-spacing,word-spacing,word-wrap,word-break,white-space|}"],
+		"description": ""
+	},
+	"CSS Grouped Text Formatting": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSStf$"],
+		"body":["${1|font-size-adjust,font-kerning,text-align,text-align-last,text-decoration-line,text-decoration-style,text-decoration-color,text-decoration,text-transform,text-indent,direction,text-shadow,text-overflow,vertical-align,unicode-bidi,writing-mode,all|}"],
+		"description": ""
+	},
+	"CSS Grouped Pre": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSpre$"],
+		"body":["${1|tab-size|}"],
+		"description": ""
+	},
+	"CSS Grouped Tables": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSStable$"],
+		"body":["${1|border-spacing,border-collapse,caption-side,empty-cells,table-layout|}"],
+		"description": ""
+	},
+	"CSS Grouped Image": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSimage$"],
+		"body":["${1|Image Sprites,object-fit,object-position,clip-path,filter,mix-blend-mode|}"],
+		"description": ""
+	},
+	"CSS Grouped Isolation": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSiso$"],
+		"body":["${1|isolation|}"],
+		"description": ""
+	},
+	"CSS Grouped Content": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSScontent$"],
+		"body":["${1|content,counter-increment,counter-reset|}"],
+		"description": ""
+	},
+	"CSS Grouped Quotation": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSquatoation$"],
+		"body":["${1|quotes,hanging-punctuation|}"],
+		"description": ""
+	},
+	"CSS Grouped Visibility": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSvisi$"],
+		"body":["${1|visibility,display,opacity,z-index,backface-visibility|}"],
+		"description": ""
+	},
+	"CSS Grouped Flexbox": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSflex$"],
+		"body":["${1|flexbox,justify-content,flex-direction,flex-wrap,flex-flow,align-items,align-content,order,flex-grow,flex-shrink,flex-basis,flex,align-self|}"],
+		"description": ""
+	},
+	"CSS Grouped grid": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSgrid$"],
+		"body":["${1|grid-template-rows,grid-template-columns,grid-template-areas,grid-template,grid-auto-rows,grid-auto-columns,grid-auto-flow,grid,grid-row-start,grid-column-start,grid-row-end,grid-column-end,grid-row,grid-column,grid-area,grid-row-gap,grid-column-gap,grid-gap|}"],
+		"description": ""
+	},
+	"CSS Grouped Mouse": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSmouse$"],
+		"body":["${1|cursor","pointer-events","caret-color","user-select|}"],
+		"description": ""
+	},
+	"CSS Grouped Transform": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSStransform$"],
+		"body":["${1|transform,transform-origin,transform-style,perspective,perspective-origin|}"],
+		"description": ""
+	},
+	"CSS Grouped Column": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSScolumn$"],
+		"body":["${1|columns,column-count,column-fill,column-gap,column-rule,column-rule-color,column-rule-style,column-rule-width,column-span,column-width|}"],
+		"description": ""
+	},
+	"CSS Grouped Box": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSbox$"],
+		"body":["${1|box-decoration-break,hyphens,resize,box-sizing,box-shadow|}"],
+		"description": ""
+	},
+	"CSS Grouped Print": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSprint$"],
+		"body":["${1|page-break-after,page-break-before,page-break-inside|}"],
+		"description": ""
+	},
+	"CSS Grouped @ Rules": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSatrule$"],
+		"body":["${1|@charset,@font-face,@keyframes,@media,@import|}"],
+		"description": ""
+	},
+	"CSS Grouped Reference": {
+		"scope": ["css","sass","scss"],
+		"prefix": ["_gCSSref$"],
+		"body":["${1|length,Animatable Properties,Selectors|}"],
+		"description": ""
+	},
+}

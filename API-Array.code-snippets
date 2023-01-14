@@ -1,0 +1,403 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": ["log"],
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+
+	
+	//https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables
+
+
+
+// APIs ARRAY
+// ....FOR FLASH SNIPPET
+	"ARRAY Static Is Array ?": {
+		"scope": ["js","jsx"],
+		"prefix": ["isa","_asmis"],
+		"body": [
+			"Array.isArray(${1:${TM_SELECTED_TEXT:arr}})",
+			"$0"
+		],
+		"description": "Returns true if the argument is an array, or false otherwise."
+		/*
+		{
+			"key": "ctrl+alt+a l",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "ARRAY Static Is Array ?"
+			}
+		},
+		*/
+	},
+	"ARRAY Static Methods All": {
+		"scope": ["js","jsx"],
+		"prefix": ["_amstatic"],
+		"body": [
+			"Array.${1|from,isArray,of|}(${2:${TM_SELECTED_TEXT:arr}})",
+			"$0",
+		],
+		"description": "Show list of possible static methods in the Array API"
+		/*
+		{
+        	"key": "ctrl+alt+a ctrl+shift+alt+l",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "ARRAY Static Methods"
+			}
+		},
+		*/
+	},
+	"ARRAY Change Create New": {
+		"scope": ["js","jsx"],
+		"prefix": ["_accnew"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|concat,filter,flat,flatMap,map,slice,splice|}(${3|VALUE,(item)=>{}}) ",
+			"$0",
+		],
+		"description": "From MDN, The following methods create new arrays with @@species"
+		/*
+		{
+            "key": "ctrl+shift+alt+a h",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "ARRAY Change Create New" 
+            }
+        },
+		*/
+	},
+	"ARRAY Change Mutate": {
+		"scope": ["js","jsx"],
+		"prefix": ["_acmutate"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|copyWithin,fill,pop,push,reverse,shift,sort,splice,unshift|}(${3|VALUE,(item)=>{}})",
+			"$0",
+		],
+		"description": "From MDN: The following methods create new arrays with @@species"
+		/*
+		{
+            "key": "ctrl+shift+alt+a shift+h",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "ARRAY Change Mutate " 
+            }
+        },
+		*/
+	},
+	"ARRAY Methods Transform": {
+		"scope": ["js","jsx"],
+		"prefix": ["_amtranform"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|concat,entries,flat,flatMap,join,keys,reduce,reduceRight,toLocalString,toString,values|}(${3|VALUE,(item)=>{}})",
+			"$0",
+		],
+		"description": "From Me, methods that change the aspect of the original array (may not mutate)"
+		/*
+		{
+            "key": "ctrl+shift+alt+a alt+h",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "ARRAY METHODS Transform" 
+            }
+        },
+		*/
+	},
+	"ARRAY Methods Modify": {
+		"scope": ["js","jsx"],
+		"prefix": ["_ammodify"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|copyWithin,fill,flat,flatMap,map,pop,push,reverse,shift,slice,sort,splice,unshift|}(${3|VALUE,(item)=>{}})",
+			"$0",
+		],
+		"description": "From Me, methods that send back a value different from the original input"
+		/*
+		{
+            "key": "ctrl+shift+alt+a ctrl+h",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "ARRAY METHODS Modify" 
+            }
+        },
+		*/
+	},
+	"ARRAY Methods Callback": {
+		"scope": ["js","jsx"],
+		"prefix": ["_amcallback"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|every,filter,find,findIndex,findLast,findLastIndex,flatMap,forEach,map,reduce,reduceRight,some,sort,@@iterator|}((${3:item},${4:i}) => {",
+			"\t$0",
+			"})"
+		],
+		"description": "From Me, use a callback"
+		/*
+		{
+            "key": "ctrl+shift+alt+a j",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "ARRAY Methods Callback" 
+            }
+        },
+		*/
+	},
+	"ARRAY Methods Iterative": {
+		"scope": ["js","jsx"],
+		"prefix": ["_amiterative"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|every,filter,find,findIndex,findLast,findLastIndex,flatMap,forEach,map,some|}((${3:item},${4:i}) => {",
+			"\t$0",
+			"})"
+		],
+		"description": "From MDN List"
+		/*
+		{
+            "key": "ctrl+shift+alt+a shift+j",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "ARRAY Methods Iterative" 
+            }
+        },
+		*/
+	},
+	"ARRAY Methods Search": {
+		"scope": ["js","jsx"],
+		"prefix": ["_amsearch"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|at,every,filter,find,findIndex,findLast,findLastIndex,includes,indexOf,lastIndexOf,some|}(${3|VALUE,(item)=>{}})",
+			"$0",
+		],
+		"description": "From Me, search in the array"
+		/*
+		{
+            "key": "ctrl+shift+alt+a alt+j",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "ARRAY Methods Search" 
+            }
+        },
+		*/
+	},
+	"ARRAY Methods Special": {
+		"scope": ["js","jsx"],
+		"prefix": ["_amspecial"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|copyWithin,entries,fill,flatMap,findLastIndex,slice,splice,@@iterator|}(${3|VALUE,(item)=>{}}",
+			"\t$TM_SELECTED_TEXT",
+			// The copyWithin() method shallow copies part of an array to another location in the same array and returns it without modifying its length. //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin
+			// The entries() method returns a new Array Iterator object that contains the key/value pairs for each index in the array. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
+			// The fill() method changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length). It returns the modified array. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+			// The flatMap() method returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level. It is identical to a map() followed by a flat() of depth 1 (arr.map(...args).flat()), but slightly more efficient than calling those two methods separately. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
+			// The findLastIndex() method iterates the array in reverse order and returns the index of the first element that satisfies the provided testing function. If no elements satisfy the testing function, -1 is returned. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findLastIndex
+			// The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+			// The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place. To access part of an array without modifying it, see slice(). https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+		],
+		"description": "Methods Not so often used"
+		/*
+		{
+            "key": "ctrl+shift+alt+a ctrl+j",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "ARRAY Methods Special" 
+            }
+        },
+		*/
+	},
+	"ARRAY Methods All": {
+		"scope": ["js","jsx"],
+		"prefix": ["_amall"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}.${2|at,concat,copyWithin,entries,every,fill,filter,find,findIndex,findLast,findLastIndex,flat,flatMap,forEach,includes,indexOf,join,keys,lastIndexOf,map,pop,push,reduce,reduceRight,reverse,shift,slice,some,sort,splice,toLocalString,toString,unshift,values,@@iterator|}()",
+			"$0",
+		],
+		"description": "Show list of possible methods in Array API"
+		/*
+		{
+        	"key": "ctrl+shift+alt+a ctrl+shift+alt+h",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "SNIPPET_ROOTNAME" 
+			}
+		},
+		*/
+	},
+	/*
+	"ARRAY Treat empty slots as Undefined ?": {
+		"scope": ["js","jsx"],
+		"prefix": ["isa","_isArray"],
+		"body": [
+			"Array.isArray(${1:${TM_SELECTED_TEXT:arr}})",
+			"$0",
+			"fill,find,findIndex,findLast,findLastIndex,includes,join,keys,toLocaleString,values()",
+		],entries()
+		"description": "These methods treat empty slots as if they are undefined:"
+	},
+	*/
+
+	
+	
+	
+	/*******************Looping methods*************************/
+	"ARRAY Looping Elements forEach": {
+		"scope": ["js","jsx"],
+		"prefix": ["_forEach_Array_API"],
+		"body": [
+			"${1:${TM_SELECTED_TEXT:arr}}.forEach(${2|aafReturn,aafReturn2,afneReturn,aafrComparison,aafrObject,_____,aafr_,afner_,aafrObject_|}$0)"
+		],
+		"description": "method Array loop forEach"
+		/*
+		    {
+				"key": "ctrl+alt+a h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "ARRAY Looping Elements forEach"
+				}
+			},
+		*/
+	},
+	"ARRAY Looping Elements map": {
+		"scope": ["js","jsx"],
+		"prefix": ["_Array_API"],
+		"body": [
+			"${1:${TM_SELECTED_TEXT:arr}}.map(${2|aafReturn,aafReturn2,afneReturn,aafrComparison,aafrObject,_____,aafr_,afner_,aafrObject_|}$0)"
+		],
+		"description": "method Array loop map"
+		/*
+		    {
+				"key": "ctrl+alt+a shift+h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "ARRAY Looping Elements map" 
+				}
+			},
+		*/
+	},
+	"ARRAY Looping Elements reduce": {
+		"scope": ["js","jsx"],
+		"prefix": ["_Array_API"],
+		"body": [
+			"${1:${TM_SELECTED_TEXT:arr}}.${1|reduce,reduceRight|}(function(total, value, index, array) {",
+			"\treturn ${3:total + value}",
+			"}${2:, 100/*INITIAL VALUE*/}$0)"
+		],
+		"description": "method Array loop reduce"
+		/*
+		    {
+				"key": "ctrl+alt+a alt+h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "ARRAY Looping Elements reduce" 
+				}
+			},
+		*/
+	},
+	"ARRAY Looping Elements sort": {
+		"scope": ["js","jsx"],
+		"prefix": ["_Array_API"],
+		"body": [
+			"${1:${TM_SELECTED_TEXT:arr}}.sort(${2|function(a\\, b){return a - b},function(a\\, b){return b - a},function(){return 0.5 - Math.random()},function(a\\, b){return a.year - b.year}|})$0"
+		],
+		"description": "method Array sort ascendent or descendent"
+		/*
+		    {
+				"key": "ctrl+alt+a ctrl+h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "ARRAY Looping Elements sort" 
+				}
+			},
+		*/
+	},
+	"ARRAY Looping Elements sort Real-Random": {
+		"scope": ["js","jsx"],
+		"prefix": ["_Array_API_sortrealrandom"],
+		"body": [
+			// "${1:${TM_SELECTED_TEXT:arr}}.sort(${2|function(a, b){return a - b},function(a, b){return b - a}|})$0)"
+			"for (let i = ${1:${TM_SELECTED_TEXT:arr}}.length -1; i > 0; i--) {",
+			"\tlet j = Math.floor(Math.random() * (i+1));",
+			"\tlet k = ${1:${TM_SELECTED_TEXT:arr}}[i];",
+			"\t${1:${TM_SELECTED_TEXT:arr}}[i] = ${1:${TM_SELECTED_TEXT:arr}}[j];",
+			"\t${1:${TM_SELECTED_TEXT:arr}}[j] = k;",
+			"}"
+		],
+		"description": "method Array sort Real-Random"
+		/*
+		    {
+				"key": "ctrl+alt+a ctrl+alt+h",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+				"args": {
+					"name": "ARRAY Looping Elements sort Real-Random" 
+				}
+			},
+		*/
+	},
+	"ARRAY Looping Elements Comparison": {
+		"scope": ["js","jsx"],
+		"prefix": ["_Array_API"],
+		"body": [
+			"${1:${TM_SELECTED_TEXT:arr}}.${2|every,some,find,findIndex,findLastIndex|}(${3|aafrComparison,aafrComparison2|}$0)"
+		],
+		"description": "method Array loop by comparison (every,some,find,findIndex,findLastIndex)"
+		/*
+		{
+			"key": "ctrl+alt+a ctrl+alt+h",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "ARRAY Looping Elements Comparison" 
+			}
+		},
+		*/
+	},
+
+	
+	
+	
+	/*******************propertie snippets*************************/
+	"ARRAY Properties Last Element": {
+		"scope": ["js","jsx"],
+		"prefix": ["_aplast"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:arr}}[${TM_SELECTED_TEXT:${1:arr}}.length - 1]",
+		],
+		"description": "output last index of an array"
+		/*
+		{
+			"key": "ctrl+alt+a k",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus", 
+			"args": {
+				"name": "ARRAY Properties Last Element" 
+			}
+		},
+		*/
+	},
+		
+	
+}

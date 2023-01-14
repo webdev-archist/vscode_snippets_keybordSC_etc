@@ -1,0 +1,402 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+
+
+
+		//https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables
+
+
+
+	
+	
+	
+	
+
+		"Import Module": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["PREFIX"],
+			"body": [
+				"import ${1|DefaultExportedModule,* as ObjectOfModules|}${2:, {${TM_SELECTED_TEXT:${3:exportedModules}}\\}} from \"${4:./}${TM_SELECTED_TEXT:${5:moduleName/or/path}}\"",
+				"$0"
+			],
+			"description": "Import Module"
+			/*
+			{
+				"key": "ctrl+alt+down down",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Import Module" 
+				}
+			}, 
+			*/
+		},
+		"Export Module": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["PREFIX"],
+			"body": [
+				"${1|export const ,export default |}${2:${TM_SELECTED_TEXT:MODULE_NAME}}",
+				"$0"
+			],
+			"description": "Export Module"
+			/*
+			{
+				"key": "ctrl+alt+up up",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Export Module" 
+				}
+			}, 
+			*/
+		},
+		"Declartion Variable Egality": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["decl_vegality$"],
+			"body": [
+				// https://www.w3schools.com/js/js_assignment.asp
+				// https://www.w3schools.com/js/js_precedence.asp
+				"const ${1:${TM_SELECTED_TEXT:myVariable}} ${2|=,+=,-=,*=,/=,\\|=,&=,^=,\\|\\|=,&&=,*=**=,%=,<<=,>>=,>>>=|} ${3:${TM_SELECTED_TEXT:RIGHT_HAND_EXPRESSION}}${4: ${5|\\|\\|,&&,??|} ${6:${TM_SELECTED_TEXT:RIGHT_HAND_EXPRESSION}}}",
+				"$0"
+			],
+			"description": "Declartion Variable Egality"
+			/*
+			{
+				"key": "ctrl+shift+alt+[KeyM] [KeyM]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declartion Variable Egality" 
+				}
+			}, 
+			*/
+		},
+		"Declaration Variable Ternary": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["PREFIX"],
+			"body": [
+				"const ${TM_SELECTED_TEXT:${1:myTernary}} = ${2:${TM_SELECTED_TEXT}}",
+				"\t? ${3:IF_VALIDATED}",
+				"\t: ${4:IF_NOT}"
+			],
+			"description": "Declaration Variable Ternary"
+			/*
+			{
+				"key": "ctrl+shift+alt+[KeyM] shift+[KeyM]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declaration Variable Ternary" 
+				}
+			}, 
+			*/
+		},
+		"Declaration Add Egality basic": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["PREFIX"],
+			"body": [
+				"${TM_SELECTED_TEXT:${1:LEFT_HAND}} = ${2:RIGHT_HAND} ${3|\\|\\|,&&,??|} $0"
+			],
+			"description": "Declaration Add Egality basic"
+			/*
+			{
+				"key": "ctrl+shift+alt+### alt+ctrl+shift+###",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Cursor Add Egality" 
+				}
+			}, 
+			*/
+		},
+		"Declaration destructuring Array": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["PREFIX"],
+			"body": [
+				"let [$0] = ${2:${TM_SELECTED_TEXT:ARRAY_OR_OBJECT}}",
+				""
+			],
+			"description": "Declaration destructuring"
+			/*
+			{
+				"key": "ctrl+shift+alt+[KeyM] shift+[Comma]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declaration destructuring" 
+				}
+			}, 
+			*/
+		},
+		"Declaration destructuring Object": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["PREFIX"],
+			"body": [
+				"let {$0} = ${2:${TM_SELECTED_TEXT:ARRAY_OR_OBJECT}}",
+				""
+			],
+			"description": "Declaration destructuring"
+			/*
+			{
+				"key": "ctrl+shift+alt+[KeyM] shift+[Comma]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declaration destructuring" 
+				}
+			}, 
+			*/
+		},
+		
+		  //STOLEN FROM ES snippets  &&&  ES7+ react
+		"If Statement": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": "ifelse",
+			"body": [
+				"if($0) {",
+				"\t${TM_SELECTED_TEXT}",
+				"}"
+			],
+			"description": "If Statement"
+			/*
+			{
+				"key": "ctrl+shift+alt+[Slash] [Slash]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declaration destructuring" 
+				}
+			}, 
+			*/
+		},
+		"If-Else Statement": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": "ifelse",
+			"body": [
+				"if (${1:condition}) {",
+				"\t${2:${TM_SELECTED_TEXT}}",
+				"} else {",
+				"\t$0",
+				"}"
+			],
+			"description": "If-Else Statement"
+			/*
+			{
+				"key": "ctrl+shift+alt+[Slash] shift+[Slash]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declaration destructuring" 
+				}
+			}, 
+			*/
+		},
+		//STOLEN FROM VSCODE JAVASCRIPT LANGUAGE BASICS
+		"Switch Statement": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": "switch",
+			"body": [
+				"switch (${1:key}) {",
+				"\t//_scase",
+				"\tcase ${2:value}:",
+				"\t\t$3",
+				"\tbreak;",
+				"\tdefault: $0",
+				"\t\tbreak;",
+				"}"
+			],
+			"description": "Switch Statement"
+			/*
+			{
+				"key": "ctrl+shift+alt+[Slash] alt+[Slash]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declaration destructuring" 
+				}
+			}, 
+			*/
+		},
+		"Try catch": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["PREFIX"],
+			"body": [
+				"try{",
+				"\t$TM_SELECTED_TEXT",
+				"\t//_throw",
+				"\t$0",
+				"}catch(err){",
+				"\tconsole.warn(err)",
+				"\t",
+				"}",
+				"finally {",
+				"\t// console.log('ended try..catch)",
+				"}"
+			],
+			"description": "Try catch"
+			/*
+			{
+				"key": "ctrl+shift+alt+[Slash] ctrl+alt+shift+[Slash]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Try catch" 
+				}
+			}, 
+			*/
+		},
+		"Looping Elements for..in": {
+			"scope": ["js","jsx"],
+			"prefix": ["_Array_API"],
+			"body": [
+				"for (const ${1|i,index,key|} in ${2:${TM_SELECTED_TEXT:obj}}) {",
+				"\tif (Object.hasOwnProperty.call($2, $1)) {",
+				"\t\tconst ${3|elt,element,v,val,value|} = $2[$1];",
+				"\t\t$3$0",
+				"\t}",
+				"}"
+			],
+			"description": "Syntax loop for in"
+			/*
+			{
+				"key": "ctrl+shift+alt+[Slash] [Period]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declaration destructuring" 
+				}
+			}, 
+			*/
+		},
+		"Looping Elements for..of": {
+			"scope": ["js","jsx"],
+			"prefix": ["_Array_API"],
+			"body": [
+				"for (const ${1|elt,element,v,val,value|} of ${2:${TM_SELECTED_TEXT:arr}}${3|.keys(),.entries()|}) {",
+				"\t$1$0",
+				"}",
+			],
+			"description": "Syntax loop for of"
+			/*
+			{
+				"key": "ctrl+shift+alt+[Slash] shift+[Period]",
+				"command": "editor.action.insertSnippet",
+				"when": "editorTextFocus",
+				"args": {
+					"name": "Declaration destructuring" 
+				}
+			}, 
+			*/
+		},
+		
+		//CALLING FOR A CALLBACK
+		"Function that use callback": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["_fucb"],
+			"body": [
+				"a={",
+				"\tokk(fn){",
+				"\t\tfn=fn.bind(this)",
+				"\t\tthis.valid=true",
+				"\t\tthis.invalid=false",
+				"\t\tthis.ok = (a=\"default OK\")=>{",
+				"\t\t\tthis.valid = \"ok:: \"+a",
+				"\t\t}",
+				"\t\tthis.pasok = (b=\"default PASOK\")=>{",
+				"\t\t\tthis.invalid = \"pasok:: \"+b",
+				"\t\t}",
+				"\t\tthis.recurs = (fn)=>{",
+				"\t\t\treturn fn(this.ok.bind(this),this.pasok.bind(this))",
+				"\t\t}",
+				"\t\tthis.recurs(fn)",
+				"\t\treturn this",
+				"\t}",
+				"}"
+			],
+			"description": "Function that use callback"
+		}
+		, "Class that use callback": {
+			"scope": ["js,jsx,tsx"],
+			"prefix": ["_cucb"],
+			"body": [
+				"class Ok{",
+				"    constructor(fn){",
+				"        fn=fn.bind(this)",
+				"        this.valid=true",
+				"        this.invalid=false",
+				"        this.recurs(fn)",
+				"    }",
+				"",
+				"    recurs = (fn)=>{",
+				"        return fn(this.ok.bind(this),this.pasok.bind(this))",
+				"    }",
+				"    ok(a=\"default OK\"){",
+				"        this.valid = \"ok:: \"+a",
+				"    }",
+				"    pasok(b=\"default PASOK\"){",
+				"        this.invalid = \"pasok:: \"+b",
+				"    }",
+				"}"
+			],
+			"description": "Class taht use callback"
+		}
+	
+		//LOGGER DES DONNÉES
+		, "Log Selected Text": {
+			"prefix": "_logSelectedText",
+			"body": [
+				"console.log(${TM_SELECTED_TEXT:${1:QLQCHOSE À LOGGER}}) ",
+			],
+			"description": "Log Selected Text"
+		}
+		
+		// JavaScript Type Conversion Table
+		/*
+		console.table({
+			"false": {"Original Value": 'false', "Converted to Number": 0, "Converted to String": "false", "Converted to Boolean": false },
+			"true": {"Original Value": 'true', "Converted to Number": 1, "Converted to String": "true", "Converted to Boolean": true },
+			"0": {"Original Value": '0', "Converted to Number": 0, "Converted to String": "0", "Converted to Boolean": false },
+			"1": {"Original Value": '1', "Converted to Number": 1, "Converted to String": "1", "Converted to Boolean": true },
+			"0": {"Original Value": '"0"', "Converted to Number": 0, "Converted to String": "0", "Converted to Boolean": true },
+			"000": {"Original Value": '"000"', "Converted to Number": 0, "Converted to String": "000", "Converted to Boolean": true },
+			"1": {"Original Value": '"1"', "Converted to Number": 1, "Converted to String": "1", "Converted to Boolean": true },
+			"NaN": {"Original Value": 'NaN', "Converted to Number": NaN, "Converted to String": "NaN", "Converted to Boolean": false },
+			"Infinity": {"Original Value": 'Infinity', "Converted to Number": Infinity, "Converted to String": "Infinity", "Converted to Boolean": true },
+			"-Infinity": {"Original Value": '-Infinity',  "Converted to Number": Infinity, "Converted to String": "-Infinity", "Converted to Boolean": true },
+			" ": {"Original Value": '""', "Converted to Number": 0, "Converted to String": "", "Converted to Boolean": false },
+			"20": {"Original Value": '"20"', "Converted to Number": 20, "Converted to String": "20", "Converted to Boolean": true },
+			"twenty": {"Original Value": '"twenty"', "Converted to Number": NaN, "Converted to String": "twenty", "Converted to Boolean": true },
+			"[ ]": {"Original Value": '[ ]', "Converted to Number": 0, "Converted to String": "" ,"Converted to Boolean": true },
+			"[20]": {"Original Value": '[20]', "Converted to Number": 20, "Converted to String": "20", "Converted to Boolean": true },
+			"[10,20]": {"Original Value": '[10,20]', "Converted to Number": NaN, "Converted to String": "10,20", "Converted to Boolean": true },
+			"['twenty']": {"Original Value": '["twenty"]', "Converted to Number": NaN, "Converted to String": "twenty", "Converted to Boolean": true },
+			"['ten','twenty']" :{"Original Value": '["ten","twenty"]', "Converted to Number": NaN, "Converted to String": "ten,twenty", "Converted to Boolean": true },
+			"function(){}": {"Original Value": 'function(){}', "Converted to Number": NaN, "Converted to String": "function(){}", "Converted to Boolean": true },
+			"{ }": {"Original Value": '{ }', "Converted to Number": NaN, "Converted to String": "[object Object]", "Converted to Boolean": true },
+			"null": {"Original Value": 'null', "Converted to Number": 0, "Converted to String": "null", "Converted to Boolean": false },
+			"undefined": {"Original Value": 'undefined', "Converted to Number": NaN, "Converted to String": "undefined", "Converted to Boolean": false}
+			})
+		*/
+	
+	
+	
+	
+	
+	
+}

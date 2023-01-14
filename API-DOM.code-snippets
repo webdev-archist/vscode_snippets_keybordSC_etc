@@ -1,0 +1,1079 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+/*
+	SCRIPT JS À LANCER DANS LA CONSOLE 
+	SUR LES PAGESWEB DE MDN
+arr=[]
+str=""
+a=$0.querySelectorAll('section dl')[0]
+met=a.querySelectorAll('dt a code')
+des=a.querySelectorAll('dt+dd')
+met=Array.from(met)
+des=Array.from(des)
+met.forEach((e,i)=>{arr[i] = e.innerText.replace('Element.','')+"\t"+des[i].innerText})
+arr.forEach(e=>{str+=e+="###"})
+document.write(str)
+*/
+		// https://developer.mozilla.org/fr/docs/Web/API/Node
+		// https://developer.mozilla.org/fr/docs/Web/API/Element
+		// https://developer.mozilla.org/en-US/docs/Web/API/Event
+				// https://developer.mozilla.org/fr/docs/Web/API/EventTarget
+		// https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
+		// https://developer.mozilla.org/fr/docs/Web/API/Document
+// https://developer.mozilla.org/fr/docs/Web/API/Document_Object_Model
+				// https://developer.mozilla.org/en-US/docs/Web/Web_Components
+				// https://en.wikipedia.org/wiki/Document_Object_Model
+
+	
+	/*******************selector snippets*************************/
+	"DOM Methods QuerySelector": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"${3:${TM_SELECTED_TEXT:document}}.querySelector('${TM_SELECTED_TEXT:${4:div>div}}')${5:_DOM_API_Node}"
+		],
+		"description": "DOM Methods QuerySelector"
+		/*
+		{
+			"key": "ctrl+alt+d h",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "DOM Methods QuerySelector" 
+			}
+		},
+		 
+		*/
+	},
+	"DOM Methods QuerySelector Variable": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"${1:const }${TM_SELECTED_TEXT:${2:domElements}} = ${3:${TM_SELECTED_TEXT:document}}.querySelector('${TM_SELECTED_TEXT:${4:div>div}}')${5:_DOM_API_Node}"
+		],
+		"description": "DOM Methods QuerySelector Variable"
+		/*
+		{
+			"key": "ctrl+alt+d shift+h",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "DOM Methods QuerySelector Variable" 
+			}
+		},
+		 
+		*/
+	},
+	"DOM Methods QuerySelectorAll Array Main Pattern": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"${1:const ${2:domElements} = }Array.from(${3:${TM_SELECTED_TEXT:document}}.querySelectorAll('${4:div>div}'))${5:.${6|map,forEach,filter|}(${7:(elt,i) => {$0\\}})}"
+		],
+		"description": "DOM Methods QuerySelectorAll Array Main Pattern"
+		/*
+		{
+			"key": "ctrl+alt+d alt+h",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "DOM Methods QuerySelectorAll Array Main Pattern" 
+			}
+		},
+		 
+		*/
+	},
+	"DOM Methods Selectors": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": "_DOM_API_Selector",
+		"body": [
+			"document.${1|querySelector,querySelectorAll,getElementById,getElementsByClassName,getElementsByTagName|}(\"${2:selector}\")${3|.,[0].|}${5|innerHTML,textContent,classList,dataset,style,createElement,appendChild,replaceChild,removeChild,getAttribute,setAttribute,removeAttribute,addEventListener|}${6|., = ``, += ``,()|}$0"
+		],
+		"description": "Show list of possible api in DOM API for selector"
+		/*
+		{
+			"key": "ctrl+alt+d ctrl+h",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "DOM Methods Selectors" 
+			}
+		},
+		
+		*/
+	},
+
+
+
+	/*******************events snippets*************************/
+	"DOM Event Listener Classic": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["dom_ael","ael"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:document}}.${2|addEventListener,removeEventListener,dispatchEvent|}(\"${3|click,change,submit|}\", (e) => {",
+			"\t// bubbles,cancelBubble,cancelable,composed,currentTarget,deepPath,defaultPrevented,eventPhase,explicitOriginalTarget,originalTarget,srcElement,target,timeStamp,type,isTrusted",
+			"\t// e.composedPath()",
+			"\t// e.stopImmediatePropagation()",
+			"\t// e.stopPropagation()",
+			"\t// e.preventDefault()",
+			"\tconst elem = e.target",
+			"\t$0",
+			"}"
+		],
+		"description": "DOM Event Listener Classic"
+		/*
+		{
+            "key": "ctrl+shift+alt+d j",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "DOM Event Listener Classic" 
+            }
+        },
+		
+		*/
+	},
+	"DOM Event Listener Callback Patterns": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"${TM_SELECTED_TEXT:document}.addEventListener(\"${2|click,change|}\", /**/()=>{",
+			"\t// arr.push(e.target.)",
+			"\t// obj[] = e.target.",
+			"\t// e.target.classList.toggle('')",
+			"\t// e.target.style=\"// \"",
+			"\t// bool = !bool",
+			"\t// e.target //kbsc ctrl+shift+alt+### alt+ctrl+shift+### //CICLER UN NOEUD À PARTIE DE e.target",
+			"\t// e.target //kbsc ctrl+shift+alt+### alt+ctrl+shift+### //AJOUTER UN ATTRIBUT",
+			"\t// _w_fetch",
+			"\t// _w_ls_",
+			"})"
+		],
+		"description": "DOM Event Listener Callback Patterns"
+		/*
+		{
+            "key": "ctrl+shift+alt+d shift+j",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "DOM Event Listener Callback Patterns" 
+            }
+        },
+		
+		*/
+	},
+	"DOM Event Listener Vanilla": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["dom_ael","ael"],
+		"body": [
+			"${TM_SELECTED_TEXT:document}.on${2|click,change,mouseover,mouseout,input,...|} = function(event){",
+			"\t${0:${TM_SELECTED_TEXT}}",
+			"}"
+		],
+		"description": "DOM Event Listener Vanilla"
+		/*
+		{
+            "key": "ctrl+shift+alt+d alt+j",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "DOM Event Listener Vanilla " 
+            }
+        },
+		
+		*/
+	},
+
+
+
+	/*******************propertie snippets*************************/
+	/*
+	"DOM Node": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": "_DOM_API_Node$",
+		"body": [
+			"${TM_SELECTED_TEXT:document}.${2|innerHTML,textContent,classList,dataset.style,createElement,appendChild,replaceChild,removeChild,getAttribute,setAttribute,removeAttribute,addEventListener|}${3|., = ``, += ``,()|}$0"
+		],
+		"description": "Show list of possible api in DOM API for interaction"
+	},
+	*/
+	"CSS Object": {
+		// https://drafts.csswg.org/cssom/
+		// https://developer.mozilla.org/fr/docs/Web/API/CSSStyleDeclaration
+		// https://developer.mozilla.org/en-US/docs/Web/API/CSSRuleList
+		// https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet
+		// https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleRule
+		// computedStyleMap: https://developer.mozilla.org/en-US/docs/Web/API/Element/computedStyleMap
+		// getComputedStyle: https://developer.mozilla.org/fr/docs/Web/API/Window/getComputedStyle
+		// styleSheets: https://developer.mozilla.org/en-US/docs/Web/API/Document/styleSheets
+
+		// https://developer.mozilla.org/fr/docs/Web/CSS/Shorthand_properties
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["dom_cssobject"],
+		"body": [
+			"${TM_SELECTED_TEXT:document}.styleSheets.{1|cssText,style,selectorText,parentStyleSheet|}",
+		],
+		"description": "Add vanilla Event"
+	},
+
+
+
+
+
+
+
+
+	"=DOM Document Properties": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["prefix"],
+		"body": [
+			"${1|// \"activeElement\":\t\"Renvoie l'objet Element correspondant à l'élément qui possède le focus.\",",
+			"// \"body\":\t\"Renvoie le nœud ou du document courant.\",",
+			"// \"characterSet\":\t\"Renvoie le jeu de caractères utilisé par le document.\",",
+			"// \"childElementCount\":\t\"Renvoie le nombre d'éléments enfants pour le document courant.\",",
+			"// \"children\":\t\"Renvoie les éléments enfants pour le document courant.\",",
+			"// \"compatMode\":\t\"Indique si le document est rendu à l'écran selon le mode quirks ou strict.\",",
+			"// \"contentType\":\t\"Renvoie le type MIME du document courant.\",",
+			"// \"currentScript\":\t\"Renvoie l'élément <script> dont le script est actuellement en cours de traitement et qui n'est pas un module JavaScript.\",",
+			"// \"doctype\":\t\"Renvoie la définition du type de document (Document Type Definition ou DTD) du document courant.\",",
+			"// \"documentElement\":\t\"Renvoie l'objet Element correspondant à l'élément qui est un enfant direct du document. Pour les documents HTML\\,il s'agit normalement d'un objet HTMLHtmlElement (en-US) qui représente l'élément du document.\",",
+			"// \"documentURI\":\t\"Renvoie l'emplacement du document sous la forme d'une chaîne de caractères.\",",
+			"// \"embeds\":\t\"Renvoie un objet HTMLCollection des éléments embarqués (via ) dans le document.\",",
+			"// \"firstElementChild\":\t\"Renvoie le premier élément enfant du document courant.\",",
+			"// \"fonts\":\t\"Renvoie l'interface FontFaceSet (en-US) pour le document courant.\",",
+			"// \"forms\":\t\"Renvoie un objet HTMLCollection des éléments du document.\",",
+			"// \"fullscreenElement\":\t\"Renvoie l'élément actuellement en mode plein écran pour ce document.\",",
+			"// \"head\":\t\"Renvoie l'élément pour le document courant.\",",
+			"// \"hidden\":\t\"Renvoie une valeur booléenne qui indique si la page est considérée masquée ou non.\",",
+			"// \"images\":\t\"Renvoie un objet HTMLCollection des images du document.\",",
+			"// \"implementation\":\t\"Renvoie l'implémentation du DOM associée au document courant.\",",
+			"// \"lastElementChild\":\t\"Renvoie le dernier élément enfant du document courant.\",",
+			"// \"links\":\t\"Renvoie un objet HTMLCollection contenant l'ensemble des hyperliens du document.\",",
+			"// \"mozSyntheticDocument\":\t\"Renvoie true uniquement si le document est synthétique (par exemple une page indépendante\\,un fichier audio ou vidéo).\",",
+			"// \"pictureInPictureElement\":\t\"Renvoie l'objet Element pour l'élément affiché en mode d'incrustation vidéo (picture-in-picture) pour ce document.\",",
+			"// \"pictureInPictureEnabled\":\t\"Renvoie true si la fonctionnalité d'incrustation vidéo est activée.\",",
+			"// \"plugins\":\t\"Renvoie un objet HTMLCollection contenant les plugins disponibles.\",",
+			"// \"pointerLockElement\":\t\"Renvoie l'élément définit comme cible pour les évènements de souris pendant que le pointeur est verrouillé. Cette propriété vaut null si le verrouillage est en cours\\,si le pointeur est déverrouillé ou si la cible est située dans un autre document.\",",
+			"// \"featurePolicy\":\t\"Renvoie l'interface FeaturePolicy qui fournit une API pour l'introspection des règles de fonctionnalité (feature policies) appliquées au document.\",",
+			"// \"scripts\":\t\"Renvoie un objet HTMLCollection contenant les éléments\",",
+			"// \"scrollingElement\":\t\"Renvoie une référence à l'objet Element correspondant à l'élément qui fait défiler le document.\",",
+			"// \"styleSheets\":\t\"Renvoie un objet StyleSheetList contenant les objets CSSStyleSheet (en-US) pour les feuilles de style CSS liées explicitement ou embarquées dans le document.\",",
+			"// \"timeline\":\t\"Renvoie la chronologie\\,sous la forme d'une instance DocumentTimeline (en-US)\\,qui est automatiquement créée au chargement de la page.\",",
+			"// \"visibilityState\":\t\"Renvoie une chaîne de caractères qui indique l'état de visibilité du document. Les valeurs possibles sont visible\\,hidden\\,prerender\\,et unloaded.\"|},"
+			,
+			"// \"cookie\":\t\"Renvoie une liste\\,dont les éléments sont séparés par des points-virgules\\,des cookies du document ou permet de définir un cookie.\",",
+			"// \"defaultView\":\t\"Renvoie une référence à l'objet de la fenêtre.\",",
+			"// \"designMode\":\t\"Permet d'accéder ou de définir la possibilité d'éditer l'ensemble du document.\",",
+			"// \"dir\":\t\"Permet d'accéder ou de définir la directionnalité (écriture de droite à gauche ou de gauche à droite) du document.\",",
+			"// \"domain\":\t\"Permet d'accéder ou de définir le domaine du document courant.\",",
+			"// \"lastModified\":\t\"Renvoie la date à laquelle le document a été modifié pour la dernière fois.\",",
+			"// \"location\":\t\"Renvoie l'URI du document courant.\",",
+			"// \"readyState\":\t\"Renvoie l'état de chargement du document.\",",
+			"// \"referrer\":\t\"Renvoie l'URI de la page qui a lié vers cette page.\",",
+			"// \"title\":\t\"Permet d'accéder ou de définir le titre du document courant.\",",
+			"// \"URL\":\t\"Renvoie l'emplacement du document sous la forme d'une chaîne de caractères.\"|}"
+		],
+		"description": "=DOM Document Properties"
+	},
+	"=DOM Document Methods": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["prefix"],
+		"body": [
+			"${1|// \"adoptNode()\":\t\"Adopte un nœud d'un document externe.\",",
+			"// \"append()\":\t\"Insère un ensemble d'objets Node ou d'objets DOMString après le dernier enfant du document.\",",
+			"// \"captureEvents()\":\t\"Voir Window.captureEvents.\",",
+			"// \"caretPositionFromPoint()\":\t\"Renvoie un objet CaretPosition (en-US) qui contient le nœud DOM contenant le curseur et le décalage du curseur au sein de ce nœud.\",",
+			"// \"caretRangeFromPoint()\":\t\"Obtient un objet Range pour le fragment de document situé aux coordonnées indiquées.\",",
+			"// \"createAttribute()\":\t\"Crée un nouvel objet Attr et le renvoie.\",",
+			"// \"createAttributeNS()\":\t\"Crée un nouveau nœud d'attribut dans un espace de noms donné et le renvoie.\",",
+			"// \"createCDATASection()\":\t\"Crée un nouveau nœud CDATA et le renvoie.\",",
+			"// \"createComment()\":\t\"Crée un nouveau nœud de commentaire et le renvoie.\",",
+			"// \"createDocumentFragment()\":\t\"Crée un nouveau fragment de document.\",",
+			"// \"createElement()\":\t\"Crée un nouvel élément avec le nom de balise indiqué.\",",
+			"// \"createElementNS()\":\t\"Crée un nouvel élément avec le nom de balise indiqué et l'espace de noms passé via un URI.\",",
+			"// \"createEntityReference()\":\t\"Crée un nouvel objet de référence d'entité et le renvoie.\",",
+			"// \"createEvent()\":\t\"Crée un objet d'évènement.\",",
+			"// \"createNodeIterator()\":\t\"Crée un objet NodeIterator.\",",
+			"// \"createProcessingInstruction()\":\t\"Crée un nouvel objet ProcessingInstruction.\",",
+			"// \"createRange()\":\t\"Crée un objet Range.\",",
+			"// \"createTextNode()\":\t\"Crée un nœud texte.\",",
+			"// \"createTouch()\":\t\"Crée un objet Touch (en-US).\",",
+			"// \"createTouchList()\":\t\"Crée un objet TouchList (en-US).\",",
+			"// \"createTreeWalker()\":\t\"Crée un objet TreeWalker.\",",
+			"// \"elementFromPoint()\":\t\"Renvoie l'élément situé le plus en haut pour les coordonnées indiquées.\",",
+			"// \"elementsFromPoint()\":\t\"Renvoie un tableau de tous les éléments situés aux coordonnées indiquées.\",",
+			"// \"enableStyleSheetsForSet()\":\t\"Active les feuilles de styles pour l'ensemble de feuilles de styles indiqué.\",",
+			"// \"exitPictureInPicture()\":\t\"Retire la vidéo de la fenêtre d'incrustation vidéo pour la replacer dans son conteneur original.\",",
+			"// \"exitPointerLock()\":\t\"Relâche le verrou du pointeur.\",",
+			"// \"getAnimations()\":\t\"Renvoie un tableau contenant tous les objets Animation actuellement actifs et dont les éléments cibles sont des descendants du document courant.\",",
+			"// \"getBoxQuads()\":\t\"Renvoie une liste d'objets DOMQuad qui représente les fragments CSS du nœud.\",",
+			"// \"getElementById()\":\t\"Renvoie une référence objet vers l'élément identifié.\",",
+			"// \"getElementsByClassName()\":\t\"Renvoie une liste d'éléments avec le nom de classe indiqué.\",",
+			"// \"getElementsByTagName()\":\t\"Renvoie une liste d'éléments avec la balise indiquée.\",",
+			"// \"getElementsByTagNameNS()\":\t\"Renvoie une liste d'éléments avec le nom de balise et pour l'espace de noms indiqués.\",",
+			"// \"getSelection()\":\t\"Renvoie un objet Selection qui représente la portion de texte sélectionnée par l'utilisatrice ou l'utilisateur\\,ou la position du curseur.\",",
+			"// \"hasStorageAccess()\":\t\"Renvoie un objet Promise qui est résolu avec une valeur booléenne selon que le document a accès à du stockage de premier rang.\",",
+			"// \"importNode()\":\t\"Renvoie un clone d'un nœud d'un document externe.\",",
+			"// \"normalizeDocument()\":\t\"Remplace les entités et normalise les nœuds textuels\\,etc.\",",
+			"// \"prepend()\":\t\"Insère un ensemble d'objet Node ou DOMString avant le premier enfant du document.\",",
+			"// \"querySelector()\":\t\"Renvoie le premier nœud Element au sein du document\\,selon l'ordre du document\\,qui correspond aux sélecteurs indiqués.\",",
+			"// \"querySelectorAll()\":\t\"Renvoie une liste de tous les nœuds Element du document qui correspondent aux sélecteurs indiqués.\",",
+			"// \"releaseCapture()\":\t\"Relâche la capture de la souris si celle-ci est sur un élément du document courant.\",",
+			"// \"releaseEvents()\":\t\"Voir Window.releaseEvents() (en-US).\",",
+			"// \"replaceChildren()\":\t\"Remplace l'enfant existant du document avec un ensemble de nouveaux enfants indiqué.\",",
+			"// \"requestStorageAccess()\":\t\"Renvoie un objet Promise qui est résolu si l'accès au stockage de premier rang a été accordé et qui est rompu si l'accès a été refusé.\",",
+			"// \"mozSetImageElement()\":\t\"Permet de changer l'élément utilisé comme image d'arrière-plan par un élément dont on passe l'identifiant en argument.\","
+			,
+			"// \"close()\":\t\"Ferme le flux d'écriture sur un document.\",",
+			"// \"getElementsByName()\":\t\"Renvoie une liste des éléments avec le nom indiqué.\",",
+			"// \"hasFocus()\":\t\"Renvoie true si le focus est situé à l'intérieur du document indiqué.\",",
+			"// \"open()\":\t\"Ouvre le flux d'écriture sur un document.\",",
+			"// \"write()\":\t\"Écrit du texte dans un document.\",",
+			"// \"writeln()\":\t\"Écrit une ligne de texte dans un document.\"|}"
+		],
+		"description": "=DOM Document Methods"
+	},
+	"=DOM Document Specific Events": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["prefix"],
+		"body": [
+			"${1|// \"scroll\":\t\"Déclenché lorsque la vue du document ou d'un élément a défilé. Également disponible avec la propriété onscroll.\",",
+			"// \"visibilitychange\":\t\"Déclenché lorsque le contenu d'un onglet est devenu visible ou lorsqu'il a été masqué.\",",
+			"// \"wheel\":\t\"Déclenché lorsque la personne utilise la roulette d'un appareil de pointage (généralement une souris). Également disponible avec la propriété onwheel.\",",
+			"/*animations*/",
+			"// \"animationcancel\":\t\"Déclenché lorsqu'une animation est interrompue de façon inattendue. Également disponible avec la propriété onanimationcancel (en-US).\",",
+			"// \"animationend\":\t\"Déclenché lorsqu'une animation s'est terminée normalement. Également disponible avec la propriété onanimationend (en-US).\",",
+			"// \"animationiteration\":\t\"Déclenché lorsqu'une itération d'une animation est terminée. Également disponible avec la propriété onanimationiteration (en-US).\",",
+			"// \"animationstart\":\t\"Déclenché au démarrage d'une animation. Également disponible avec la propriété onanimationstart (en-US).\",",
+			"/*glisser-déposer*/",
+			"// \"drag\":\t\"Déclenché toutes les quelques centaines de millisecondes lorsqu'un élément ou une sélection de texte est glissée par l'utilisatrice ou l'utilisateur. Également disponible avec la propriété ondrag (en-US).\",",
+			"// \"dragend\":\t\"Déclenché lorsqu'une opération de glisser-déposer se termine (en relâchant un bouton de la souris ou en appuyant sur la touche Echap). Également disponible avec la propriété ondragend (en-US).\",",
+			"// \"dragenter\":\t\"Déclenché lorsqu'un élément ou une sélection de texte que l'on fait glisser rentre sur une zone de dépôt valide. Également disponible avec la propriété ondragenter (en-US).\",",
+			"// \"dragleave\":\t\"Déclenché lorsqu'un élément ou une sélection de texte que l'on fait glisser quitte une zone de dépôt valide. Également disponible avec la propriété ondragleave (en-US).\",",
+			"// \"dragover\":\t\"Déclenché lorsqu'un élément ou une sélection de texte que l'on fait glisser survole une zone de dépôt valide. Également disponible avec la propriété ondragover (en-US).\",",
+			"// \"dragstart\":\t\"Déclenché lorsqu'une personne commence à glisser un élément ou une sélection de texte. Également disponible avec la propriété ondragstart (en-US).\",",
+			"// \"drop\":\t\"Déclenché lorsqu'un élément ou une sélection de texte est déposée sur une zone de dépôt valide. Également disponible avec la propriété ondrop (en-US).\",",
+			"/*pointeurs*/",
+			"// \"gotpointercapture\":\t\"Déclenché lorsqu'un élément capture un pointeur avec setPointerCapture(). Également disponible avec la propriété ongotpointercapture.\",",
+			"// \"lostpointercapture\":\t\"Déclenché lorsqu'un pointeur capturé est libéré. Également disponible avec la propriété onlostpointercapture (en-US).\",",
+			"// \"pointercancel\":\t\"Déclenché lorsqu'un évènement de pointeur est annulé. Également disponible avec la propriété onpointercancel (en-US).\",",
+			"// \"pointerdown\":\t\"Déclenché lorsqu'un pointeur devient actif. Également disponible avec la propriété onpointerdown (en-US).\",",
+			"// \"pointerenter\":\t\"Déclenché lorsqu'un pointeur est déplacé au sein des frontières de la zone interactive d'un élément ou d'un de ses descendants. Également disponible avec la propriété onpointerenter (en-US).\",",
+			"// \"pointerleave\":\t\"Déclenché lorsqu'un pointeur quitte les limites de la zone interactive d'un élément. Également disponible avec la propriété onpointerleave (en-US).\",",
+			"// \"pointerlockchange\":\t\"Déclenché lorsque le pointeur est verrouillé/déverrouillé. Également disponible avec la propriété onpointerlockchange.\",",
+			"// \"pointerlockerror\":\t\"Déclenché lorsque le verrouillage du pointeur échoue. Également disponible avec la propriété onpointerlockerror.\",",
+			"// \"pointermove\":\t\"Déclenché lorsqu'un pointeur change de coordonnées. Également disponible avec la propriété onpointermove (en-US).\",",
+			"// \"pointerout\":\t\"Déclenché lorsqu'un pointeur est déplacé en dehors des limites de la zone interactive d'un élément (entre autres). Également disponible avec la propriété onpointerout (en-US).\",",
+			"// \"pointerover\":\t\"Déclenché lorsqu'un pointeur est déplacé à l'intérieur des limites de la zone interactive d'un élément. Également disponible avec la propriété onpointerover (en-US).\",",
+			"// \"pointerup\":\t\"Déclenché lorsqu'un pointeur n'est plus actif. Également disponible avec la propriété onpointerup (en-US).\",",
+			"/*sélection*/",
+			"// \"selectionchange\":\t\"Déclenché lorsque la sélection textuelle courante d'un document a changé. Également disponible avec la propriété onselectionchange (en-US).\",",
+			"// \"selectstart\":\t\"Déclenché lorsque l'utilisateur commence une nouvelle sélection. Également disponible avec la propriété onselectstart (en-US).\",",
+			"/*tactiles*/",
+			"// \"touchcancel\":\t\"Déclenché lorsqu'un ou plusieurs points de toucher ont été perturbés d'une façon propre à l'implémentation (par exemple lorsque de trop nombreux points de toucher ont été créés). Également disponible avec la propriété ontouchcancel (en-US).\",",
+			"// \"touchend\":\t\"Déclenché lorsqu'un ou plusieurs points de toucher ont été retirés de la surface tactile. Également disponible avec la propriété ontouchend (en-US).\",",
+			"// \"touchmove\":\t\"Déclenché lorsqu'un ou plusieurs points de toucher ont été déplacés sur la surface tactile. Également disponible avec la propriété ontouchmove (en-US).\",",
+			"// \"touchstart\":\t\"Déclenché lorsqu'un ou plusieurs points de toucher ont été placés sur la surface tactile. Également disponible avec la propriété ontouchstart (en-US).\",",
+			"/*transition*/",
+			"// \"transitioncancel\":\t\"Déclenché lorsqu'une transition CSS est annulée. Également disponible avec la propriété ontransitioncancel (en-US).\",",
+			"// \"transitionend\":\t\"Déclenché lorsqu'une transition CSS est terminée. Également disponible avec la propriété ontransitionend (en-US).\",",
+			"// \"transitionrun\":\t\"Déclenché lorsqu'une transition CSS est créée. Également disponible avec la propriété ontransitionrun.\",",
+			"// \"transitionstart\":\t\"Déclenché lorsqu'une transition CSS a effectivement démarré. Également disponible avec la propriété ontransitionstart.\"|}"
+		],
+		"description": "=DOM Methods Specific Events"
+	},
+	"DOM Document Properties List": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"document.${1|activeElement,body,characterSet,childElementCount,children,compatMode,contentType,currentScript,doctype,documentElement,documentURI,embeds,firstElementChild,fonts,forms,fullscreenElement,head,hidden,images,implementation,lastElementChild,links,mozSyntheticDocument,pictureInPictureElement,pictureInPictureEnabled,plugins,pointerLockElement,featurePolicy,scripts,scrollingElement,styleSheets,timeline,visibilityState,__________,cookie,defaultView,designMode,dir,domain,lastModified,location,readyState,referrer,title,URL|}"
+		],
+		"description": "DOM Document Properties List"
+		/*
+        {
+            "key": "ctrl+alt+x l",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "DOM Document Properties List",  
+            }
+        },
+		*/
+	},
+	"DOM Document Methods List": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"document.${1|adoptNode,append,captureEvents,caretPositionFromPoint,caretRangeFromPoint,createAttribute,createAttributeNS,createCDATASection,createComment,createDocumentFragment,createElement,createElementNS,createEntityReference,createEvent,createNodeIterator,createProcessingInstruction,createRange,createTextNode,createTouch,createTouchList,createTreeWalker,elementFromPoint,elementsFromPoint,enableStyleSheetsForSet,exitPictureInPicture,exitPointerLock,getAnimations,getBoxQuads,getElementById,getElementsByClassName,getElementsByTagName,getElementsByTagNameNS,getSelection,hasStorageAccess,importNode,normalizeDocument,prepend,querySelector,querySelectorAll,releaseCapture,releaseEvents,replaceChildren,requestStorageAccess,mozSetImageElement,close,__________,getElementsByName,hasFocus,open,write,writeln|}"
+		],
+		"description": "DOM Document Methods List"
+		/*
+        {
+            "key": "ctrl+alt+x shift+l",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "DOM Document Methods List" 
+            }
+        },
+		*/
+	},
+	"DOM Document Events List": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"document.addEventListener('${1|scroll,visibilitychange,wheel,__________,animationcancel,animationend,animationiteration,animationstart,__________,drag,dragend,dragenter,dragleave,dragover,dragstart,drop,__________,gotpointercapture,lostpointercapture,pointercancel,pointerdown,pointerenter,pointerleave,pointerlockchange,pointerlockerror,pointermove,pointerout,pointerover,pointerup,__________,selectionchange,selectstart,__________,touchcancel,touchend,touchmove,touchstart,__________,transitioncancel,transitionend,transitionrun,transitionstart|}')"
+		],
+		"description": "DOM Document Specific Events List"
+		/*
+        {
+            "key": "ctrl+alt+x alt+l",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "DOM Document Events List" 
+            }
+        },
+		*/
+	},
+	
+	
+	
+	
+	
+	
+	
+	"=DOM Element Properties": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["=domEproperties"],
+		"body": [
+		"${1|// \"assignedSlot\":\t\"Renvoie un objet HTMLSlotElement (en-US) représentant l'emplacement () dans lequel le nœud est inséré.\",",
+		"// \"attributes\":\t\"Renvoie un objet NamedNodeMap contenant les attributs affectés de l'élément HTML correspondant.\",",
+		"// \"childElementCount\":\t\"Renvoie le nombre d'éléments enfants de cet élément.\",",
+		"// \"children\":\t\"Renvoie les éléments enfants de cet élément.\",",
+		"// \"classList\":\t\"Renvoie un objet DOMTokenList contenant la liste des attributs de classe.\",",
+		"// \"className\":\t\"Une chaîne de caractères DOMString qui représente la classe de l'élément.\",",
+		"// \"clientHeight\":\t\"Renvoie un nombre (Number) représentant la hauteur intérieure de l'élément.\",",
+		"// \"clientLeft\":\t\"Renvoie un nombre (Number) représentant la largeur de la bordure gauche de l'élément.\",",
+		"// \"clientTop\":\t\"Renvoie un nombre (Number) représentant la largeur de la bordure haute de l'élément.\",",
+		"// \"clientWidth\":\t\"Renvoie un nombre (Number) représentant la largeur intérieure de l'élément.\",",
+		"// \"firstElementChild\":\t\"Renvoie le premier élément enfant de cet élément.\",",
+		"// \"id\":\t\"Une chaîne de caractères DOMString qui représente l'identifiant de l'élément.\",",
+		"// \"innerHTML\":\t\"Une chaîne de caractères DOMString qui représente le balisage du contenu de l'élément.\",",
+		"// \"lastElementChild\":\t\"Renvoie le dernier élément enfant de cet élément.\",",
+		"// \"localName\":\t\"Une chaîne de caractères DOMString qui représente la partie locale pour le nom qualifié de l'élément.\",",
+		"// \"namespaceURI\":\t\"L'URI pour l'espace de noms de l'élément ou null s'il n'y en a pas. Note : Pour Firefox 3.5 et les versions antérieures\\\\,les éléments HTML ne sont pas situés dans un espace de noms. Dans les versions ultérieures\\\\,les éléments HTML s'inscrivent dans l'espace de noms http://www.w3.org/1999/xhtml tant pour les arbres HTML que XML.\",",
+		"// \"nextElementSibling\":\t\"Un objet Element qui représente l'élément qui suit immédiatement l'élément courant dans l'arbre ou null si l'élément courant n'a pas de voisin.\",",
+		"// \"outerHTML\":\t\"Une chaîne de caractères DOMString qui représente le balisage de l'élément (incluant son contenu). Lorsque cette propriété est utilisée en modification\\\\,cela remplace l'élément avec les noeuds construits à partir de l'analyse de la chaîne de caractères fournie.\",",
+		"// \"part\":\t\"Représente les identifiants des parties de l'élément (c'est-à-dire ceux définis avec l'attribut part) sous la forme d'un objet DOMTokenList.\",",
+		"// \"prefix\":\t\"Une chaîne de caractères DOMString qui représente le préfixe de l'espace de nom pour l'élément ou null si aucun préfixe n'est défini.\",",
+		"// \"previousElementSibling\":\t\"Un objet Element qui représente l'élément qui précède immédiatement l'élément courant dans l'arbre ou null si l'élément courant n'a pas de voisin.\",",
+		"// \"scrollHeight\":\t\"Renvoie un nombre (Number) représentant la hauteur de la vue de défilement pour l'élément.\",",
+		"// \"scrollLeft\":\t\"Un nombre (Number) qui représente le décalage à gauche de l'élément lié au défilement.\",",
+		"// \"scrollLeftMax\":\t\"Renvoie un nombre (Number) représentant le décalage à gauche maximal pour l'élément lors du défilement.\",",
+		"// \"scrollTop\":\t\"Un nombre (Number) qui représente le nombre de pixels dont on a fait défiler verticalement le haut de l'élément.\",",
+		"// \"scrollTopMax\":\t\"Renvoie un nombre (Number) représentant le décalage maximal depuis le haut de l'élément lors du défilement.\",",
+		"// \"scrollWidth\":\t\"Renvoie un nombre (Number) représentant la largeur de la vue de défilement pour l'élément.\",",
+		"// \"shadowRoot\":\t\"Renvoie la racine sombre ouverte ( open shadow root ) hébergée par l'élément ou null si aucune racine sombre ouverte n'est présente.\",",
+		"// \"openOrClosedShadowRoot\":\t\"Renvoie la racine sombre hébergée par l'élément (qu'elle soit ouverte ou fermée). Uniquement disponible pour les WebExtensions.\",",
+		"// \"slot\":\t\"Renvoie le nom de l'emplacement du DOM sombre dans lequel l'élément est inséré.\",",
+		"// \"tagName\":\t\"Renvoie une chaîne de caractères (String) qui est le nom de la balise pour l'élément courant.\"|}"
+		],
+		"description": "=DOM Element Properties"
+	},
+	"=DOM Element ARIA-Properties": {
+		"scope": ["js"],
+		"prefix": ["=domEaproperties"],
+		"body": [
+		"${1|// \"ariaAtomic\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-atomic qui indique si des technologies d'assistance présenteront tout ou partie de la région modifiée selon les notifications définies par l'attribut aria-relevant.\",",
+		"// \"ariaAutoComplete\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-autocomplete qui indique si la saisie de texte peut déclencher l'affichage d'une ou plusieurs prédictions pour la valeur saisie par l'utilisateur à destination d'une liste de choix\\\\,d'une boîte de recherche ou d'une zone de texte. Elle indique également la façon dont les éventuelles prédictions seraient présentées.\",",
+		"// \"ariaBusy\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-busy qui indique d'un élément est en train d'être modifié. Les technologies d'assistance peuvent alors faire le choix d'attendre la fin de la modification avant d'exposer le contenu à l'utilisateur.\",",
+		"// \"ariaChecked\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-checked indiquant l'état coché (ou non) des cases à cocher\\, des boutons radio ou des autres éléments d'interface graphique qui peuvent être cochés.\",",
+		"// \"ariaColCount\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-colcount indiquant le nombre de colonnes d'un tableau\\, d'une grille ou d'une grille arborescente.\",",
+		"// \"ariaColIndex\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-colindex qui définit l'indice de la colonne d'un élément ou sa position par rapport au nombre total de colonnes d'un tableau\\, d'une grille ou d'une grille arborescente.\",",
+		"// \"ariaColIndexText\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-colindextext qui définit texte alternatif à aria-colindex qui soit compréhensible par un humain.\",",
+		"// \"ariaColSpan\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-colspan qui définit le nombre de colonnes sur lesquelles s'étend une cellule dans un tableau\\, une grille ou une grille arborescente.\",",
+		"// \"ariaCurrent\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-current qui indique l'élément représente l'objet courant dans un conteneur ou un ensemble d'éléments.\",",
+		"// \"ariaDescription\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-description qui définit la chaîne de caractères pour décrire ou annoter l'élément courant.\",",
+		"// \"ariaDisabled\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-disabled qui indique que l'élément est perceptible mais désactivé et qu'il ne peut être édité ou manipulé.\",",
+		"// \"ariaExpanded\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-expanded qui indique si un élément de groupement contrôlé par l'élément courant est développé ou replié.\",",
+		"// \"ariaHasPopup\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-haspopup qui indique la disponibilité et le type d'élément interactif visuel comme un menu ou une boîte de dialogue pouvant être généré par l'élément courant.\",",
+		"// \"ariaHidden\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-hidden qui indique si l'élément est exposé à une API d'accessibilité.\",",
+		"// \"ariaKeyShortcuts\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-keyshortcuts qui indique les raccourcis clavier implémentés spécifiquement pour activer ou fournir le focus à un élément.\",",
+		"// \"ariaLabel\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-label qui définit une chaîne de caractères étant un libellé pour l'élément courant.\",",
+		"// \"ariaLevel\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-level qui définit le niveau hiérarchique de l'élément au sein d'une structure.\",",
+		"// \"ariaLive\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-live qui indique que l'élément sera mis à jour et qui décrit les types de mises à jour qui peuvent être attendues par les agents utilisateur\\, les outils d'assistance et l'utilisateur.\",",
+		"// \"ariaModal\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-modal qui indique si un élément est modal lorsqu'il est affiché.\",",
+		"// \"ariaMultiline\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-multiline qui indique si une zone de texte accepte une saisie sur plusieurs lignes ou sur une seule ligne.\",",
+		"// \"ariaMultiSelectable\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-multiselectable qui indique que la personne peut choisir plus d'un élément parmi les éléments descendants qui peuvent être sélectionnés.\",",
+		"// \"ariaOrientation\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-orientation qui indique si l'orientation de l'élément est horizontale\\, verticale ou inconnue voire ambigüe.\",",
+		"// \"ariaPlaceholder\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-placeholder qui définit une indication courte destinée à aider l'utilisateur à saisir une valeur lorsque le contrôle ne possède pas de valeur.\",",
+		"// \"ariaPosInSet\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-posinset qui définit l'index ou la position de l'élément courant dans l'ensemble ou l'arbre d'éléments.\",",
+		"// \"ariaPressed\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-pressed qui indique l'état actif/pressé des boutons.\",",
+		"// \"ariaReadOnly\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-readonly qui indique que l'élément ne peut pas être édité mais qu'il peut être utilisé sinon.\",",
+		"// \"ariaRelevant\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-relevant qui indique les notifications qui seront déclenchées par l'agent utilisateur lorsque l'arbre d'accessibilité d'une région interactive sera modifié. Cette propriété est utilisée afin de décrire quels changements d'une région aria-live sont pertinents et devraient être annoncés.\",",
+		"// \"ariaRequired\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-required qui indique que la saisie d'une utilisatrice ou d'un utilisateur est requise sur l'élément avant qu'un formulaire puisse être envoyé.\",",
+		"// \"ariaRoleDescription\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-roledescription qui définit une description compréhensible par un humain\\, adaptée par l'autrice ou l'auteur du document pour le rôle de l'élément courant.\",",
+		"// \"ariaRowCount\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-rowcount qui définit le nombre total de lignes dans un tableau\\, une grille ou une grille arborescente.\",",
+		"// \"ariaRowIndex\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-rowindex qui définit l'index ou la position de la ligne de l'élément par rapport au nombre total de lignes dans le tableau\\, la grille ou la grille arborescente.\",",
+		"// \"ariaRowIndexText\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-rowindextext qui définit un libellé alternatif à aria-rowindex\\, compréhensible par un humain.\",",
+		"// \"ariaRowSpan\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-rowspan qui définit le nombre de lignes sur lesquelles s'étend une cellule dans un tableau\\, une grille ou une grille arborescente.\",",
+		"// \"ariaSelected\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-selected qui indique l'état de sélection pour les éléments qui peuvent être sélectionnés.\",",
+		"// \"ariaSetSize\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-setsize qui définit le nombre d'objets dans l'ensemble d'éléments d'une liste ou d'un arbre.\",",
+		"// \"ariaSort\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-sort qui indique si les objets d'un tableau ou d'une grille sont triés par ordre croissant ou décroissant.\",",
+		"// \"ariaValueMax\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-valueMax qui définit la valeur maximale autorisée pour un élément d'interface utilisateur décrivant un intervalle.\",",
+		"// \"ariaValueMin\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-valueMin qui définit la valeur minimale autorisée pour un élément d'interface utilisateur décrivant un intervalle.\",",
+		"// \"ariaValueNow\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-valueNow qui définit la valeur courante d'un élément d'interface utilisateur décrivant un intervalle.\",",
+		"// \"ariaValueText\":\t\"Une chaîne de caractères DOMString qui reflète l'attribut aria-valuetext qui définit une alternative textuelle à aria-valuenow compréhensible par un humain.\"|}"
+		],
+		"description": "Long Description"
+	},
+	"=DOM Element Methods": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["=domEmethodes"],
+		"body": [
+		"${1|// \"addEventListener()\":\t\"Enregistre un gestionnaire d'évènement sur l'élément pour un type d'évènement donné.\",",
+		"// \"after()\":\t\"Insère un ensemble d'objets Node ou DOMString dans la liste des enfants du parent de l'élément courant\\, juste après ce dernier.\",",
+		"// \"attachShadow()\":\t\"Attache un arbre du DOM sombre à l'élément indiqué puis renvoie une référence à sa racine ShadowRoot.\",",
+		"// \"animate()\":\t\"Une méthode synthétique pour créer et exécuter une animation sur un élément. Renvoie l'instance de l'objet Animation créé.\",",
+		"// \"append()\":\t\"Insère un ensemble d'objet Node ou DOMString après le dernier enfant de l'élément.\",",
+		"// \"before()\":\t\"Insère un ensemble d'objet Node ou DOMString dans la liste des enfants du parent de l'élément courant\\, juste avant ce dernier.\",",
+		"// \"closest()\":\t\"Renvoie l'élément (Element) qui est le plus proche ancêtre de l'élément courant (ou l'élément courant lui-même) qui correspond au sélecteur passé en paramètre.\",",
+		"// \"createShadowRoot()\":\t\"Crée un DOM sombre sur l'élément\\, le transformant ainsi en hôte sombre. Renvoie un objet ShadowRoot.\",",
+		"// \"computedStyleMap()\":\t\"Renvoie une interface StylePropertyMapReadOnly (en-US) qui fournit une représentation en lecture seule d'un bloc de déclaration CSS alternatif à CSSStyleDeclaration.\",",
+		"// \"dispatchEvent()\":\t\"Diffuse un évènement sur ce nœud dans le DOM et renvoie un booléen qui indique si aucun gestionnaire n'a annulé l'évènement.\",",
+		"// \"getAnimations()\":\t\"Renvoie un tableau des objets Animation actuellement actifs sur l'élément.\",",
+		"// \"getAttribute()\":\t\"Récupère la valeur de l'attribut nommé pour le nœud courant et le renvoie comme un objet.\",",
+		"// \"getAttributeNames()\":\t\"Renvoie un tableau de noms d'attribut pour l'élément courant.\",",
+		"// \"getAttributeNode()\":\t\"Récupère la représentation du nœud pour l'attrtibut nommé du nœud courant et le renvoie comme un objet Attr.\",",
+		"// \"getAttributeNodeNS()\":\t\"Depuis le nœud courant\\, récupère la représentation du nœud pour l'attribut avec le nom et l'espace de noms indiqués et renvoie la valeur obtenue sous la forme d'un objet Attr.\",",
+		"// \"getAttributeNS()\":\t\"Depuis le nœud courant\\, récupère la valeur de l'attribut avec le nom et l'espace de noms indiqués et la renvoie sous la forme d'un objet.\",",
+		"// \"getBoundingClientRect()\":\t\"Renvoie la taille d'un élément et sa position relative dans la zone d'affichage ( viewport ).\",",
+		"// \"getBoxQuads()\":\t\"Renvoie une liste d'objets DOMQuad qui représentent les fragments CSS pour le nœud.\",",
+		"// \"getClientRects()\":\t\"Renvoie une collection de rectangles qui indique les rectangles englobants pour chaque ligne de texte d'un client.\",",
+		"// \"getElementsByClassName()\":\t\"Renvoie une collection dynamique HTMLCollection qui contient tous les descendants de l'élément courant et qui possèdent la liste de classes fournie en paramètre.\",",
+		"// \"getElementsByTagName()\":\t\"Renvoie une collection dynamique HTMLCollection qui contient tous les descendants de l'élément courant avec un nom de balise donné.\",",
+		"// \"getElementsByTagNameNS()\":\t\"Renvoie une collection dynamique HTMLCollection qui contient tous les descendants de l'élément courant qui ont un nom de balise et un espace de noms donnés.\",",
+		"// \"hasAttribute()\":\t\"Renvoie un booléen indiquant si l'élément courant possède l'attribut donné.\",",
+		"// \"hasAttributeNS()\":\t\"Renvoie un booléen indiquant si l'élément courant possède l'attribut donné pour l'espace de noms donné.\",",
+		"// \"hasAttributes()\":\t\"Renvoie un booléen qui indique si l'élément courant a un ou plusieurs attributs HTML.\",",
+		"// \"hasPointerCapture()\":\t\"Indique si l'élément a la capture du pointeur pour le pointeur identifié par l'identifiant passé en argument.\",",
+		"// \"insertAdjacentElement()\":\t\"Insère un nœud d'élément à la position relative indiquée par rapport à l'élément courant.\",",
+		"// \"insertAdjacentHTML()\":\t\"Analyse le texte comme HTML ou XML puis insère les nœuds résultatns dans l'arbre à la position indiquée.\",",
+		"// \"insertAdjacentText()\":\t\"Insère un nœud textuel à la position relative indiquée\\, par rapport à l'élément courant.\",",
+		"// \"matches()\":\t\"Renvoie un booléen qui indique si l'élément serait ciblé par la chaîne de caractères passée en argument qui décrit un sélecteur.\",",
+		"// \"prepend()\":\t\"Insère un ensemble d'objets Node ou DOMString avant le premier enfant de l'élément courant.\",",
+		"// \"querySelector()\":\t\"Renvoie le premier objet Node qui correspond au sélecteur donné\\, relatif à l'élément courant.\",",
+		"// \"querySelectorAll()\":\t\"Renvoie un objet NodeList contenant les nœuds pour lesquels le sélecteur\\, passé en argument\\, relatif à l'élément courant.\",",
+		"// \"releasePointerCapture()\":\t\"Libère (arrête) la capture du pointeur précédemment activée pour un évènement de pointeur spécifique.\",",
+		"// \"remove()\":\t\"Retire l'élément de la liste des éléments enfants de son parent.\",",
+		"// \"removeAttribute()\":\t\"Retire l'attribut nommé du nœud courant.\",",
+		"// \"removeAttributeNode()\":\t\"Retire la représentation nodale de l'attribut nommé pour le nœud courant.\",",
+		"// \"removeAttributeNS()\":\t\"Sur le nœud courant\\, retire l'attribut avec le nom et l'espace de noms indiqués.\",",
+		"// \"removeEventListener()\":\t\"moveEventListener() Retire un gestionnaire d'évènement de l'élément.\",",
+		"// \"replaceChildren()\":\t\"Remplace l'enfant existant d'un nœud avec un nouvel ensemble d'enfants.\",",
+		"// \"replaceWith()\":\t\"Remplace l'élément dans la liste des enfants de son parent par un ensemble d'objets Node ou DOMString.\",",
+		"// \"requestFullscreen()\":\t\"Demande au navigateur\\, de façon asynchrone\\, d'afficher l'élément en plein écran.\",",
+		"// \"requestPointerLock()\":\t\"Demande au navigateur\\, de façon asynchrone\\, de bloquer le pointeur sur l'élément indiqué.\",",
+		"// \"scroll()\":\t\"Défile jusqu'à un ensemble de coordonnées données à l'intérieur de l'élément courant.\",",
+		"// \"scrollBy()\":\t\"Défile un élément de la quantité indiquée.\",",
+		"// \"scrollIntoView()\":\t\"Défile la page jusqu'à ce que l'élément apparaisse dans la vue.\",",
+		"// \"scrollTo()\":\t\"Défile jusqu'à un ensemble de coordonnées particulier à l'intérieur de l'élément donné.\",",
+		"// \"setAttribute()\":\t\"Définit la valeur d'un attribut nommé pour le nœud courant.\",",
+		"// \"setAttributeNode()\":\t\"Définit la représentation nodale d'un attribut nommé pour le nœud courant.\",",
+		"// \"setAttributeNodeNS()\":\t\"Pour le nœud courant\\, définit la représentation nodale d'un attribut avec le nom et l'espace de noms indiqués.\",",
+		"// \"setAttributeNS()\":\t\"Pour le nœud courant\\, définit la valeur de l'attribut avec le nom et l'espace de noms indiqués.\",",
+		"// \"setCapture()\":\t\"Initialise la capture des évènements liés à la souris\\, redirigeant ainsi tous les évènements de la souris sur cet élément.\",",
+		"// \"setPointerCapture()\":\t\"Désigne un élément spécifique comme future cible pour la capture des évènements de pointeur.\",",
+		"// \"toggleAttribute()\":\t\"Active/désactive un attribut booléen sur l'élément courant : s'il est présent\\, cela le retire et s'il est absent\\, cela l'ajoute.\"|}"
+		],
+		"description": "Long Description"
+	},
+	"=DOM Element Standard Events": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["prefix"],
+		"body": [
+			"${1|// \"cancel\":\t\"Déclenché sur un élément <dialog> lorsque la personne indique au navigateur le souhait de fermer la boîte de dialogue courante. Un navigateur pourra par exemple déclencher cet évènement lors d'un appui sur la touche ''Echap'' ou lors d'un clic sur le bouton « Fermer cette boîte de dialogue » fourni par le navigateur. Également disponible via la propriété oncancel.\",",
+			"// \"error\":\t\"Déclenché lors de l'échec du chargement d'une ressource ou lorsque celle-ci ne peut être utilisée. Cet évènement sera par exemple déclenché lors d'une erreur d'exécution d'un script ou lorsqu'une image ne peut être trouvée ou est invalide. Également disponible via la propriété onerror.\",",
+			"// \"scroll\":\t\"Déclenché lors du défilement de la vue du document ou d'un élément. Également disponible via la propriété onscroll.\",",
+			"// \"select\":\t\"Déclenché lors de la sélection de texte. Également disponible via la propriété onselect.\",",
+			"// \"show\":\t\"Déclenché lorsqu'un évènement contextmenu a été déclenché ou a bouillonné sur un élément qui dispose de l'attribut contextmenu attribute. Deprecated Également disponible via la propriété onshow.\",",
+			"// \"wheel\":\t\"Déclenché lorsque l'utilisateur fait tourner la molette d'un appareil de pointage (généralement une souris). Également disponible via la propriété onwheel.\",",
+			"/*presse-papiers*/",
+			"// \"copy\":\t\"Déclenché lorsque l'utilisateur initie une action de copie via l'interface du navigateur. Également disponible via la propriété oncopy (en-US).\",",
+			"// \"cut\":\t\"Déclenché lorsque l'utilisateur initie une action de coupe via l'interface du navigateur. Également disponible via la propriété oncut (en-US).\",",
+			"// \"paste\":\t\"Déclenché lorsque l'utilisateur initie une action pour coller via l'interface du navigateur. Également disponible via la propriété onpaste (en-US).\",",
+			"/*composition*/",
+			"// \"compositionend\":\t\"Déclenché lorsqu'un système de composition textuel tel qu'un éditeur de méthode de saisie termine ou annule la session de composition courante.\",",
+			"// \"compositionstart\":\t\"Déclenché lorsqu'un système de composition textuel tel qu'un éditeur de méthode de saisie démarre une nouvelle session de composition.\",",
+			"// \"compositionupdate\":\t\"Déclenché lorsqu'un nouveau caractère est reçu dans le contexte d'une session de composition textuelle.\",",
+			"/*focus*/",
+			"// \"blur\":\t\"Déclenché lorsqu'un élément a perdu le focus. Également disponible via la propriété onblur.\",",
+			"// \"focus\":\t\"Déclenché lorsqu'un élément reçoit le focus. Également disponible via la propriété onfocus.\",",
+			"// \"focusin\":\t\"Déclenché lorsqu'un élément s'apprête à recevoir le focus.\",",
+			"// \"focusout\":\t\"Déclenché lorsqu'un élément s'apprête à perdre le focus.\",",
+			"/*relatifs au plein écran*/",
+			"// \"fullscreenchange\":\t\"Envoyé à un élément (Element) lorsque celui-ci effectue une transition (entrée ou sortie) pour le mode plein écran (en-US). Également disponible via la propriété onfullscreenchange (en-US).\",",
+			"// \"fullscreenerror\":\t\"Envoyé à un élément Element si une erreur se produit lors d'une transition (entrée ou sortie) pour le mode plein écran (en-US). Également disponible via la propriété onfullscreenerror (en-US).\",",
+			"/*relatifs au clavier*/",
+			"// \"keydown\":\t\"Déclenché lors de l'appui sur une touche du clavier. Également disponible via la propriété onkeydown.\",",
+			"// \"keypress\":\t\"Déclenché lorsqu'une touche produit un caractère lorsqu'elle est pressée. Deprecated Également disponible via la propriété onkeypress.\",",
+			"// \"keyup\":\t\"Déclenché lorsqu'une touche est relâchée. Également disponible via la propriété onkeyup.\",",
+			"/*relatifs à la souris*/",
+			"// \"auxclick\":\t\"Déclenché lorsqu'un bouton non primaire d'un appareil de pointage (c'est-à-dire tout bouton de la souris en dehors du bouton gauche) a été pressé puis relâché sur un élément. Également disponible via la propriété onauxclick.\",",
+			"// \"click\":\t\"Déclenché lorsqu'un bouton d'un appareil de pointage (par exemple le bouton gauche de la souris) a été pressé puis relâche sur un élément. Également disponible via la propriété onclick.\",",
+			"// \"contextmenu\":\t\"Déclenché lorsqu'un utilisateur tente d'ouvrir un menu contextuel. Également disponible via la propriété oncontextmenu (en-US).\",",
+			"// \"dblclick\":\t\"Déclenché lorsqu'un bouton d'un appareil de pointage (par exemple le bouton gauche de la souris) a été utilisé pour un double-clic sur un élément. Également disponible via la propriété ondblclick.\",",
+			"// \"DOMActivate\":\t\"Se produit lorsqu'un élément est activé, par exemple avec un clic de souris ou l'appui d'une touche.\",",
+			"// \"mousedown\":\t\"Déclenché lorsqu'un bouton d'un appareil de pointage est pressé sur un élément. Également disponible via la propriété onmousedown.\",",
+			"// \"mouseenter\":\t\"Déclenché lorsqu'un appareil de pointage (généralement une souris) est déplacé pour arriver sur l'élément disposant du gestionnaire d'évènement. Également disponible via la propriété onmouseenter (en-US).\",",
+			"// \"mouseleave\":\t\"Déclenché lorsque le pointeur d'un appareil de pointage (généralement une souris) est déplacée en dehors de l'élément qui dispose du gestionnaire d'évènement. Également disponible via la propriété onmouseleave (en-US).\",",
+			"// \"mousemove\":\t\"Déclenché lorsqu'un appareil de pointage (généralement une souris) est déplacé sur un élément. Également disponible via la propriété onmousemove.\",",
+			"// \"mouseout\":\t\"Déclenché lorsqu'un appareil de pointage (généralement une souris) se déplace pour quitter l'élément qui dispose du gestionnaire d'évènement (ou lorsque le pointeur quitte l'un des enfants de cet élément). Également disponible via la propriété onmouseout.\",",
+			"// \"mouseover\":\t\"Déclenché lorsqu'un appareil de pointage arrive sur l'élément (ou l'un de ses enfants) qui dispose du gestionnaire d'évènement. Également disponible via la propriété onmouseover.\",",
+			"// \"mouseup\":\t\"Déclenché lorsque le bouton d'un appareil de pointage est relâché pour un élément. Également disponible via la propriété onmouseup.\",",
+			"// \"webkitmouseforcechanged\":\t\"Déclenché à chaque fois que la quantite dé pression change sur le pavé ou l'écran tactile.\",",
+			"// \"webkitmouseforcedown\":\t\"Déclenché après l'évènement mousedown dès que suffisamment de pression a été appliquée pour qualifier ce clic de clic forcé.\",",
+			"// \"webkitmouseforcewillbegin\":\t\"Déclenché avant l'évènement mousedown.\",",
+			"// \"webkitmouseforceup\":\t\"Déclenché après l'évènement webkitmouseforcedown (en-US) dès que suffisamment de pression a été relâchée pour terminer le clic forcé.\"|}"
+		],
+		"description": "=DOM Element Standard Events"
+	},
+	"DOM Element Properties List": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["deplist"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:elementName}}.${1|assignedSlot,attributes,childElementCount,children,classList,className,clientHeight,clientLeft,clientTop,clientWidth,firstElementChild,id,innerHTML,lastElementChild,localName,namespaceURI,nextElementSibling,outerHTML,part,prefix,previousElementSibling,scrollHeight,scrollLeft,scrollLeftMax,scrollTop,scrollTopMax,scrollWidth,shadowRoot,openOrClosedShadowRoot,slot,tagName|}"
+			// ,,,,,,
+			// ,,,,,,,
+			// ,,,,,,
+			// ,,,,,,
+			// ,,,,,
+			/*
+				recoit:	1) text/number				slot,
+							childElementCount,className,clientHeight,clientLeft,clientTop,clientWidth,id,scrollHeight,scrollLeft,scrollLeftMax,scrollTop,scrollTopMax,scrollWidth,tagName,
+							localName: https://developer.mozilla.org/fr/docs/Web/API/Element/localName
+							namespaceURI : https://developer.mozilla.org/fr/docs/Web/API/Element/namespaceURI
+							prefix: https://developer.mozilla.org/fr/docs/Web/API/Element/prefix
+						2) text(contenu d'élement)
+							innerHTML,outerHTML,
+						3) boolean (is/has)
+						4) specific functionalities
+						5) object node/list node
+							assignedSlot,children,firstElementChild,lastElementChild,nextElementSibling,previousElementSibling,
+						6) autre object				openOrClosedShadowRoot,
+							attributes,classList,shadowRoot,
+							part: https://developer.mozilla.org/en-US/docs/Web/API/Element/part
+						7) ????
+						8) obsolete/deprecated
+						9) doc not yet written
+			*/
+		],
+		"description": "DOM Element Properties List"
+		/*
+			{
+                "key": "ctrl+shift+alt+x l",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+                "args": {
+                    "name": "DOM Element Properties List:",  
+                }
+            },
+		*/
+	}, 
+	"DOM Element ARIA-Properties List": {
+		// https://wicg.github.io/aom/explainer.html
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["deaplist"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:elementName}}.${1|ariaAtomic,ariaAutoComplete,ariaBusy,ariaChecked,ariaColCount,ariaColIndex,ariaColIndexText,ariaColSpan,ariaCurrent,ariaDescription,ariaDisabled,ariaExpanded,ariaHasPopup,ariaHidden,ariaKeyShortcuts,ariaLabel,ariaLevel,ariaLive,ariaModal,ariaMultiline,ariaMultiSelectable,ariaOrientation,ariaPlaceholder,ariaPosInSet,ariaPressed,ariaReadOnly,ariaRelevant,ariaRequired,ariaRoleDescription,ariaRowCount,ariaRowIndex,ariaRowIndexText,ariaRowSpan,ariaSelected,ariaSetSize,ariaSort,ariaValueMax,ariaValueMin,ariaValueNow,ariaValueText|}"
+			/*
+						recoit:	1) text/number
+							// ariaAtomic,ariaAutoComplete,ariaBusy,ariaChecked,ariaColCount,ariaColIndex,
+							// ariaColIndexText,ariaColSpan,ariaCurrent,ariaDescription,ariaDisabled,
+							// ariaExpanded,ariaHasPopup,ariaHidden,ariaKeyShortcuts,ariaLabel,ariaLevel,
+							// ariaLive,ariaModal,ariaMultiline,ariaMultiSelectable,ariaOrientation,
+							// ariaPlaceholder,ariaPosInSet,ariaPressed,ariaReadOnly,ariaRelevant,
+							// ariaRequired,ariaRoleDescription,ariaRowCount,ariaRowIndex,ariaRowIndexText,
+							// ariaRowSpan,ariaSelected,ariaSetSize,ariaSort,ariaValueMax,ariaValueMin,
+							// ariaValueNow,ariaValueText
+						2) text(contenu d'élement)
+						3) boolean (is/has)
+						4) specific functionalities
+						5) object node/list node
+						6) autre object
+						7) ????
+						8) obsolete/deprecated
+						9) doc not yet written
+			*/
+		],
+		"description": "DOM Element ARIA-Properties List"
+		/*
+			{
+                "key": "ctrl+shift+alt+x ctrl+l",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+                "args": {
+                    "name": "DOM Element ARIA-Properties List" 
+                }
+            },
+		*/
+	}
+	, 
+	"DOM Element Methods List": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["demlist"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:elementName}}.${1|after,attachShadow,animate,append,before,closest,createShadowRoot,computedStyleMap,dispatchEvent,getAnimations,getAttribute,getAttributeNames,getAttributeNode,getAttributeNodeNS,getAttributeNS,getBoundingClientRect,getBoxQuads,getClientRects,getElementsByClassName,getElementsByTagName,getElementsByTagNameNS,hasAttribute,hasAttributeNS,hasAttributes,hasPointerCapture,insertAdjacentElement,insertAdjacentHTML,insertAdjacentText,matches,prepend,querySelector,querySelectorAll,releasePointerCapture,remove,removeAttribute,removeAttributeNode,removeAttributeNS,replaceChildren,replaceWith,requestFullscreen,requestPointerLock,scroll,scrollBy,scrollIntoView,scrollTo,setAttribute,setAttributeNode,setAttributeNodeNS,setAttributeNS,setCapture,setPointerCapture,toggleAttribute|}()"
+			// ,,,,,,,,
+			// ,,,,,
+			// ,,,,
+			// ,,,,
+			// ,,,,
+			// ,,,,
+			// ,,,,,,
+			// ,,,,
+			// ,,,,,
+			// ,,,,,
+			// ,,,,
+			/*
+				recoit:	1) text/number
+							getAttribute,getAttributeNames,
+						2) text(contenu d'élement)
+						3) boolean (is/has)
+							hasAttribute,hasPointerCapture,hasAttributeNS,hasAttributes,matches,
+						4) specific functionalities
+							events: addEventListener,dispatchEvent,requestFullscreen,
+							scroll,scrollBy,scrollIntoView,scrollTo,
+						5) object node/list node
+							attachShadow,closest,getElementsByClassName,getElementsByTagName,
+							after,append,before,insertAdjacentElement,insertAdjacentHTML,insertAdjacentText,prepend,querySelector,querySelectorAll,replaceChildren,replaceWith,
+							remove,removeAttribute,removeAttributeNode,removeEventListener,
+							setAttribute,setAttributeNode,toggleAttribute
+						6) autre object				attachShadow,
+							animate,computedStyleMap,getAnimations,getAttributeNode,getBoundingClientRect,getClientRectsn
+						7) ????
+							getAttributeNodeNS,getAttributeNS,getElementsByTagNameNS,removeAttributeNS,setAttributeNodeNS,setAttributeNS,
+							releasePointerCapture,requestPointerLock,setPointerCapture:		https://developer.mozilla.org/fr/docs/Web/API/PointerEvent		https://developer.mozilla.org/fr/docs/Web/API/Element/setPointerCapture
+						8) obsolete/deprecated
+							createShadowRoot,setCapture,
+						9) doc not yet written
+							getBoxQuadsn
+			*/
+		],
+		"description": "DOM Element Methods List"
+		/*
+			{
+                "key": "ctrl+shift+alt+x shift+l",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+                "args": {
+                    "name": "DOM Element Methods List" 
+                }
+            },
+		*/
+	}, 
+	"DOM Element Events List": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:elementName}}.addEventListener('${1|cancel,error,scroll,select,show,wheel,__________,copy,cut,paste,__________,compositionend,compositionstart,compositionupdate,__________,blur,focus,focusin,focusout,__________,fullscreenchange,fullscreenerror,__________,keydown,keypress,keyup,__________,auxclick,click,contextmenu,dblclick,DOMActivate,mousedown,mouseenter,mouseleave,mousemove,mouseout,mouseover,mouseup,webkitmouseforcechanged,webkitmouseforcedown,webkitmouseforcewillbegin,webkitmouseforceup|}')"
+		],
+		"description": "DOM Element Events List"
+		/*
+            {
+                "key": "ctrl+shift+alt+x alt+l",
+                "command": "editor.action.insertSnippet",
+                "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+                "args": {
+                    "name": "DOM Element Events List" 
+                }
+            },
+		*/
+	},
+	
+	
+	
+	
+	
+	
+	
+	"=DOM Node Properties": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["=domNproperties"],
+		"body": [
+			"${1|// \"baseURI\":\t\"Retourne une DOMString (chaine de caractères) représentant l'URL de base du document contenant le Node. En HTML\\, il correspond au protocole\\, au nom de domaine et à la structure du répertoire\\, jusqu'au dernier /.\",",
+			"// \"baseURIObject\":\t\"(Non disponible pour le contenu Web). L'objet en lecture seule nsIURI représentant l'URI de base pour l'élément.\",",
+			"// \"childNodes\":\t\"Renvoie un NodeList contenant tous les enfants de ce nœud. NodeList signifie que si les enfants du Node changent\\, l'objet NodeList est automatiquement mis à jour.\",",
+			"// \"firstChild\":\t\"Renvoie un Node représentant le premier nœud enfant direct de ce nœud ou null s'il n'a pas d'enfant.\",",
+			"// \"lastChild\":\t\"Retourne un Node représentant le dernier nœud enfant direct de ce nœud ou null s'il n'a pas d'enfant.\",",
+			"// \"nextSibling\":\t\"Retourne un Node représentant le nœud suivant dans l'arbre ou null s'il n'y en a pas.\",",
+			"// \"nodeName\":\t\"Retourne une DOMString (chaîne de caractères) contenant le nom du nœud. La structure du nom diffère du type de nœud. Par exemple\\, un HTMLElement contiendra le nom de la balise correspondante\\, comme 'audio' pour un HTMLAudioElement (en-US)\\, un nœud Text doit avoir la chaîne '#text' ou un Document doit avoir la chaîne '#document'..\",",
+			"// \"nodeType\":\t\"Retourne un unsigned short (non signé court) représentant le type du nœud. Les valeurs possibles sont :\",",
+			"// \"nodeValue\":\t\"Retourne / définit la valeur du nœud courant.\",",
+			"// \"ownerDocument\":\t\"Retourne le Document auquel ce noeud appartient. Si aucun document ne lui est associé\\, il retourne null .\",",
+			"// \"parentNode\":\t\"Retourne un Node qui est le parent de ce nœud. S'il n'existe pas\\, parce qu'il est en haut de l'arbre ou parce qu'il ne participe pas à un arbre\\, cette propriété retourne null .\",",
+			"// \"parentElement\":\t\"Retourne un Element qui est le parent de ce nœud. Si le nœud n'a aucun parent ou si ce parent n'est pas un Element \\, cette propriété retourne null.\",",
+			"// \"previousSibling\":\t\"Retourne un Node représentant le nœud précédent dans l'arbre ou null s'il n'y en a pas.\",",
+			"// \"textContent\":\t\"Retourne / définit le contenu textuel d'un élément et de tous ses descendants.\"|}"
+		],
+		"description": "Long Description"
+	},
+	"=DOM Node Methods": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": "=domNmethodes",
+		"body": [
+			"${1|// \"appendChild(childNode)\":\t\"Ajoute l'argument childNode spécifié comme dernier enfant au noeud actuel. Si l'argument fait référence à un noeud existant sur l'arborescence DOM\\, le nœud sera détaché de sa position actuelle et attaché à la nouvelle position.\",",
+			"// \"cloneNode()\":\t\"Clône un Node et\\, éventuellement\\, tout son contenu. Par défaut\\, il duplique le contenu de ce nœud.\",",
+			"// \"compareDocumentPosition()\":\t\"Compare la position du nœud courant par rapport à un autre nœud dans tout autre docume,nt.\",",
+			"// \"contains()\":\t\"Retourne une valeur Boolean (booléen) indiquant si un noeud est un descendant d'un noeud donné ou non,.\",",
+			"// \"getBoxQuads()\":\t\"Retourne une liste des boites CSS des nœuds relatifs à un autre nœud.\",",
+			"// \"getRootNode()\":\t\"Retourne la racine de l'objet contextuel qui comprend éventuellement la \"Shadow root\" si elle es,t disponible.\",",
+			"// \"hasChildNodes()\":\t\"Retourne un Boolean (booléen) indiquant si l'élément a des noeuds enfants ou non.\",",
+			"// \"insertBefore()\":\t\"Insère un Node avant le nœud de référence en tant qu'enfant du noeud actuel.\",",
+			"// \"isDefaultNamespace()\":\t\"Accepte une URI d'espace de nom comme argument et retourne une valeur Boolean avec true (vr,ai) si l'espace de nom est celui par défaut du noeud donné ou false (faux) sinon.\",",
+			"// \"isEqualNode()\":\t\"Retourne une valeur Boolean (booléenne) qui indique si oui ou non deux noeuds sont du même type et\\, si tous leurs points de données définis correspondent.\",",
+			"// \"isSameNode()\":\t\"Retourne une valeur Boolean (booléenne) indiquant si les deux noeuds sont ou non identiques (c'est-,à-dire qu'ils font référence au même objet).\",",
+			"// \"lookupPrefix()\":\t\"Retourne une DOMString (chaîne de caractères) contenant le préfixe d'une URI d'un espace de nom d,onné\\, s'il est présent\\, et null sinon.\",",
+			"// \"lookupNamespaceURI()\":\t\"Accepte un préfixe et retourne l'URI de l'espace de noms qui lui est associé sur le nœud do,nné s'il le trouve\\, null sinon. Fournir null comme préfixe retournera l'espace de noms par défaut.\",",
+			"// \"normalize()\":\t\"Nettoye tous les nœuds de texte en-dessous de cet élément (fusionne adjacent\\, supprime vide).\",",
+			"// \"removeChild()\":\t\"Supprime un nœud enfant\\, depuis l'élément courant\\, qui doit être un enfant de ce nœud.\",",
+			"// \"replaceChild()\":\t\"Remplace un Node enfant du nœud courant par celui donné dans le paramètre.\"|}"
+		],
+		"description": "=DOM Node Methods"
+	},
+	"DOM Node Properties List": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["dnplist"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:nodeElement}}.${2|baseURI,baseURIObject,childNodes,firstChild,lastChild,nextSibling,nodeName,nodeType,nodeValue,ownerDocument,parentNode,parentElement,previousSibling,textContent|}"
+			// ,,,,,,,
+			// ,,,,,,
+			// 
+			/*
+				recoit:	1) text/number
+							baseURI,nodeName,nodeType,
+							nodeValue: utile pour les noeux commentaires et texte
+						2) text(contenu d'élement)
+							textContent
+						3) boolean (is/has)
+						4) specific functionalities
+						5) object node/list node
+							childNodes,firstChild,lastChild,nextSibling,ownerDocument,parentNode,parentElement,previousSibling,
+						6) autre object
+						7) ????
+
+							baseURIObject: "(Non disponible pour le contenu Web)"
+						8) obsolete/deprecated
+						9) doc not yet written
+			*/
+		],
+		"description": "DOME Node Properties List"
+		/*
+        {
+            "key": "ctrl+alt+x l",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "DOM Node Properties List:",  
+            }
+        },
+		*/
+	},
+	"DOM Node Methods List": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["dnmlist"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:nodeElement}}.${2|appendChild,cloneNode,compareDocumentPosition,contains,getBoxQuads,getRootNode,hasChildNodes,insertBefore,isDefaultNamespace,isEqualNode,isSameNode,lookupPrefix,lookupNamespaceURI,normalize,removeChild,replaceChild|}"
+			// ,,,,,,
+			// ,,,,,
+			// ,,,,
+			/*
+				recoit:	1) text/number
+						2) text(contenu d'élement)
+						3) boolean (is/has)
+							contains,hasChildNodes,isDefaultNamespace,isEqualNode,isSameNode,
+						4) specific functionalities
+							normalize,
+						5) object node/list node
+							cloneNode,getRootNode,
+							appendChild,insertBefore,removeChild,replaceChild,
+						6) autre object
+						7) ????
+							compareDocumentPosition: https://developer.mozilla.org/fr/docs/Web/API/Node/compareDocumentPosition
+							lookupPrefix: https://developer.mozilla.org/fr/docs/Web/API/Node/lookupPrefix
+							lookupNamespaceURI: https://developer.mozilla.org/fr/docs/Web/API/Node/lookupNamespaceURI
+						8) obsolete/deprecated
+						9) doc not yet written
+							getBoxQuads,
+			*/
+		],
+		"description": "DOM Node Methodes List"
+		/*
+        {
+            "key": "ctrl+alt+x shift+l",
+            "command": "editor.action.insertSnippet",
+            "when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+            "args": {
+                "name": "DOM Node Methods List" 
+            }
+        },
+		*/
+	},
+	
+	
+	
+	
+	
+	
+	"=DOM HTMLElement Properties": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["prefix"],
+		"body": [
+			"${1|// \"accessKey\":\t\"Une chaîne de caractères qui représente la touche d'accès affecté à l'élément.\",",
+			"// \"accessKeyLabel\":\t\"Renvoie une chaîne de caractères contenant la touche d'accès affectée à l'élément.\",",
+			"// \"attributeStyleMap\":\t\"Un objet StylePropertyMap (en-US) qui représente les déclarations contenues dans l'attribut style de l'élément.\",",
+			"// \"contentEditable\":\t\"Une chaîne de caractères qui\\, si elle vaut true indique que l'élément est éditable et qui\\, si elle vaut false indique que l'élément n'est pas éditable.\",",
+			"// \"isContentEditable\":\t\"Renvoie une valeur booléenne indiquant si le contenu de l'élément peut être édité.\",",
+			"// \"contextMenu\":\t\"Un objet HTMLMenuElement (en-US) qui représente le menu contextuel associé à l'élément. Il peut valoir null.\",",
+			"// \"dataset\":\t\"Renvoie un objet DOMStringMap (en-US) avec lequel il est possible de lire et d'écrire les attributs de données spécifiques (data-*).\",",
+			"// \"dir\":\t\"Une chaîne de caractères reflétant l'attribut universel dir et qui représente le sens d'écriture de l'élément. Les valeurs possibles sont \"ltr\" (gauche à droite)\\, \"rtl\" (droite à gauche)\\, et \"auto\".\",",
+			"// \"draggable\":\t\"Une valeur booléenne indiquant si l'élément peut être déplacé.\",",
+			"// \"enterkeyhint\":\t\"Une chaîne de caractères qui définit le libellé (ou l'icône) à présenter comme libellé d'action pour la touche Entrée des claviers virtuels.\",",
+			"// \"hidden\":\t\"Une valeur booléenne indiquant si l'élément est caché.\",",
+			"// \"inert\":\t\"Une valeur booléenne indiquant si l'agent utilisateur doit agir comme si le nœud donné était absent en ce qui concerne les évènements d'interaction\\, les recherches de texte dans la page\\, et la sélection de texte.\",",
+			"// \"innerText\":\t\"Représente le contenu du texte rendu d'un nœud et de ses descendants. Comme accesseur\\, il approxime le texte qu'une personne aurait en surlignant le contenu de l'élément avec le curseur et en copiant ceci dans un presse-papier. Comme mutateur\\, il remplace le contenu à l'intérieur de l'élément sélectionné\\, convertissant tout saut de ligne en élément.\",",
+			"// \"inputMode\":\t\"A string value reflecting the value of the element's inputmode attribute.\",",
+			"// \"lang\":\t\"Une chaîne de caractères représentant la langue du contenu\\, du texte et des attributs d'un élément.\",",
+			"// \"noModule\":\t\"Une valeur booléenne indiquant si un script d'import peut être exécuté par les agents utilisateur qui prennent en charge les modules de script.\",",
+			"// \"nonce\":\t\"Renvoie le nonce cryptographique utilisé par la politique de sécurité du contenu afin de déterminer si le traitement d'une récupération de ressource est autorisé.\",",
+			"// \"offsetHeight\":\t\"Renvoie une valeur numérique double contenant la hauteur de l'élément\\, relativement à la disposition.\",",
+			"// \"offsetLeft\":\t\"Renvoie une valeur numérique double indiquant la distance entre la bordure gauche de cet élément et la bordure gauche de son élément offsetParent.\",",
+			"// \"offsetParent\":\t\"Un objet Element représentant l'élément de référence par rapport auquel tous les calculs de décalage sont effectués.\",",
+			"// \"offsetTop\":\t\"Renvoie une valeur numérique double\\, indiquant la distance entre la bordure haute de cet élément et la bordure haute de son élément offsetParent.\",",
+			"// \"offsetWidth\":\t\"Renvoie une valeur numérique double contenant la largeur de l'élément\\, relativement à la disposition.\",",
+			"// \"outerText\":\t\"Représente le texte rendu du contenu d'un nœud et de ses descendants. Comme accesseur\\, il se comporte comme HTMLElement.innerText (il représente le contenu texte d'un élément et de ses descendants). Comme mutateur\\, il remplace le nœud sélectionné et son contenu avec la valeur fournie\\, convertissant au passage tout saut de ligne en éléments.\",",
+			"// \"properties\":\t\"nothing.\",",
+			"// \"spellcheck\":\t\"Une valeur booléenne reflétant l'attribut HTML spellcheck. Cette propriété est présente sur tous les éléments HTML même si elle n'a pas d'effet pour tous.\",",
+			"// \"style\":\t\"Un objet CSSStyleDeclaration qui représente les déclarations contenues dans l'attribut style de l'élément.\",",
+			"// \"tabIndex\":\t\"Une valeur numérique long représentant la position de l'élément dans l'ordre de tabulation.\",",
+			"// \"title\":\t\"Une chaîne de caractères contenant le texte apparaissant dans la bulle d'information affichée lorsque la souris survole l'élément.\",",
+			"// \"translate\":\t\"Une valeur booléenne représentant la traduction.|}"
+		],
+		"description": "=DOM HTMLElement Properties"
+	},
+	"=DOM HTMLElement Methods": {
+		"scope": ["js","jsx","tsx"],
+		"prefix": ["prefix"],
+		"body": [
+			"${1|// \"attachInternals()\":\t\"Renvoie un objet ElementInternals (en-US) et active la participation d'un élément personnalisé aux formulaires HTML.\",",
+			"// \"blur()\":\t\"Retire le focus clavier de l'élément qui a le focus.\",",
+			"// \"click()\":\t\"Envoie un évènement de clic de souris à l'élément.\",",
+			"// \"focus()\":\t\"Passe le focus clavier à l'élément courant.\"|}"
+		],
+		"description": "=DOM HTMLElement Methods"
+	},
+	"DOM HTMLElement Properties List": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:nodeElement}}.${2|accessKey,accessKeyLabel,attributeStyleMap,contentEditable,isContentEditable,contextMenu,dataset,dir,draggable,enterkeyhint,hidden,inert,innerText,lang,noModule,nonce,offsetHeight,offsetLeft,offsetParent,offsetTop,offsetWidth,outerText,spellcheck,style,tabIndex,title,translate|}"
+			// ,,,,,
+			// ,,,,,,,,,
+			// ,,,,,,,
+			// ,,,,,
+			/*
+				recoit:	1) text/number
+							dir,lang,offsetHeight,offsetLeft,offsetParent,offsetTop,offsetWidth,tabIndex,title
+						2) text(contenu d'élement)
+							innerText,outerText,
+						3) boolean (is/has)
+							isContentEditable,
+						4) specific functionalities
+							accessKey,contentEditable,hidden,inert,
+							enterkeyhint: https://css-tricks.com/enterkeyhint/	https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/enterKeyHint
+							inputMode: https://css-tricks.com/everything-you-ever-wanted-to-know-about-inputmode/	https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inputMode
+							nonce: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/nonce	https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce	https://stackoverflow.com/questions/42922784/what-s-the-purpose-of-the-html-nonce-attribute-for-script-and-style-elements
+						5) object node/list node
+						6) autre object
+							dataset,style,
+						7) ????
+							accessKeyLabel,
+						8) obsolete/deprecated
+							contextMenu,
+						9) doc not yet written
+							attributeStyleMap,draggable,noModule,properties,spellcheck,translate
+			*/
+		],
+		"description": "DOM HTMLElement Properties List"
+		/*
+		{
+            "key": "ctrl+alt+x alt+k",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "DOM HTMLElement Properties List:",  
+			}
+		},
+		*/
+	},
+	"DOM HTMLElement Methods List": {
+		"scope": ["js,jsx,tsx"],
+		"prefix": ["PREFIX"],
+		"body": [
+			"${TM_SELECTED_TEXT:${1:nodeElement}}.${2|attachInternals,blur,click,focus|}"
+			// ,,,
+			/*
+				recoit:	1) text/number
+						2) text(contenu d'élement)
+						3) boolean (is/has)
+						4) specific functionalities
+							attachInternals: https://html.spec.whatwg.org/	https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals
+							blur,click,focus
+						5) object node/list node
+						6) autre object
+						7) ????
+						8) obsolete/deprecated
+						9) doc not yet written
+			*/
+		],
+		"description": "DOM HTMLElement Methods List"
+		/*
+		{
+            "key": "ctrl+alt+x ctrl+k",
+			"command": "editor.action.insertSnippet",
+			"when": "editorTextFocus && editorLangId  == 'javascriptreact' || editorLangId == 'javascript'", 
+			"args": {
+				"name": "DOM HTMLElement Methods List" 
+			}
+		},
+		*/
+	},
+
+
+
+
+
+
+
+
+
+
+	
+}

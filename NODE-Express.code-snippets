@@ -1,0 +1,360 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	// EXPRESS
+		"node express request body": {
+			"prefix": ["ner_body","node_express_request_body"],
+			"body": [
+				"const ${1:sauce${2:Object}} = JSON.parse(req.body.${1:sauce})",
+				""
+			],
+			"description": "node express request body"
+		},
+		"node express response": {
+			"prefix": ["ner_response","node_express_response"],
+			"body": [
+				"res.status(${1:201}).json(${2:{key: 'VALUE !'\\}})",
+				""
+			],
+			"description": "node express response"
+		},
+//CONTROLLERS
+		"node express controller add like functionnality": {
+			"prefix": ["necmLikes"],
+			"body": [
+			"exports.likeDraft = (req, res, next) => {",
+			"",
+			"  DraftModel.findOne({",
+			"    _id: req.params.id",
+			"  }).then(",
+			"    (draft) => {",
+			"      let {usersLiked,usersDisliked,likes,dislikes} = draft",
+			"      , disliked = usersDisliked.includes(req.auth.userId)",
+			"      , liked = usersLiked.includes(req.auth.userId)",
+			"      , {like} = req.body",
+			"      if(like == 0) {",
+			"        draft.likes = liked ? likes -1 : likes",
+			"        draft.dislikes = disliked ? dislikes -1 : dislikes",
+			"        draft.usersLiked = draft.usersLiked.filter(v => v!=req.auth.userId)",
+			"        draft.usersDisliked = draft.usersDisliked.filter(v => v!=req.auth.userId)",
+			"      }",
+			"      if(like == 1){",
+			"        draft.usersLiked.push(req.auth.userId)",
+			"        draft.likes++",
+			"      }",
+			"      if(like == -1){",
+			"        draft.usersDisliked.push(req.auth.userId)",
+			"        draft.dislikes++",
+			"      }",
+			"      DraftModel.updateOne({ _id: req.params.id}, { ...({likes,dislikes,usersLiked,usersDisliked} = draft._doc)})",
+			"      .then(() => res.status(201).json({message : 'Vote pris en compte!'}))",
+			"      .catch(error => res.status(401).json({ error }))",
+			"",
+			"    }",
+			"  ).catch(",
+			"    (error) => {",
+			"      res.status(403).json({",
+			"        error: error",
+			"      })",
+			"    }",
+			"  )",
+			"}"
+			],
+			"description": "add like functionnality"
+		}
+		, "node express controller MYSQL file": {
+			"prefix": ["necmysql_file","necmyfile","node_express_controller_mysql_file"],
+			"body": ["",
+				"const ${1:MODELNAME} = ${2:require('../models/${1:MODELNAME}')}",
+				"",
+			],
+			"description": "node express controller MYSQL file"
+		},
+		"node express controller MONGOOSE file": {
+			"prefix": ["necmongoose_file","necmfile","node_express_controller_mongoose_file"],
+			"body": ["",
+				"const ${1:MODELNAME} = require('.${2:./models}/${1:MODELNAME}')",
+				"",
+				"exports.${3|getAll,getOne,create,modify,delete|}${1:MODELNAME} = (req, res, next) => {",
+				"\t/*SNIPPET request.body*/",
+				"\t${4:ner_body}",
+				"\t/*SNIPPET MONGOOSE CRUD*/",
+				"\t//necmfindAll,necmfindOne,necmfindOne,necmfindOneUpdate,necmfindOneDelete,necmcreate",
+				"\t${5|necmfind,necmfindOne,necmfindOne,necmfindOneUpdate,necmfindOneDelete,necmcreate|}",
+				"\t/*SNIPPET express res*/",
+				"\t${6|ne_res|}",
+				"}",
+				""
+			],
+			"description": "node express controller MONGOOSE file"
+		},
+		"node express controller MONGOOSE file LOGIN": {
+			"prefix": ["necmongoose_file_LOGIN","necmfile","node_express_controller_mongoose_file_LOGIN"],
+			"body": [
+				"const bcrypt = require('bcrypt')",
+				"const jwt = require('jsonwebtoken')",
+				"const ${1:User} = require('./${2:../models}/${1:User}')",
+				"",
+				"",
+				"exports.${3signup} = (req, res, next) => {",
+				"\tbcrypt.hash(req.body.${6:password}, ${7:10})",
+				"\t\tthen(hash => {",
+				"\t\t\tconst user = new ${1:User}({",
+				"\t\t\t\t${5:username}: req.body.${5:username},",
+				"\t\t\t\t${6:password}: hash",
+				"\t\t\t})",
+				"\t\t\tuser.save()",
+				"\t\t\t\t.then((reponse) =>{",
+				"\t\t\t\t\tconsole.log('Utilisateur créé !')",
+				"\t\t\t\t\treturn res.status(201).json({ ...reponse, message: 'Utilisateur créé !' })",
+				"\t\t\t\t})",
+				"\t\t\t\t.catch(error => {",
+				"\t\t\t\t\tres.status(400).json({ error })",
+				"\t\t\t\t})",
+				"\t\t})",
+				"\t\t.catch(error => res.status(500).json({ error }))",
+				"}",
+				"",
+				"",
+				"exports.${4:login} = (req, res, next) => {",
+				"\t${1:User}.findOne({ ${5:username}: req.body.${5:username} || '' })",
+				"\t\t.then(user => {",
+				"\t\t\tconsole.log(user)",
+				"\t\t\tif (!user) {",
+				"\t\t\t\tconsole.log('Utilisateur non identifié')",
+				"\t\t\t\treturn res.status(401).json({ message: 'Paire login/mot de passe incorrecte'})",
+				"\t\t\t}",
+				"\t\t\tbcrypt.compare(req.body.${6:password}, user.${6:password})",
+				"\t\t\t\t.then(valid => {",
+				"\t\t\t\t\tconsole.log('Utilisateur identifié')",
+				"\t\t\t\t\tif (!valid) {",
+				"\t\t\t\t\t\treturn res.status(401).json({ message: 'Paire login/mot de passe incorrecte' })",
+				"\t\t\t\t\t}",
+				"\t\t\t\t\tres.status(200).json({",
+				"\t\t\t\t\t\tuserId: user._id,",
+				"\t\t\t\t\t\ttoken: jwt.sign(",
+				"\t\t\t\t\t\t\t{ userId: user._id },",
+				"\t\t\t\t\t\t\t'${8:RANDOM_TOKEN_SECRET}',",
+				"\t\t\t\t\t\t\t{ expiresIn: '24h' }",
+				"\t\t\t\t\t\t)",
+				"\t\t\t\t\t})",
+				"\t\t\t\t})",
+				"\t\t\t\t.catch(error => res.status(500).json({ error }))",
+				"\t\t})",
+				"\t\t.catch(error => res.status(500).json({ error }))",
+				"}",
+			],
+			"description": "node express controller MONGOOSE file LOGIN"
+		},
+		"node express controller MONGOOSE CRUD create": {
+			"prefix": ["necmCRUDcreate","node_express_controller_mongoose_CRUD_create"],
+			"body": ["",
+				"const ${1:modelObjectName} = new ${1:${2:MAJ}modelObjectName}({",
+				"\t...{${1:modelObjectName}}",
+				"\t$2",
+				"})",
+				"${1:modelObjectName}.save()",
+				"\t.then(() => { res.status(201).json({message: 'Objet enregistré !'})})",
+				"\t.catch(error => { res.status(400).json( { error })})",
+				""
+			],
+			"description": "node express controller MONGOOSE CRUD create"
+		},
+		"node express controller MONGOOSE CRUD find All": {
+			"prefix": ["necmCRUDfindAll","node_express_controller_mongoose_CRUD_findAll"],
+			"body": ["",
+				"${1:Model}.find().then(",
+				"\t(response) => {",
+				"\t\tres.status(200).json(response)",
+				"\t}",
+				").catch(",
+				"\t(error) => {",
+				"\t\tres.status(400).json({",
+				"\t\t\terror: error",
+				"\t\t})",
+				"\t}",
+				")",
+				""
+			],
+			"description": "node express controller MONGOOSE CRUD find All"
+		},
+		"node express controller MONGOOSE CRUD findOne": {
+			"prefix": ["necmCRUDfindOne","node_express_controller_mongoose_CRUD_findOne"],
+			"body": ["",
+				"${1:Model}.findOne({${2:id}: ${3:req.params.id}})",
+				"\t.then((response) => {",
+				"\t\t//$4WRITE YOUR CODE HERE",
+				"\t\tres.status(200).json(response)",
+				"\t})",
+				"\t.catch( error => {",
+				"\t\tres.status(500).json({ error })",
+				"\t})",
+				""
+			],
+			"description": "node express controller MONGOOSE CRUD findOne"
+		},
+		"node express controller MONGOOSE CRUD findOneUpdate": {
+			"prefix": ["necmCRUDfindOneUpdate","node_express_controller_mongoose_CRUD_necmfindOneUpdate"],
+			"body": ["",
+				"${1:Model}.findOne({${2:id}: ${3:req.params.id}})",
+				"\t.then((response) => {",
+				"\t\tSauce.updateOne({ _id: req.params.id}, { ...sauceObject, _id: req.params.id})",
+				"\t\t\t.then(() => res.status(200).json({message : 'Objet modifié!'}))",
+				"\t\t\t.catch(error => res.status(401).json({ error }));",
+				"\t})",
+				"\t.catch( error => {",
+				"\t\tres.status(500).json({ error })",
+				"\t})",
+				""
+			],
+			"description": "node express controller MONGOOSE CRUD findOneUpdate"
+		},
+		"node express controller MONGOOSE CRUD findOneDelete": {
+			"prefix": ["necmCRUDfindOneDelete","node_express_controller_mongoose_CRUD_necmfindOneDelete"],
+			"body": ["",
+				"${1:Model}.findOne({${2:id}: ${3:req.params.id}})",
+				"\t.then((response) => {",
+				"//\t\tif (sauce.userId != req.auth.userId) {",
+				"//\t\t\tres.status(401).json({message: 'Not authorized'});",
+				"//\t\t} else {",
+				"\t\t\tconst filename = sauce.imageUrl.split('/images/')[1];",
+				"\t\t\tSauce.deleteOne({_id: req.params.id})",
+				"\t\t\t\t.then(() => { res.status(200).json({message: 'Objet supprimé !'})})",
+				"\t\t\t\t.catch(error => res.status(401).json({ error }));",
+				"//\t\t}",
+				"\t})",
+				"\t.catch( error => {",
+				"\t\tres.status(500).json({ error })",
+				"\t})",
+				""
+			],
+			"description": "node express controller MONGOOSE CRUD findOneDelete"
+		},
+		"node express controller MONGOOSE CRUD findOneDelete_FS": {
+			"prefix": ["necmCRUDfindOneDelete_FS","node_express_controller_mongoose_CRUD_necmfindOneDelete_FS"],
+			"body": ["",
+				"${1:Model}.findOne({${2:id}: ${3:req.params.id}})",
+				"\t.then((response) => {",
+				"\t\tconst filename = sauce.imageUrl.split('/images/')[1];",
+				"\t\tfs.unlink(`images/${filename}`, () => {",
+				"\t\t\tSauce.deleteOne({_id: req.params.id})",
+				"\t\t\t\t.then(() => { res.status(200).json({message: 'Objet supprimé !'})})",
+				"\t\t\t\t.catch(error => res.status(401).json({ error }));",
+				"\t\t});",
+				"\t})",
+				"\t.catch( error => {",
+				"\t\tres.status(500).json({ error })",
+				"\t})",
+				""
+			],
+			"description": "node express controller MONGOOSE CRUD findOneDelete_FS"
+		},
+//MODELS
+		"node express model mysql...": {
+			"prefix": ["nemmysql...","node_express_mysql"],
+			"body": ["",
+				""
+			],
+			"description": "node express model mysql..."
+		},
+		"node express model mongoose file": {
+			"prefix": ["nemmongoose_file","node_express_mongoose_mongoose_file"],
+			"body": [
+				"const mongoose = require('mongoose')",
+				"const ${1:MODEL}Schema = mongoose.Schema({",
+				"\t${3:PROPERTY_NAME}: { type: ${4|String,Number,Date,Buffer,Boolean,Mixed,ObjectId,Array,Decimal128,Map,Schema|}, required: ${5:true} },",
+				"\t// nemmongoose_schema_entry$0",
+				"})",
+				"module.exports = mongoose.model('${1:EXPORT_NAME}$2', ${1:MODEL}Schema)",
+				""
+			],
+			"description": "node express model mongoose file"
+		},
+		"node express model mongoose schema entry": {
+			"prefix": ["nemmongoose_schema_entry","node_express_mongoose_mongoose_schema_entry"],
+			"body": [
+				"${1:PROPERTY_NAME}: { type: ${2|String,Number,Date,Buffer,Boolean,Mixed,ObjectId,Array,Decimal128,Map,Schema|}, required: ${3:true} },",
+				""
+			],
+			"description": "node express model mongoose schema entry"
+		},
+		"node express model mongoose schema mongoose": {
+			"prefix": ["nemmongoose_schema","node_express_mongoose_mongoose_schema"],
+			"body": ["const thingSchema = mongoose.Schema({",
+				"//nemmongoose_schema_entry",
+				"})"
+			],
+			"description": "node express model mongoose schema"
+		},
+		"node express model mongoose schema add share functionality": {
+			"prefix": ["nemmShare"],
+			"body": [
+				""
+			],
+			"description": "add share functionality"
+		},
+		"node express model mongoose schema add comments functionality": {
+			"prefix": ["nemmComment"],
+			"body": [
+				""
+			],
+			"description": "add comments functionality"
+		},
+		"node express model mongoose schema add buy functionality": {
+			"prefix": ["nemmBuy"],
+			"body": [
+				""
+			],
+			"description": "add buy functionality"
+		},
+		"node express model mongoose schema add likes functionality": {
+			"prefix": ["nemmLike"],
+			"body": [
+				"  likes: { default:0, type: Number, required: true },",
+				"  dislikes: { default:0, type: Number, required: true },",
+				"  usersLiked: { type: Array, required: true },",
+				"  usersDisliked: { type: Array, required: true },"
+			],
+			"description": "add likes functionality"
+		},
+//ROUTES
+		"node express router file": {
+			"prefix": ["nerfile","node_express_router_file"],
+			"body": [
+				"const express = require('express')",
+				"const router = express.Router()",
+				"const ${1:controllerName}${2:Ctrl} = require('../controllers/${1:controllerName}')",
+				"",
+				"router.${4|get,post,put,delete|}('/${5}',${6: a_middleware_here,} ${1:controllerName}${2:Ctrl}.${3:controllerFunctionName})",
+				"",
+				"module.exports = router"
+			],
+			"description": "node express router file"
+		},
+		"node express router entry": {
+			"prefix": ["nerentry","node_express_router_entry"],
+			"body": ["router.${1|get,post,put,delete|}('/${2}',${3: a_middleware_here,} ${4:controllerName}${5:Ctrl}.${6:controllerFunctionName})",
+				""
+			],
+			"description": "node express router entry"
+		},
+	/*pour les controllers
+		il faudrait pouvoir générer les controllers dont on a toujours besoin (login/logout, signup, etc..)
+		aussi une liste de pleins de packages qu'on utilise souvent dans les controller..
+	pour le fichier express (app.js)
+	*/	
+}

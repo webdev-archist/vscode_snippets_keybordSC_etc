@@ -1,0 +1,103 @@
+{
+	// Place your snippets for javascriptreact here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+
+
+
+	
+	//https://code.visualstudio.com/docs/editor/userdefinedsnippets#_variables
+	//GENERATE CODE
+	// https://styled-components.com/
+	/*
+	"react propTypes": {
+		"prefix": ["rgpt","react_proptypes"],
+		"body": [
+			"${1:Component}.propTypes = {",
+			"    ${2:prop}: PropTypes.${3|string,number,array,object|}${4:.isRequired},",
+			"}",
+			"",
+		],
+		"description": "generate code for react proptypes to an component"
+	},
+	"react defaultProps": {
+		"prefix": ["rgdp","react_defaultprops"],
+		"body": [
+			"${1:Component}.defaultProps = {",
+			"    ${2:prop}: ${3:\"value of the property\"}",
+			"}",
+			"",
+		],
+		"description": "generate code for react defaultProps to an component"
+	},
+	"react generateStyledComponent": {
+		"prefix": ["rgsc","react_styledcomponents"],
+		"body": [
+			"const ${1:Component}Styled = styled.${2:span}`",
+			"    ${3:property}: ${4:value};",
+			"`",
+			"",
+		],
+		"description": "generate code for react styled component(element)"
+	},
+	"react generateStyledComponent(custom)": {
+		"prefix": ["rgsc_","react_styledcomponentsCustom"],
+		"body": [
+			"const ${1:Component}Styled = styled(${2:span})`",
+			"    ${3:property}: ${4:value};",
+			"`",
+			"",
+		],
+		"description": "generate code for react styled component(element)"
+	},
+	//IMPORTS PACKAGES
+	"react importsAll": {
+		"prefix": ["ria","react_importall"],
+		"body": [
+			"import React from 'react'",
+			"import ReactDOM from 'react-dom/client'",
+			"import {BrowserRouter,Routes,Route} from 'react-router-dom'",
+			"import PropTypes from 'prop-types'",
+			"import styled from 'styled-components'",
+			"",
+		],
+		"description": "import react most used packages"
+	},
+	"react importsBase": {
+		"prefix": ["rid","react_importbase","react_importdefaults"],
+		"body": [
+			"import React from 'react'",
+			"import ReactDOM from 'react-dom/client'",
+			"",
+		],
+		"description": "import react base/default packages"
+	},
+	"react importStyledComponents": {
+		"prefix": ["ris","react_stylecomponents"],
+		"body": [
+			"import styled from 'styled-components'",
+			"",
+		],
+		"description": "import react styled-components packages"
+	},
+	"react importPropTypes": {
+		"prefix": ["rip","react_proptypes"],
+		"body": [
+			"import PropTypes from 'prop-types'",
+			"",
+		],
+		"description": "import react propTypes packages"
+	},
+	*/
+}
